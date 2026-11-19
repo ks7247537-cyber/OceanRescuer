@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: 1b2f64ecf681fbe44a1a577ae4915620
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7680719180819567196
+    second: restart button_0
+  - first:
+      213: 3746923646501061120
+    second: restart button_1
+  - first:
+      213: -6566265072373642298
+    second: restart button_2
+  - first:
+      213: 1160151113556165361
+    second: restart button_3
+  - first:
+      213: -7611811581684492719
+    second: restart button_4
+  - first:
+      213: -1643581159731034851
+    second: restart button_5
+  - first:
+      213: 3845634394378195050
+    second: restart button_6
+  - first:
+      213: 1529630504297293627
+    second: restart button_7
+  - first:
+      213: 5888801097077773011
+    second: restart button_8
+  - first:
+      213: -770177552994175030
+    second: restart button_9
+  - first:
+      213: -5577072908501698900
+    second: restart button_10
+  - first:
+      213: -4019944644672836920
+    second: restart button_11
+  - first:
+      213: 8009254956506388556
+    second: restart button_12
+  - first:
+      213: -8371492760472895935
+    second: restart button_13
+  - first:
+      213: -224972823354921804
+    second: restart button_14
+  - first:
+      213: 265174744868188590
+    second: restart button_15
+  - first:
+      213: -266140170765123100
+    second: restart button_16
+  - first:
+      213: 1500673162822390195
+    second: restart button_17
+  - first:
+      213: -8876812220626700630
+    second: restart button_18
+  - first:
+      213: 5331803135664131499
+    second: restart button_19
+  - first:
+      213: 8966128009171736997
+    second: restart button_20
+  - first:
+      213: -2490539079044249927
+    second: restart button_21
+  - first:
+      213: -7058381993691589515
+    second: restart button_22
+  - first:
+      213: 1743246981836744088
+    second: restart button_23
+  - first:
+      213: 2781363810195564837
+    second: restart button_24
+  - first:
+      213: 7129368174349964369
+    second: restart button_25
+  - first:
+      213: 6141198102193162099
+    second: restart button_26
+  - first:
+      213: -320215918164596889
+    second: restart button_27
+  - first:
+      213: 7470710729022690260
+    second: restart button_28
+  - first:
+      213: 5980060051392305171
+    second: restart button_29
+  - first:
+      213: -1916322765985469474
+    second: restart button_30
+  - first:
+      213: -687655653227793227
+    second: restart button_31
+  - first:
+      213: 4764124089758318661
+    second: restart button_32
+  - first:
+      213: 8486993994312174781
+    second: restart button_33
+  - first:
+      213: -1712344518085326064
+    second: restart button_34
+  - first:
+      213: -5413078236165123553
+    second: restart button_35
+  - first:
+      213: -2046385094486090788
+    second: restart button_36
+  - first:
+      213: 3034380979080986151
+    second: restart button_37
+  - first:
+      213: -1766480788397422060
+    second: restart button_38
+  - first:
+      213: -825808741348538352
+    second: restart button_39
+  - first:
+      213: 1088573279690780854
+    second: restart button_40
+  - first:
+      213: 2889338004102416635
+    second: restart button_41
+  - first:
+      213: -204667341972389485
+    second: restart button_42
+  - first:
+      213: 2091993484178881980
+    second: restart button_43
+  - first:
+      213: -8218598925329634304
+    second: restart button_44
+  - first:
+      213: 7079897919705018529
+    second: restart button_45
+  - first:
+      213: 2435042559690202876
+    second: restart button_46
+  - first:
+      213: -5746254392933827781
+    second: restart button_47
+  - first:
+      213: 6887670005848695463
+    second: restart button_48
+  - first:
+      213: -5602197335219899905
+    second: restart button_49
+  - first:
+      213: 8670828718649700766
+    second: restart button_50
+  - first:
+      213: -2634521604857181780
+    second: restart button_51
+  - first:
+      213: 8284745110690110355
+    second: restart button_52
+  - first:
+      213: -9156367540364746321
+    second: restart button_53
+  - first:
+      213: -8390794494129919124
+    second: restart button_54
+  - first:
+      213: -3815539458438014504
+    second: restart button_55
+  - first:
+      213: 6970519583409704863
+    second: restart button_56
+  - first:
+      213: 4855978646250015488
+    second: restart button_57
+  - first:
+      213: 7280648884331325350
+    second: restart button_58
+  - first:
+      213: -1233599793032824661
+    second: restart button_59
+  - first:
+      213: 8365146003484868353
+    second: restart button_60
+  - first:
+      213: -4322081434899092655
+    second: restart button_61
+  - first:
+      213: -3500181174709766446
+    second: restart button_62
+  - first:
+      213: 6452950669922898653
+    second: restart button_63
+  - first:
+      213: -8153226568727275855
+    second: restart button_64
+  - first:
+      213: -6132369268040715282
+    second: restart button_65
+  - first:
+      213: -6166151090069000314
+    second: restart button_66
+  - first:
+      213: -7136519805671362661
+    second: restart button_67
+  - first:
+      213: -9161449662953951328
+    second: restart button_68
+  - first:
+      213: 7402416255029584800
+    second: restart button_69
+  - first:
+      213: -6728409965957078279
+    second: restart button_70
+  - first:
+      213: -2726405576010654512
+    second: restart button_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: restart button_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2161
+        height: 694
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad68b7699a986590800000000000000
+      internalID: -7680719180819567196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_1
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 689
+        width: 99
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0020536543fbff330800000000000000
+      internalID: 3746923646501061120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_2
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 675
+        width: 44
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb4d1cc4b0ffd4a0800000000000000
+      internalID: -6566265072373642298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_3
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 683
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f20a418a4fa91010800000000000000
+      internalID: 1160151113556165361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_4
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 683
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156dd7012b96d5690800000000000000
+      internalID: -7611811581684492719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_5
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 688
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1505bea4a3d039e0800000000000000
+      internalID: -1643581159731034851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_6
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 663
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a60dfec4b107e5530800000000000000
+      internalID: 3845634394378195050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_7
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 666
+        width: 55
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b37ed3ed6d65a3510800000000000000
+      internalID: 1529630504297293627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_8
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 657
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d25048c56939b150800000000000000
+      internalID: 5888801097077773011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_9
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 667
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac77dcb9897cf45f0800000000000000
+      internalID: -770177552994175030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_10
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 677
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca63d420db14a92b0800000000000000
+      internalID: -5577072908501698900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_11
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 662
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8caaa8de4a94638c0800000000000000
+      internalID: -4019944644672836920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_12
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 675
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c489916b2f6962f60800000000000000
+      internalID: 8009254956506388556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_13
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 643
+        width: 49
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14e324c30bb72db80800000000000000
+      internalID: -8371492760472895935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_14
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 661
+        width: 27
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc20dbb86cb0ecf0800000000000000
+      internalID: -224972823354921804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_15
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 655
+        width: 76
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1f54786071ea300800000000000000
+      internalID: 265174744868188590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_16
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 673
+        width: 79
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1451dbcea7e4cf0800000000000000
+      internalID: -266140170765123100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_17
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 691
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b19df96a4673d410800000000000000
+      internalID: 1500673162822390195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_18
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 690
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa6f2b3115a3fc480800000000000000
+      internalID: -8876812220626700630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_19
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 655
+        width: 102
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bad0399e3be5ef940800000000000000
+      internalID: 5331803135664131499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_20
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 689
+        width: 49
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a99c557be51e6c70800000000000000
+      internalID: 8966128009171736997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_21
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 665
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6c65e27e3df6dd0800000000000000
+      internalID: -2490539079044249927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_22
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 669
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 574dff049f69b0e90800000000000000
+      internalID: -7058381993691589515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_23
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 667
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895a624d4e1413810800000000000000
+      internalID: 1743246981836744088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_24
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 676
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52965d926a3699620800000000000000
+      internalID: 2781363810195564837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_25
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 669
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 154da11e49a90f260800000000000000
+      internalID: 7129368174349964369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_26
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 667
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 377c680f22be93550800000000000000
+      internalID: 6141198102193162099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_27
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 673
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 767af5aa15d5e8bf0800000000000000
+      internalID: -320215918164596889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_28
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 665
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d3d81793db4da760800000000000000
+      internalID: 7470710729022690260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_29
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 667
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3181ebadee07df250800000000000000
+      internalID: 5980060051392305171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_30
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 659
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb2172f89ad765e0800000000000000
+      internalID: -1916322765985469474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_31
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 651
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b47195a3d4f476f0800000000000000
+      internalID: -687655653227793227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_32
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 649
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5400de34e919d1240800000000000000
+      internalID: 4764124089758318661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_33
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 663
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbcc9d1621cd7c570800000000000000
+      internalID: 8486993994312174781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_34
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 661
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01bcf62bbb78c38e0800000000000000
+      internalID: -1712344518085326064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_35
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 656
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12daff1602e0e4b0800000000000000
+      internalID: -5413078236165123553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_36
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 657
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdb90894997c993e0800000000000000
+      internalID: -2046385094486090788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_37
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 644
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72ef2537c694c1a20800000000000000
+      internalID: 3034380979080986151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_38
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 644
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41a050905133c77e0800000000000000
+      internalID: -1766480788397422060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_39
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 648
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 018028733532a84f0800000000000000
+      internalID: -825808741348538352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_40
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 644
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b073ff51a36b1f00800000000000000
+      internalID: 1088573279690780854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_41
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 651
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf88f8a3b9df81820800000000000000
+      internalID: 2889338004102416635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_42
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 642
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 391cc980320e82df0800000000000000
+      internalID: -204667341972389485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_43
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 653
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbdf9e07df0480d10800000000000000
+      internalID: 2091993484178881980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_44
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 647
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00ce15842dba1fd80800000000000000
+      internalID: -8218598925329634304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_45
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 632
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a07b06a5a9d04260800000000000000
+      internalID: 7079897919705018529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_46
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 640
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfeda4f7e420bc120800000000000000
+      internalID: 2435042559690202876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_47
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 642
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3bb62813143140b0800000000000000
+      internalID: -5746254392933827781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_48
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 644
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a269bcb06be59f50800000000000000
+      internalID: 6887670005848695463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_49
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 640
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1f390943ff042b0800000000000000
+      internalID: -5602197335219899905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_50
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 642
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91fe5397c8f45870800000000000000
+      internalID: 8670828718649700766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_51
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 642
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca945650f8c407bd0800000000000000
+      internalID: -2634521604857181780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_52
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 644
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b9651a8c359f270800000000000000
+      internalID: 8284745110690110355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_53
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 634
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa164ab0c3c0ee080800000000000000
+      internalID: -9156367540364746321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_54
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 640
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b251a2dd8ed8b80800000000000000
+      internalID: -8390794494129919124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_55
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 644
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d9d051041b7c0bc0800000000000000
+      internalID: -3815539458438014504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_56
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 635
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f0a0531a24cb060800000000000000
+      internalID: 6970519583409704863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_57
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 638
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b4d96c9d6e36340800000000000000
+      internalID: 4855978646250015488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_58
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 644
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7a9e4f59f0a0560800000000000000
+      internalID: 7280648884331325350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_59
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 634
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba8784d268f51eee0800000000000000
+      internalID: -1233599793032824661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_60
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 637
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10f7eff38f7f61470800000000000000
+      internalID: 8365146003484868353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_61
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 644
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15b678695d1e404c0800000000000000
+      internalID: -4322081434899092655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_62
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 644
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d63aef24cbdc6fc0800000000000000
+      internalID: -3500181174709766446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 528
+        width: 122
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd29fd1f17c7d8950800000000000000
+      internalID: 6452950669922898653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_64
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 521
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b6dbb522abe9de80800000000000000
+      internalID: -8153226568727275855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_65
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 516
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee339e234a275eaa0800000000000000
+      internalID: -6132369268040715282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_66
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 112
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68fac05d04e6d6aa0800000000000000
+      internalID: -6166151090069000314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_67
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 49
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9f2b623c0df5fc90800000000000000
+      internalID: -7136519805671362661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_68
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 31
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0afe10c221efbd080800000000000000
+      internalID: -9161449662953951328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_69
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 32
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3ad904d5aaab660800000000000000
+      internalID: 7402416255029584800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_70
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 34
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f22eebd8c2ef92a0800000000000000
+      internalID: -6728409965957078279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button_71
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 23
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc9d30e29cd92ad0800000000000000
+      internalID: -2726405576010654512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      restart button_0: -7680719180819567196
+      restart button_1: 3746923646501061120
+      restart button_10: -5577072908501698900
+      restart button_11: -4019944644672836920
+      restart button_12: 8009254956506388556
+      restart button_13: -8371492760472895935
+      restart button_14: -224972823354921804
+      restart button_15: 265174744868188590
+      restart button_16: -266140170765123100
+      restart button_17: 1500673162822390195
+      restart button_18: -8876812220626700630
+      restart button_19: 5331803135664131499
+      restart button_2: -6566265072373642298
+      restart button_20: 8966128009171736997
+      restart button_21: -2490539079044249927
+      restart button_22: -7058381993691589515
+      restart button_23: 1743246981836744088
+      restart button_24: 2781363810195564837
+      restart button_25: 7129368174349964369
+      restart button_26: 6141198102193162099
+      restart button_27: -320215918164596889
+      restart button_28: 7470710729022690260
+      restart button_29: 5980060051392305171
+      restart button_3: 1160151113556165361
+      restart button_30: -1916322765985469474
+      restart button_31: -687655653227793227
+      restart button_32: 4764124089758318661
+      restart button_33: 8486993994312174781
+      restart button_34: -1712344518085326064
+      restart button_35: -5413078236165123553
+      restart button_36: -2046385094486090788
+      restart button_37: 3034380979080986151
+      restart button_38: -1766480788397422060
+      restart button_39: -825808741348538352
+      restart button_4: -7611811581684492719
+      restart button_40: 1088573279690780854
+      restart button_41: 2889338004102416635
+      restart button_42: -204667341972389485
+      restart button_43: 2091993484178881980
+      restart button_44: -8218598925329634304
+      restart button_45: 7079897919705018529
+      restart button_46: 2435042559690202876
+      restart button_47: -5746254392933827781
+      restart button_48: 6887670005848695463
+      restart button_49: -5602197335219899905
+      restart button_5: -1643581159731034851
+      restart button_50: 8670828718649700766
+      restart button_51: -2634521604857181780
+      restart button_52: 8284745110690110355
+      restart button_53: -9156367540364746321
+      restart button_54: -8390794494129919124
+      restart button_55: -3815539458438014504
+      restart button_56: 6970519583409704863
+      restart button_57: 4855978646250015488
+      restart button_58: 7280648884331325350
+      restart button_59: -1233599793032824661
+      restart button_6: 3845634394378195050
+      restart button_60: 8365146003484868353
+      restart button_61: -4322081434899092655
+      restart button_62: -3500181174709766446
+      restart button_63: 6452950669922898653
+      restart button_64: -8153226568727275855
+      restart button_65: -6132369268040715282
+      restart button_66: -6166151090069000314
+      restart button_67: -7136519805671362661
+      restart button_68: -9161449662953951328
+      restart button_69: 7402416255029584800
+      restart button_7: 1529630504297293627
+      restart button_70: -6728409965957078279
+      restart button_71: -2726405576010654512
+      restart button_8: 5888801097077773011
+      restart button_9: -770177552994175030
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

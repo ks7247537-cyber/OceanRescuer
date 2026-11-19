@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 6838991699c64244fb03ce0e2e7b5289
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7846336255137442416
+    second: setting panel_0
+  - first:
+      213: -442300079186093637
+    second: setting panel_1
+  - first:
+      213: 7447740391609337228
+    second: setting panel_2
+  - first:
+      213: -6778632348118314430
+    second: setting panel_3
+  - first:
+      213: -387960775376232152
+    second: setting panel_4
+  - first:
+      213: 8447229284028897619
+    second: setting panel_5
+  - first:
+      213: -2543187969762136030
+    second: setting panel_6
+  - first:
+      213: -3249603462054681948
+    second: setting panel_7
+  - first:
+      213: -8350315102120563577
+    second: setting panel_8
+  - first:
+      213: -1446015866512131906
+    second: setting panel_9
+  - first:
+      213: 5757190997081906036
+    second: setting panel_10
+  - first:
+      213: -1025243068655304407
+    second: setting panel_11
+  - first:
+      213: 8917434851980578729
+    second: setting panel_12
+  - first:
+      213: 2992037458375679785
+    second: setting panel_13
+  - first:
+      213: -2069179651786079688
+    second: setting panel_14
+  - first:
+      213: 1444774173130798930
+    second: setting panel_15
+  - first:
+      213: 9122594418242091982
+    second: setting panel_16
+  - first:
+      213: -7207980071354244187
+    second: setting panel_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: setting panel_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1424
+        height: 1105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09593446fb63c1390800000000000000
+      internalID: -7846336255137442416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_1
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 1030
+        width: 52
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb95cffdb62acd9f0800000000000000
+      internalID: -442300079186093637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_2
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 1006
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8504352d60bb5760800000000000000
+      internalID: 7447740391609337228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_3
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 992
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2429f6b4bc57de1a0800000000000000
+      internalID: -6778632348118314430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_4
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 976
+        width: 10
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8212ae4fabfad9af0800000000000000
+      internalID: -387960775376232152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_5
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 992
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 359d1da47469a3570800000000000000
+      internalID: 8447229284028897619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_6
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 987
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220f7411408c4bcd0800000000000000
+      internalID: -2543187969762136030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_7
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 956
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2e95f4ed617e2d0800000000000000
+      internalID: -3249603462054681948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_8
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 917
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c268f08a8bd1c80800000000000000
+      internalID: -8350315102120563577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_9
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 950
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb837f01b38beebe0800000000000000
+      internalID: -1446015866512131906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_10
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 910
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47bd42d75b6a5ef40800000000000000
+      internalID: 5757190997081906036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_11
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 902
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9218e5c6cda95c1f0800000000000000
+      internalID: -1025243068655304407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_12
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 862
+        width: 48
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af8df350c711cb70800000000000000
+      internalID: 8917434851980578729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_13
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 840
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f1525473ad58920800000000000000
+      internalID: 2992037458375679785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_14
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 807
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83203d6d11cc843e0800000000000000
+      internalID: -2069179651786079688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 790
+        width: 5
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 257be1aa47edc0410800000000000000
+      internalID: 1444774173130798930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_16
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 125
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecbf7413a47f99e70800000000000000
+      internalID: 9122594418242091982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting panel_17
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 51
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a3e5da805c18fb90800000000000000
+      internalID: -7207980071354244187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      setting panel_0: -7846336255137442416
+      setting panel_1: -442300079186093637
+      setting panel_10: 5757190997081906036
+      setting panel_11: -1025243068655304407
+      setting panel_12: 8917434851980578729
+      setting panel_13: 2992037458375679785
+      setting panel_14: -2069179651786079688
+      setting panel_15: 1444774173130798930
+      setting panel_16: 9122594418242091982
+      setting panel_17: -7207980071354244187
+      setting panel_2: 7447740391609337228
+      setting panel_3: -6778632348118314430
+      setting panel_4: -387960775376232152
+      setting panel_5: 8447229284028897619
+      setting panel_6: -2543187969762136030
+      setting panel_7: -3249603462054681948
+      setting panel_8: -8350315102120563577
+      setting panel_9: -1446015866512131906
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

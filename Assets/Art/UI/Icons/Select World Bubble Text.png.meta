@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 6bb4a78084ac8d5448039eab80aa5200
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2916558252333790057
+    second: Select World Bubble Text_0
+  - first:
+      213: -7723152413229716016
+    second: Select World Bubble Text_1
+  - first:
+      213: -3757084462620172581
+    second: Select World Bubble Text_2
+  - first:
+      213: 417222195585859627
+    second: Select World Bubble Text_3
+  - first:
+      213: -2306701050014428573
+    second: Select World Bubble Text_4
+  - first:
+      213: -5867559956248958874
+    second: Select World Bubble Text_5
+  - first:
+      213: 5891564017769283429
+    second: Select World Bubble Text_6
+  - first:
+      213: 765157493691419236
+    second: Select World Bubble Text_7
+  - first:
+      213: -8508328830231049901
+    second: Select World Bubble Text_8
+  - first:
+      213: -2946011375109782330
+    second: Select World Bubble Text_9
+  - first:
+      213: -4256828202425877080
+    second: Select World Bubble Text_10
+  - first:
+      213: -4020948674064137736
+    second: Select World Bubble Text_11
+  - first:
+      213: 6352358840930974328
+    second: Select World Bubble Text_12
+  - first:
+      213: -731710193058671808
+    second: Select World Bubble Text_13
+  - first:
+      213: 8288816736355865219
+    second: Select World Bubble Text_14
+  - first:
+      213: -1454748862183046511
+    second: Select World Bubble Text_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Select World Bubble Text_0
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 51
+        width: 1043
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c09ead8bd4687d0800000000000000
+      internalID: -2916558252333790057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_1
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 687
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dded379cc9d1d490800000000000000
+      internalID: -7723152413229716016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 27
+        width: 1111
+        height: 658
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde926e46972cdbc0800000000000000
+      internalID: -3757084462620172581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_3
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 667
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20cd4850654ac500800000000000000
+      internalID: 417222195585859627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_4
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 522
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3629edecd93fcffd0800000000000000
+      internalID: -2306701050014428573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_5
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 480
+        width: 20
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6686975be4d329ea0800000000000000
+      internalID: -5867559956248958874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 373
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56f7c92624a03c150800000000000000
+      internalID: 5891564017769283429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_7
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 355
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46a84b0cfa26e9a00800000000000000
+      internalID: 765157493691419236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_8
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 366
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3590dd902085ce980800000000000000
+      internalID: -8508328830231049901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 329
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c44252534aad17d0800000000000000
+      internalID: -2946011375109782330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_10
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 305
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad7a84bd45bce4c0800000000000000
+      internalID: -4256828202425877080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_11
+      rect:
+        serializedVersion: 2
+        x: 2132
+        y: 313
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f1445e1c78b238c0800000000000000
+      internalID: -4020948674064137736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_12
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 191
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ab087a5bc182850800000000000000
+      internalID: 6352358840930974328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_13
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 210
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0439438c47178d5f0800000000000000
+      internalID: -731710193058671808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_14
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 71
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 382ddcad7eac70370800000000000000
+      internalID: 8288816736355865219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select World Bubble Text_15
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 65
+        width: 59
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1920d201e91bfcbe0800000000000000
+      internalID: -1454748862183046511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Select World Bubble Text_0: -2916558252333790057
+      Select World Bubble Text_1: -7723152413229716016
+      Select World Bubble Text_10: -4256828202425877080
+      Select World Bubble Text_11: -4020948674064137736
+      Select World Bubble Text_12: 6352358840930974328
+      Select World Bubble Text_13: -731710193058671808
+      Select World Bubble Text_14: 8288816736355865219
+      Select World Bubble Text_15: -1454748862183046511
+      Select World Bubble Text_2: -3757084462620172581
+      Select World Bubble Text_3: 417222195585859627
+      Select World Bubble Text_4: -2306701050014428573
+      Select World Bubble Text_5: -5867559956248958874
+      Select World Bubble Text_6: 5891564017769283429
+      Select World Bubble Text_7: 765157493691419236
+      Select World Bubble Text_8: -8508328830231049901
+      Select World Bubble Text_9: -2946011375109782330
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1092 @@
+fileFormatVersion: 2
+guid: 7c44c36cd455cf84cb14ad29ae863bcb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1360952165657407958
+    second: next level button_0
+  - first:
+      213: -2683217221690312632
+    second: next level button_1
+  - first:
+      213: 1635057632628582579
+    second: next level button_2
+  - first:
+      213: -917041321700518738
+    second: next level button_3
+  - first:
+      213: -4679260609489361206
+    second: next level button_4
+  - first:
+      213: 3186061732427848251
+    second: next level button_5
+  - first:
+      213: -5331841881149433682
+    second: next level button_6
+  - first:
+      213: -5700192691292109782
+    second: next level button_7
+  - first:
+      213: -3837508244250935815
+    second: next level button_8
+  - first:
+      213: 2388328740111293992
+    second: next level button_9
+  - first:
+      213: -5494346356360488552
+    second: next level button_10
+  - first:
+      213: -487592234435956770
+    second: next level button_11
+  - first:
+      213: -8780819292597934793
+    second: next level button_12
+  - first:
+      213: -2913946663712000985
+    second: next level button_13
+  - first:
+      213: 4325230656449069396
+    second: next level button_14
+  - first:
+      213: -2294463615944555674
+    second: next level button_15
+  - first:
+      213: -7499506304607782528
+    second: next level button_16
+  - first:
+      213: -2123697293085689589
+    second: next level button_17
+  - first:
+      213: 7354331593753744978
+    second: next level button_18
+  - first:
+      213: -8500566489347185149
+    second: next level button_19
+  - first:
+      213: -4538511502070551350
+    second: next level button_20
+  - first:
+      213: -1922185322852068935
+    second: next level button_21
+  - first:
+      213: -8631047513557556515
+    second: next level button_22
+  - first:
+      213: -4499690956970354745
+    second: next level button_23
+  - first:
+      213: -5535799723958605345
+    second: next level button_24
+  - first:
+      213: 5404240495773609750
+    second: next level button_25
+  - first:
+      213: 1480063295045220559
+    second: next level button_26
+  - first:
+      213: -3731926628382917900
+    second: next level button_27
+  - first:
+      213: 1673634460410403483
+    second: next level button_28
+  - first:
+      213: -7249231212221393784
+    second: next level button_29
+  - first:
+      213: -5898409740716111163
+    second: next level button_30
+  - first:
+      213: 7850365601797863989
+    second: next level button_31
+  - first:
+      213: -7440090506625773705
+    second: next level button_32
+  - first:
+      213: -8430097975863143347
+    second: next level button_33
+  - first:
+      213: 2045138085931851615
+    second: next level button_34
+  - first:
+      213: 5087108396581938226
+    second: next level button_35
+  - first:
+      213: -9104451955306790946
+    second: next level button_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: next level button_0
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 594
+        width: 62
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d1fe46b8c213e210800000000000000
+      internalID: 1360952165657407958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_1
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 596
+        width: 94
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84830f5372c43cad0800000000000000
+      internalID: -2683217221690312632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_2
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 626
+        width: 113
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b82e140144e0b610800000000000000
+      internalID: 1635057632628582579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_3
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 618
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea49fafc6c30643f0800000000000000
+      internalID: -917041321700518738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_4
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 624
+        width: 136
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac6a8e7744def0fb0800000000000000
+      internalID: -4679260609489361206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_5
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 634
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ad3d1e34a273c20800000000000000
+      internalID: 3186061732427848251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_6
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 626
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea89983fe0e7106b0800000000000000
+      internalID: -5331841881149433682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_7
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 651
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a24814cb2f8d4e0b0800000000000000
+      internalID: -5700192691292109782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_8
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 640
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fd3ac6759e6ebac0800000000000000
+      internalID: -3837508244250935815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_9
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 624
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82e9031d55c052120800000000000000
+      internalID: 2388328740111293992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_10
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 596
+        width: 61
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 899db24691920c3b0800000000000000
+      internalID: -5494346356360488552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_11
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 642
+        width: 112
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edfa4373279bb39f0800000000000000
+      internalID: -487592234435956770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_12
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 642
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735adcb4063442680800000000000000
+      internalID: -8780819292597934793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_13
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 657
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724f207b2f49f87d0800000000000000
+      internalID: -2913946663712000985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_14
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 645
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 451c641bd5e460c30800000000000000
+      internalID: 4325230656449069396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_15
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 649
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66301957f7d6820e0800000000000000
+      internalID: -2294463615944555674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_16
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 659
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 089fc0300c66ce790800000000000000
+      internalID: -7499506304607782528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_17
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 636
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b093b23509c1782e0800000000000000
+      internalID: -2123697293085689589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_18
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 641
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 256df1e9e95df0660800000000000000
+      internalID: 7354331593753744978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_19
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 640
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3062fdcd0dbe70a80800000000000000
+      internalID: -8500566489347185149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_20
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 640
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acc6f0eb5d7f301c0800000000000000
+      internalID: -4538511502070551350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_21
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 640
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1deee02a60355e0800000000000000
+      internalID: -1922185322852068935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_22
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 644
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd222e2040c583880800000000000000
+      internalID: -8631047513557556515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_23
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 634
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c79ebe3ae2ed81c0800000000000000
+      internalID: -4499690956970354745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_24
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 632
+        width: 84
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9edb12b73ec23b0800000000000000
+      internalID: -5535799723958605345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_25
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 618
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61fed571918bffa40800000000000000
+      internalID: 5404240495773609750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_26
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 624
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc8b342a9bd3a8410800000000000000
+      internalID: 1480063295045220559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_27
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 618
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fa3a6b0188853cc0800000000000000
+      internalID: -3731926628382917900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_28
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 621
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a5d98aca1f93710800000000000000
+      internalID: 1673634460410403483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_29
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 598
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8849edcde9e856b90800000000000000
+      internalID: -7249231212221393784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_30
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 596
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ca89e88793a42ea0800000000000000
+      internalID: -5898409740716111163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_31
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 610
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a7b1cfbe912fc60800000000000000
+      internalID: 7850365601797863989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_32
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 596
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f80df7a1d7fb890800000000000000
+      internalID: -7440090506625773705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_33
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 476
+        width: 108
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4410f63e86420b80800000000000000
+      internalID: -8430097975863143347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_34
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 23
+        width: 2028
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f1798e04ac16c10800000000000000
+      internalID: 2045138085931851615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_35
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 134
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2346c20522a099640800000000000000
+      internalID: 5087108396581938226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next level button_36
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 71
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edff3512f2d76a180800000000000000
+      internalID: -9104451955306790946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      next level button_0: 1360952165657407958
+      next level button_1: -2683217221690312632
+      next level button_10: -5494346356360488552
+      next level button_11: -487592234435956770
+      next level button_12: -8780819292597934793
+      next level button_13: -2913946663712000985
+      next level button_14: 4325230656449069396
+      next level button_15: -2294463615944555674
+      next level button_16: -7499506304607782528
+      next level button_17: -2123697293085689589
+      next level button_18: 7354331593753744978
+      next level button_19: -8500566489347185149
+      next level button_2: 1635057632628582579
+      next level button_20: -4538511502070551350
+      next level button_21: -1922185322852068935
+      next level button_22: -8631047513557556515
+      next level button_23: -4499690956970354745
+      next level button_24: -5535799723958605345
+      next level button_25: 5404240495773609750
+      next level button_26: 1480063295045220559
+      next level button_27: -3731926628382917900
+      next level button_28: 1673634460410403483
+      next level button_29: -7249231212221393784
+      next level button_3: -917041321700518738
+      next level button_30: -5898409740716111163
+      next level button_31: 7850365601797863989
+      next level button_32: -7440090506625773705
+      next level button_33: -8430097975863143347
+      next level button_34: 2045138085931851615
+      next level button_35: 5087108396581938226
+      next level button_36: -9104451955306790946
+      next level button_4: -4679260609489361206
+      next level button_5: 3186061732427848251
+      next level button_6: -5331841881149433682
+      next level button_7: -5700192691292109782
+      next level button_8: -3837508244250935815
+      next level button_9: 2388328740111293992
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

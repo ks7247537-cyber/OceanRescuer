@@ -1,0 +1,2782 @@
+fileFormatVersion: 2
+guid: 6d2c7962ab9f0694d81a057861194a5f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4175363561455516149
+    second: Glossy Blue Water Pipe Asset_0
+  - first:
+      213: 5985351020374539120
+    second: Glossy Blue Water Pipe Asset_1
+  - first:
+      213: 5466107815671042386
+    second: Glossy Blue Water Pipe Asset_2
+  - first:
+      213: -8404044329320276954
+    second: Glossy Blue Water Pipe Asset_3
+  - first:
+      213: 1077035459830560234
+    second: Glossy Blue Water Pipe Asset_4
+  - first:
+      213: -8723306378755601488
+    second: Glossy Blue Water Pipe Asset_5
+  - first:
+      213: 86084696430212229
+    second: Glossy Blue Water Pipe Asset_6
+  - first:
+      213: 2835425378593533725
+    second: Glossy Blue Water Pipe Asset_7
+  - first:
+      213: -6279119712878966232
+    second: Glossy Blue Water Pipe Asset_8
+  - first:
+      213: -4744969603744254852
+    second: Glossy Blue Water Pipe Asset_9
+  - first:
+      213: -8986027397087620349
+    second: Glossy Blue Water Pipe Asset_10
+  - first:
+      213: -3498131899566487314
+    second: Glossy Blue Water Pipe Asset_11
+  - first:
+      213: -485291399689560904
+    second: Glossy Blue Water Pipe Asset_12
+  - first:
+      213: 6583888757775469127
+    second: Glossy Blue Water Pipe Asset_13
+  - first:
+      213: 6740214985076505741
+    second: Glossy Blue Water Pipe Asset_14
+  - first:
+      213: -4043895854224755962
+    second: Glossy Blue Water Pipe Asset_15
+  - first:
+      213: 245702599253498446
+    second: Glossy Blue Water Pipe Asset_16
+  - first:
+      213: 2238305869564266512
+    second: Glossy Blue Water Pipe Asset_17
+  - first:
+      213: 6015066200216650655
+    second: Glossy Blue Water Pipe Asset_18
+  - first:
+      213: -1290631396001817652
+    second: Glossy Blue Water Pipe Asset_19
+  - first:
+      213: 7832851395139433048
+    second: Glossy Blue Water Pipe Asset_20
+  - first:
+      213: -3314005182778241928
+    second: Glossy Blue Water Pipe Asset_21
+  - first:
+      213: -3369632707487013093
+    second: Glossy Blue Water Pipe Asset_22
+  - first:
+      213: 9023354631894992836
+    second: Glossy Blue Water Pipe Asset_23
+  - first:
+      213: 1646765266310748180
+    second: Glossy Blue Water Pipe Asset_24
+  - first:
+      213: -1765918186757658128
+    second: Glossy Blue Water Pipe Asset_25
+  - first:
+      213: -3250068988641378126
+    second: Glossy Blue Water Pipe Asset_26
+  - first:
+      213: 2018282400236429435
+    second: Glossy Blue Water Pipe Asset_27
+  - first:
+      213: -5036439914427207827
+    second: Glossy Blue Water Pipe Asset_28
+  - first:
+      213: 6053585425183316467
+    second: Glossy Blue Water Pipe Asset_29
+  - first:
+      213: -5051274814772347808
+    second: Glossy Blue Water Pipe Asset_30
+  - first:
+      213: 7352300147899515675
+    second: Glossy Blue Water Pipe Asset_31
+  - first:
+      213: 7373739057127308150
+    second: Glossy Blue Water Pipe Asset_32
+  - first:
+      213: 9140012607281871748
+    second: Glossy Blue Water Pipe Asset_33
+  - first:
+      213: 3458362687440545463
+    second: Glossy Blue Water Pipe Asset_34
+  - first:
+      213: 3025171496766379082
+    second: Glossy Blue Water Pipe Asset_35
+  - first:
+      213: -2279681076571905572
+    second: Glossy Blue Water Pipe Asset_36
+  - first:
+      213: 3446132821617789314
+    second: Glossy Blue Water Pipe Asset_37
+  - first:
+      213: -7556808197316227734
+    second: Glossy Blue Water Pipe Asset_38
+  - first:
+      213: -6769104214971660260
+    second: Glossy Blue Water Pipe Asset_39
+  - first:
+      213: -7271441898832001996
+    second: Glossy Blue Water Pipe Asset_40
+  - first:
+      213: 6093839646682315697
+    second: Glossy Blue Water Pipe Asset_41
+  - first:
+      213: -3167528185388122167
+    second: Glossy Blue Water Pipe Asset_42
+  - first:
+      213: -5263085779728508619
+    second: Glossy Blue Water Pipe Asset_43
+  - first:
+      213: 1788631460537977478
+    second: Glossy Blue Water Pipe Asset_44
+  - first:
+      213: 6136328773117054221
+    second: Glossy Blue Water Pipe Asset_45
+  - first:
+      213: -1002876899438599523
+    second: Glossy Blue Water Pipe Asset_46
+  - first:
+      213: 2932039334926816406
+    second: Glossy Blue Water Pipe Asset_47
+  - first:
+      213: 8300150559015581741
+    second: Glossy Blue Water Pipe Asset_48
+  - first:
+      213: 2530802786766805547
+    second: Glossy Blue Water Pipe Asset_49
+  - first:
+      213: -143566973298510998
+    second: Glossy Blue Water Pipe Asset_50
+  - first:
+      213: -55205303072590160
+    second: Glossy Blue Water Pipe Asset_51
+  - first:
+      213: -9114488305364142999
+    second: Glossy Blue Water Pipe Asset_52
+  - first:
+      213: 4756554422098013104
+    second: Glossy Blue Water Pipe Asset_53
+  - first:
+      213: 3330452393918982939
+    second: Glossy Blue Water Pipe Asset_54
+  - first:
+      213: -357094125924625097
+    second: Glossy Blue Water Pipe Asset_55
+  - first:
+      213: -7081700733097175663
+    second: Glossy Blue Water Pipe Asset_56
+  - first:
+      213: -618106257900292867
+    second: Glossy Blue Water Pipe Asset_57
+  - first:
+      213: -9170944748686215600
+    second: Glossy Blue Water Pipe Asset_58
+  - first:
+      213: 2533965256523691177
+    second: Glossy Blue Water Pipe Asset_59
+  - first:
+      213: -2915391547218895362
+    second: Glossy Blue Water Pipe Asset_60
+  - first:
+      213: 1185672281755739984
+    second: Glossy Blue Water Pipe Asset_61
+  - first:
+      213: 4318116042903157979
+    second: Glossy Blue Water Pipe Asset_62
+  - first:
+      213: -4312791611829705746
+    second: Glossy Blue Water Pipe Asset_63
+  - first:
+      213: 6779630745390724918
+    second: Glossy Blue Water Pipe Asset_64
+  - first:
+      213: -2602439955351882366
+    second: Glossy Blue Water Pipe Asset_65
+  - first:
+      213: -9155860971202134264
+    second: Glossy Blue Water Pipe Asset_66
+  - first:
+      213: -6918545250219337318
+    second: Glossy Blue Water Pipe Asset_67
+  - first:
+      213: 4989350062699610304
+    second: Glossy Blue Water Pipe Asset_68
+  - first:
+      213: -6550499659905077487
+    second: Glossy Blue Water Pipe Asset_69
+  - first:
+      213: 2827345440570381441
+    second: Glossy Blue Water Pipe Asset_70
+  - first:
+      213: 120960967760269247
+    second: Glossy Blue Water Pipe Asset_71
+  - first:
+      213: -3585694010668852773
+    second: Glossy Blue Water Pipe Asset_72
+  - first:
+      213: -1050655994428394962
+    second: Glossy Blue Water Pipe Asset_73
+  - first:
+      213: 8109481424654200428
+    second: Glossy Blue Water Pipe Asset_74
+  - first:
+      213: 3961176553652130612
+    second: Glossy Blue Water Pipe Asset_75
+  - first:
+      213: 415043923830924153
+    second: Glossy Blue Water Pipe Asset_76
+  - first:
+      213: -5227875272424503245
+    second: Glossy Blue Water Pipe Asset_77
+  - first:
+      213: 5662333256111515553
+    second: Glossy Blue Water Pipe Asset_78
+  - first:
+      213: 690833908253148865
+    second: Glossy Blue Water Pipe Asset_79
+  - first:
+      213: 7761205157619384090
+    second: Glossy Blue Water Pipe Asset_80
+  - first:
+      213: -8278013764079130086
+    second: Glossy Blue Water Pipe Asset_81
+  - first:
+      213: 7933456528441876888
+    second: Glossy Blue Water Pipe Asset_82
+  - first:
+      213: 6458408312633104400
+    second: Glossy Blue Water Pipe Asset_83
+  - first:
+      213: 6203721944442617595
+    second: Glossy Blue Water Pipe Asset_84
+  - first:
+      213: 7678152664664016178
+    second: Glossy Blue Water Pipe Asset_85
+  - first:
+      213: 7500417524685437289
+    second: Glossy Blue Water Pipe Asset_86
+  - first:
+      213: 6632094334065110192
+    second: Glossy Blue Water Pipe Asset_87
+  - first:
+      213: -342547163507777223
+    second: Glossy Blue Water Pipe Asset_88
+  - first:
+      213: 8954116051494065156
+    second: Glossy Blue Water Pipe Asset_89
+  - first:
+      213: -2958720753801193688
+    second: Glossy Blue Water Pipe Asset_90
+  - first:
+      213: -5238282051343842718
+    second: Glossy Blue Water Pipe Asset_91
+  - first:
+      213: 7071598666843496589
+    second: Glossy Blue Water Pipe Asset_92
+  - first:
+      213: -2526909145981765464
+    second: Glossy Blue Water Pipe Asset_93
+  - first:
+      213: -114872973485567990
+    second: Glossy Blue Water Pipe Asset_94
+  - first:
+      213: -6529416889267986658
+    second: Glossy Blue Water Pipe Asset_95
+  - first:
+      213: -2798912439286420310
+    second: Glossy Blue Water Pipe Asset_96
+  - first:
+      213: -3448169367800456765
+    second: Glossy Blue Water Pipe Asset_97
+  - first:
+      213: 918487881271009105
+    second: Glossy Blue Water Pipe Asset_98
+  - first:
+      213: 5726399173878409930
+    second: Glossy Blue Water Pipe Asset_99
+  - first:
+      213: 294776294184832645
+    second: Glossy Blue Water Pipe Asset_100
+  - first:
+      213: 7398046442117922238
+    second: Glossy Blue Water Pipe Asset_101
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1024
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_0
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 641
+        width: 90
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06855f76f02e06c0800000000000000
+      internalID: -4175363561455516149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_1
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 706
+        width: 65
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b32719a0d301350800000000000000
+      internalID: 5985351020374539120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 41
+        width: 2058
+        height: 614
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2511f0109148bdb40800000000000000
+      internalID: 5466107815671042386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_3
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 639
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62c9a328536de5b80800000000000000
+      internalID: -8404044329320276954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_4
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 611
+        width: 45
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae533b95b0662fe00800000000000000
+      internalID: 1077035459830560234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_5
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 632
+        width: 35
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb8f5b011790f680800000000000000
+      internalID: -8723306378755601488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_6
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 635
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 584f1574395d13100800000000000000
+      internalID: 86084696430212229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_7
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 648
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1fe13eeb54795720800000000000000
+      internalID: 2835425378593533725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_8
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 632
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a42bba3e51cd8a0800000000000000
+      internalID: -6279119712878966232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_9
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 634
+        width: 35
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c743cca094b762eb0800000000000000
+      internalID: -4744969603744254852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_10
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 639
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3031aae31b73b4380800000000000000
+      internalID: -8986027397087620349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_11
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 634
+        width: 44
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee880ec3293247fc0800000000000000
+      internalID: -3498131899566487314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_12
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 638
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bc93fc0b06e349f0800000000000000
+      internalID: -485291399689560904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_13
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 635
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a05e731fbae5b50800000000000000
+      internalID: 6583888757775469127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_14
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 641
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8cff3751dd0a8d50800000000000000
+      internalID: 6740214985076505741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_15
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 640
+        width: 37
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6033244652231e7c0800000000000000
+      internalID: -4043895854224755962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_16
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 634
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4a15e45639e86300800000000000000
+      internalID: 245702599253498446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_17
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 623
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 018cc0e445f001f10800000000000000
+      internalID: 2238305869564266512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_18
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 644
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f934f5407dec97350800000000000000
+      internalID: 6015066200216650655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_19
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 634
+        width: 62
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccb58595591c61ee0800000000000000
+      internalID: -1290631396001817652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_20
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 636
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85275b9f7d0e3bc60800000000000000
+      internalID: 7832851395139433048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_21
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 640
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c03b838d94202d0800000000000000
+      internalID: -3314005182778241928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_22
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 610
+        width: 86
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b17e2b6d7e8ac31d0800000000000000
+      internalID: -3369632707487013093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_23
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 636
+        width: 29
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c70a7cda35693d70800000000000000
+      internalID: 9023354631894992836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_24
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 638
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41857e6e84c7ad610800000000000000
+      internalID: 1646765266310748180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_25
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 640
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f968efe3c23e77e0800000000000000
+      internalID: -1765918186757658128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_26
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 628
+        width: 50
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b08484797f65e2d0800000000000000
+      internalID: -3250068988641378126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_27
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 571
+        width: 66
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70e3825621620c10800000000000000
+      internalID: 2018282400236429435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_28
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 638
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6fa7fff498fa1ab0800000000000000
+      internalID: -5036439914427207827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_29
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 632
+        width: 63
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f99885fed7a20450800000000000000
+      internalID: 6053585425183316467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_30
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 640
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06cfd9a915446e9b0800000000000000
+      internalID: -5051274814772347808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_31
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 638
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b134a95c70e980660800000000000000
+      internalID: 7352300147899515675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_32
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 640
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b3f7eca98c45660800000000000000
+      internalID: 7373739057127308150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_33
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 640
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48bb0ab5a09d7de70800000000000000
+      internalID: 9140012607281871748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_34
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 622
+        width: 180
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6eb518a829eff20800000000000000
+      internalID: 3458362687440545463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_35
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 639
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a449561c2719bf920800000000000000
+      internalID: 3025171496766379082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_36
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 640
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd160cd9322fc50e0800000000000000
+      internalID: -2279681076571905572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_37
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 640
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 289c759fa8f13df20800000000000000
+      internalID: 3446132821617789314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_38
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 636
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6dc4337bf2d02790800000000000000
+      internalID: -7556808197316227734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_39
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 618
+        width: 62
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18c30ba49f4f02a0800000000000000
+      internalID: -6769104214971660260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_40
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 641
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4340a376e16a61b90800000000000000
+      internalID: -7271441898832001996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_41
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 632
+        width: 41
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbf0b24fdaa19450800000000000000
+      internalID: 6093839646682315697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_42
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 641
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cf37edc5edaa04d0800000000000000
+      internalID: -3167528185388122167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_43
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 638
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5395fdc4e53c5f6b0800000000000000
+      internalID: -5263085779728508619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_44
+      rect:
+        serializedVersion: 2
+        x: 1788
+        y: 642
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68a447736de72d810800000000000000
+      internalID: 1788631460537977478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_45
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 640
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d86aae18e982550800000000000000
+      internalID: 6136328773117054221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_46
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 640
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d92648ff5c01512f0800000000000000
+      internalID: -1002876899438599523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_47
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 625
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69419c19d32b0b820800000000000000
+      internalID: 2932039334926816406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_48
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 616
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28326415fe003370800000000000000
+      internalID: 8300150559015581741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_49
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 626
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2addcdc9b73f1320800000000000000
+      internalID: 2530802786766805547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_50
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 614
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6370133992f10ef0800000000000000
+      internalID: -143566973298510998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_51
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 626
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b6f3a0c11fdb3ff0800000000000000
+      internalID: -55205303072590160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_52
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 608
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96471594d25d28180800000000000000
+      internalID: -9114488305364142999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_53
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 616
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb27fbab0da20240800000000000000
+      internalID: 4756554422098013104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_54
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 614
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1be3e88ec4283e20800000000000000
+      internalID: 3330452393918982939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_55
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 616
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73552e0d8c85b0bf0800000000000000
+      internalID: -357094125924625097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_56
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 616
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1959e1624beb8bd90800000000000000
+      internalID: -7081700733097175663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_57
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 611
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df4386022ab0c67f0800000000000000
+      internalID: -618106257900292867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_58
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 616
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 056f2df37524ab080800000000000000
+      internalID: -9170944748686215600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_59
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 616
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a4b64ca9f37a2320800000000000000
+      internalID: 2533965256523691177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_60
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 608
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd57de85d27a87d0800000000000000
+      internalID: -2915391547218895362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_61
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 576
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 057e31688aa547010800000000000000
+      internalID: 1185672281755739984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_62
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 588
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc7824a9a70deb30800000000000000
+      internalID: 4318116042903157979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_63
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 592
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee32b9211e2e524c0800000000000000
+      internalID: -4312791611829705746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_64
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 576
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637b45f2e36161e50800000000000000
+      internalID: 6779630745390724918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_65
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 596
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 285b7ff16a642ebd0800000000000000
+      internalID: -2602439955351882366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_66
+      rect:
+        serializedVersion: 2
+        x: 1685
+        y: 600
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f32aed4f8dfe080800000000000000
+      internalID: -9155860971202134264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_67
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 587
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99d53e30c36cff90800000000000000
+      internalID: -6918545250219337318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_68
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 582
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c08843827bbd3540800000000000000
+      internalID: 4989350062699610304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_69
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 570
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11f6a0ee343f715a0800000000000000
+      internalID: -6550499659905077487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_70
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 577
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1849482c2bfbc3720800000000000000
+      internalID: 2827345440570381441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_71
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 573
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbfc90bfb5dbda100800000000000000
+      internalID: 120960967760269247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_72
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 578
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd956dc8b4e0d3ec0800000000000000
+      internalID: -3585694010668852773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_73
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 584
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22f5fe80f15b61f0800000000000000
+      internalID: -1050655994428394962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_74
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 578
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6e642dc36aaa8070800000000000000
+      internalID: 8109481424654200428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_75
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 588
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4339a0d961de8f630800000000000000
+      internalID: 3961176553652130612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_76
+      rect:
+        serializedVersion: 2
+        x: 1579
+        y: 575
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 973602eef3882c500800000000000000
+      internalID: 415043923830924153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_77
+      rect:
+        serializedVersion: 2
+        x: 1702
+        y: 587
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 338c611632bd277b0800000000000000
+      internalID: -5227875272424503245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_78
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 578
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7686a9816a49e40800000000000000
+      internalID: 5662333256111515553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_79
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 579
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c6493487c5569900800000000000000
+      internalID: 690833908253148865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_80
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 578
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f35d068f655bb60800000000000000
+      internalID: 7761205157619384090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_81
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 571
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ae44227569e1d80800000000000000
+      internalID: -8278013764079130086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_82
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 578
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89128caedac491e60800000000000000
+      internalID: 7933456528441876888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_83
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 578
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0181de86420e0a950800000000000000
+      internalID: 6458408312633104400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_84
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 578
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe3ccf5d3c081650800000000000000
+      internalID: 6203721944442617595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_85
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 578
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235848cfa274e8a60800000000000000
+      internalID: 7678152664664016178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_86
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 568
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9697df1fff5d61860800000000000000
+      internalID: 7500417524685437289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_87
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 568
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bce4d298aee90c50800000000000000
+      internalID: 6632094334065110192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_88
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 167
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9312d407b270f3bf0800000000000000
+      internalID: -342547163507777223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_89
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 165
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4045dee9b19634c70800000000000000
+      internalID: 8954116051494065156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_90
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 167
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8279a10862380f6d0800000000000000
+      internalID: -2958720753801193688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_91
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 147
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26288585a32ed47b0800000000000000
+      internalID: -5238282051343842718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_92
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 149
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d802553458d532260800000000000000
+      internalID: 7071598666843496589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_93
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 151
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a83216158d9eecd0800000000000000
+      internalID: -2526909145981765464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_94
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 145
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a009915a3a3e76ef0800000000000000
+      internalID: -114872973485567990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_95
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 126
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1fdebcfee9d265a0800000000000000
+      internalID: -6529416889267986658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_96
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 111
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac29ea37f34829d0800000000000000
+      internalID: -2798912439286420310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_97
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 113
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c9dedaaa34a520d0800000000000000
+      internalID: -3448169367800456765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_98
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 111
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15fd8a59cdf1fbc00800000000000000
+      internalID: 918487881271009105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_99
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 113
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acaec1975b1487f40800000000000000
+      internalID: 5726399173878409930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_100
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 113
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ec71f4a71471400800000000000000
+      internalID: 294776294184832645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Water Pipe Asset_101
+      rect:
+        serializedVersion: 2
+        x: 2013
+        y: 113
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebdf746ea042ba660800000000000000
+      internalID: 7398046442117922238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Glossy Blue Water Pipe Asset_0: -4175363561455516149
+      Glossy Blue Water Pipe Asset_1: 5985351020374539120
+      Glossy Blue Water Pipe Asset_10: -8986027397087620349
+      Glossy Blue Water Pipe Asset_100: 294776294184832645
+      Glossy Blue Water Pipe Asset_101: 7398046442117922238
+      Glossy Blue Water Pipe Asset_11: -3498131899566487314
+      Glossy Blue Water Pipe Asset_12: -485291399689560904
+      Glossy Blue Water Pipe Asset_13: 6583888757775469127
+      Glossy Blue Water Pipe Asset_14: 6740214985076505741
+      Glossy Blue Water Pipe Asset_15: -4043895854224755962
+      Glossy Blue Water Pipe Asset_16: 245702599253498446
+      Glossy Blue Water Pipe Asset_17: 2238305869564266512
+      Glossy Blue Water Pipe Asset_18: 6015066200216650655
+      Glossy Blue Water Pipe Asset_19: -1290631396001817652
+      Glossy Blue Water Pipe Asset_2: 5466107815671042386
+      Glossy Blue Water Pipe Asset_20: 7832851395139433048
+      Glossy Blue Water Pipe Asset_21: -3314005182778241928
+      Glossy Blue Water Pipe Asset_22: -3369632707487013093
+      Glossy Blue Water Pipe Asset_23: 9023354631894992836
+      Glossy Blue Water Pipe Asset_24: 1646765266310748180
+      Glossy Blue Water Pipe Asset_25: -1765918186757658128
+      Glossy Blue Water Pipe Asset_26: -3250068988641378126
+      Glossy Blue Water Pipe Asset_27: 2018282400236429435
+      Glossy Blue Water Pipe Asset_28: -5036439914427207827
+      Glossy Blue Water Pipe Asset_29: 6053585425183316467
+      Glossy Blue Water Pipe Asset_3: -8404044329320276954
+      Glossy Blue Water Pipe Asset_30: -5051274814772347808
+      Glossy Blue Water Pipe Asset_31: 7352300147899515675
+      Glossy Blue Water Pipe Asset_32: 7373739057127308150
+      Glossy Blue Water Pipe Asset_33: 9140012607281871748
+      Glossy Blue Water Pipe Asset_34: 3458362687440545463
+      Glossy Blue Water Pipe Asset_35: 3025171496766379082
+      Glossy Blue Water Pipe Asset_36: -2279681076571905572
+      Glossy Blue Water Pipe Asset_37: 3446132821617789314
+      Glossy Blue Water Pipe Asset_38: -7556808197316227734
+      Glossy Blue Water Pipe Asset_39: -6769104214971660260
+      Glossy Blue Water Pipe Asset_4: 1077035459830560234
+      Glossy Blue Water Pipe Asset_40: -7271441898832001996
+      Glossy Blue Water Pipe Asset_41: 6093839646682315697
+      Glossy Blue Water Pipe Asset_42: -3167528185388122167
+      Glossy Blue Water Pipe Asset_43: -5263085779728508619
+      Glossy Blue Water Pipe Asset_44: 1788631460537977478
+      Glossy Blue Water Pipe Asset_45: 6136328773117054221
+      Glossy Blue Water Pipe Asset_46: -1002876899438599523
+      Glossy Blue Water Pipe Asset_47: 2932039334926816406
+      Glossy Blue Water Pipe Asset_48: 8300150559015581741
+      Glossy Blue Water Pipe Asset_49: 2530802786766805547
+      Glossy Blue Water Pipe Asset_5: -8723306378755601488
+      Glossy Blue Water Pipe Asset_50: -143566973298510998
+      Glossy Blue Water Pipe Asset_51: -55205303072590160
+      Glossy Blue Water Pipe Asset_52: -9114488305364142999
+      Glossy Blue Water Pipe Asset_53: 4756554422098013104
+      Glossy Blue Water Pipe Asset_54: 3330452393918982939
+      Glossy Blue Water Pipe Asset_55: -357094125924625097
+      Glossy Blue Water Pipe Asset_56: -7081700733097175663
+      Glossy Blue Water Pipe Asset_57: -618106257900292867
+      Glossy Blue Water Pipe Asset_58: -9170944748686215600
+      Glossy Blue Water Pipe Asset_59: 2533965256523691177
+      Glossy Blue Water Pipe Asset_6: 86084696430212229
+      Glossy Blue Water Pipe Asset_60: -2915391547218895362
+      Glossy Blue Water Pipe Asset_61: 1185672281755739984
+      Glossy Blue Water Pipe Asset_62: 4318116042903157979
+      Glossy Blue Water Pipe Asset_63: -4312791611829705746
+      Glossy Blue Water Pipe Asset_64: 6779630745390724918
+      Glossy Blue Water Pipe Asset_65: -2602439955351882366
+      Glossy Blue Water Pipe Asset_66: -9155860971202134264
+      Glossy Blue Water Pipe Asset_67: -6918545250219337318
+      Glossy Blue Water Pipe Asset_68: 4989350062699610304
+      Glossy Blue Water Pipe Asset_69: -6550499659905077487
+      Glossy Blue Water Pipe Asset_7: 2835425378593533725
+      Glossy Blue Water Pipe Asset_70: 2827345440570381441
+      Glossy Blue Water Pipe Asset_71: 120960967760269247
+      Glossy Blue Water Pipe Asset_72: -3585694010668852773
+      Glossy Blue Water Pipe Asset_73: -1050655994428394962
+      Glossy Blue Water Pipe Asset_74: 8109481424654200428
+      Glossy Blue Water Pipe Asset_75: 3961176553652130612
+      Glossy Blue Water Pipe Asset_76: 415043923830924153
+      Glossy Blue Water Pipe Asset_77: -5227875272424503245
+      Glossy Blue Water Pipe Asset_78: 5662333256111515553
+      Glossy Blue Water Pipe Asset_79: 690833908253148865
+      Glossy Blue Water Pipe Asset_8: -6279119712878966232
+      Glossy Blue Water Pipe Asset_80: 7761205157619384090
+      Glossy Blue Water Pipe Asset_81: -8278013764079130086
+      Glossy Blue Water Pipe Asset_82: 7933456528441876888
+      Glossy Blue Water Pipe Asset_83: 6458408312633104400
+      Glossy Blue Water Pipe Asset_84: 6203721944442617595
+      Glossy Blue Water Pipe Asset_85: 7678152664664016178
+      Glossy Blue Water Pipe Asset_86: 7500417524685437289
+      Glossy Blue Water Pipe Asset_87: 6632094334065110192
+      Glossy Blue Water Pipe Asset_88: -342547163507777223
+      Glossy Blue Water Pipe Asset_89: 8954116051494065156
+      Glossy Blue Water Pipe Asset_9: -4744969603744254852
+      Glossy Blue Water Pipe Asset_90: -2958720753801193688
+      Glossy Blue Water Pipe Asset_91: -5238282051343842718
+      Glossy Blue Water Pipe Asset_92: 7071598666843496589
+      Glossy Blue Water Pipe Asset_93: -2526909145981765464
+      Glossy Blue Water Pipe Asset_94: -114872973485567990
+      Glossy Blue Water Pipe Asset_95: -6529416889267986658
+      Glossy Blue Water Pipe Asset_96: -2798912439286420310
+      Glossy Blue Water Pipe Asset_97: -3448169367800456765
+      Glossy Blue Water Pipe Asset_98: 918487881271009105
+      Glossy Blue Water Pipe Asset_99: 5726399173878409930
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

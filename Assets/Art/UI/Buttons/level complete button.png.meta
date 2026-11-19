@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: 931144828557ef5428dc5c79004ab79e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1427621656430681544
+    second: level complete button_0
+  - first:
+      213: 7606649726439785138
+    second: level complete button_1
+  - first:
+      213: -6819682421422639803
+    second: level complete button_2
+  - first:
+      213: 8549779579292831057
+    second: level complete button_3
+  - first:
+      213: -7176621726791222342
+    second: level complete button_4
+  - first:
+      213: -4438691925929050504
+    second: level complete button_5
+  - first:
+      213: -5272687142803492239
+    second: level complete button_6
+  - first:
+      213: -7428540838318739452
+    second: level complete button_7
+  - first:
+      213: -6490249486809376240
+    second: level complete button_8
+  - first:
+      213: -2546476250403396847
+    second: level complete button_9
+  - first:
+      213: 73990271497578593
+    second: level complete button_10
+  - first:
+      213: -1575219387751742917
+    second: level complete button_11
+  - first:
+      213: -3397251422869780223
+    second: level complete button_12
+  - first:
+      213: 5890966471713678779
+    second: level complete button_13
+  - first:
+      213: 8008870204478685586
+    second: level complete button_14
+  - first:
+      213: 5813677300918922131
+    second: level complete button_15
+  - first:
+      213: 7747010049999664182
+    second: level complete button_16
+  - first:
+      213: 6963981226153527461
+    second: level complete button_17
+  - first:
+      213: -2189478551835103908
+    second: level complete button_18
+  - first:
+      213: -7510533689080867455
+    second: level complete button_19
+  - first:
+      213: 2741660742687618943
+    second: level complete button_20
+  - first:
+      213: 185759866757378217
+    second: level complete button_21
+  - first:
+      213: -1251704025258101220
+    second: level complete button_22
+  - first:
+      213: -4280280907358630681
+    second: level complete button_23
+  - first:
+      213: 3247392828115779476
+    second: level complete button_24
+  - first:
+      213: 931307479102482441
+    second: level complete button_25
+  - first:
+      213: -4411889363329971871
+    second: level complete button_26
+  - first:
+      213: 2231602037168707350
+    second: level complete button_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: level complete button_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 0
+        width: 2148
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cd9439255eefc310800000000000000
+      internalID: 1427621656430681544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_1
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 667
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b2044bdf9f309960800000000000000
+      internalID: 7606649726439785138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_2
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 665
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 545b02e48fe9b51a0800000000000000
+      internalID: -6819682421422639803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_3
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 669
+        width: 69
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d43ab8a3be6a670800000000000000
+      internalID: 8549779579292831057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_4
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 663
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb32471094876c90800000000000000
+      internalID: -7176621726791222342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_5
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 644
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87eba97e5399662c0800000000000000
+      internalID: -4438691925929050504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_6
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 653
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 172bd61caf6a3d6b0800000000000000
+      internalID: -5272687142803492239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_7
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 642
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4007784377588e890800000000000000
+      internalID: -7428540838318739452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_8
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 642
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ad0138a700ee5a0800000000000000
+      internalID: -6490249486809376240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_9
+      rect:
+        serializedVersion: 2
+        x: 1989
+        y: 644
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 113acb1975919acd0800000000000000
+      internalID: -2546476250403396847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 83
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 168a27982cdd60100800000000000000
+      internalID: 73990271497578593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_11
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 514
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b32cfbd0052b32ae0800000000000000
+      internalID: -1575219387751742917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_12
+      rect:
+        serializedVersion: 2
+        x: 2081
+        y: 498
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 109082f84d98ad0d0800000000000000
+      internalID: -3397251422869780223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_13
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 83
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb5ea3a5bcae0c150800000000000000
+      internalID: 5890966471713678779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_14
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 95
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2918926a409352f60800000000000000
+      internalID: 8008870204478685586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_15
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 81
+        width: 66
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b2608f3b45ea050800000000000000
+      internalID: 5813677300918922131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_16
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 83
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6347c955898e28b60800000000000000
+      internalID: 7747010049999664182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_17
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 96
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a8ce57470805a060800000000000000
+      internalID: 6963981226153527461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_18
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 91
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5d28828bd86d91e0800000000000000
+      internalID: -2189478551835103908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_19
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 92
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1851bbcf66935c790800000000000000
+      internalID: -7510533689080867455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_20
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 79
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7777866be55c0620800000000000000
+      internalID: 2741660742687618943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_21
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a0f8975d93f39200800000000000000
+      internalID: 185759866757378217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_22
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 81
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c16709222dd01aee0800000000000000
+      internalID: -1251704025258101220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_23
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 77
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec800251336994c0800000000000000
+      internalID: -4280280907358630681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_24
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 62
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ffdfd529e011d20800000000000000
+      internalID: 3247392828115779476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_25
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 71
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 908619cc73bacec00800000000000000
+      internalID: 931307479102482441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_26
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 63
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 169846ecff1d5c2c0800000000000000
+      internalID: -4411889363329971871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level complete button_27
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 47
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6179a71ba3e38fe10800000000000000
+      internalID: 2231602037168707350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      level complete button_0: 1427621656430681544
+      level complete button_1: 7606649726439785138
+      level complete button_10: 73990271497578593
+      level complete button_11: -1575219387751742917
+      level complete button_12: -3397251422869780223
+      level complete button_13: 5890966471713678779
+      level complete button_14: 8008870204478685586
+      level complete button_15: 5813677300918922131
+      level complete button_16: 7747010049999664182
+      level complete button_17: 6963981226153527461
+      level complete button_18: -2189478551835103908
+      level complete button_19: -7510533689080867455
+      level complete button_2: -6819682421422639803
+      level complete button_20: 2741660742687618943
+      level complete button_21: 185759866757378217
+      level complete button_22: -1251704025258101220
+      level complete button_23: -4280280907358630681
+      level complete button_24: 3247392828115779476
+      level complete button_25: 931307479102482441
+      level complete button_26: -4411889363329971871
+      level complete button_27: 2231602037168707350
+      level complete button_3: 8549779579292831057
+      level complete button_4: -7176621726791222342
+      level complete button_5: -4438691925929050504
+      level complete button_6: -5272687142803492239
+      level complete button_7: -7428540838318739452
+      level complete button_8: -6490249486809376240
+      level complete button_9: -2546476250403396847
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
