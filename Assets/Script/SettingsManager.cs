@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 /// <summary>
 /// SettingsManager — Sound and Music toggles for Ocean Rescuers.
@@ -33,6 +34,11 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI musicLabel;
     [SerializeField] private TextMeshProUGUI soundLabel;
 
+    // ── State icon Images (child SoundStateIcon / MusicStateIcon) ─────────────
+    [Header("State Icon Images")]
+    [SerializeField] private Image soundIconImage;  // child: SoundStateIcon
+    [SerializeField] private Image musicIconImage;  // child: MusicStateIcon
+
     // ── Colors for ON / OFF ───────────────────────────────────────────────────
     [Header("Toggle Colors")]
     [SerializeField] private Color onColor  = new Color(0.2f, 0.9f, 0.4f);
@@ -46,6 +52,18 @@ public class SettingsManager : MonoBehaviour
 
     private void OnEnable()
     {
+        // Auto-find icon Images from children if not assigned in Inspector
+        if (soundIconImage == null && soundButton != null)
+        {
+            var t = soundButton.transform.Find("SoundStateIcon");
+            if (t != null) soundIconImage = t.GetComponent<Image>();
+        }
+        if (musicIconImage == null && musicButton != null)
+        {
+            var t = musicButton.transform.Find("MusicStateIcon");
+            if (t != null) musicIconImage = t.GetComponent<Image>();
+        }
+
         // Read current state
         _musicOn = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
         _soundOn = PlayerPrefs.GetInt("SFXEnabled",   1) == 1;
@@ -105,8 +123,24 @@ public class SettingsManager : MonoBehaviour
 
     private void RefreshUI()
     {
-        UpdateButton(musicButton, _musicOn, musicOnSprite, musicOffSprite,  musicLabel, "Music");
-        UpdateButton(soundButton, _soundOn, soundOnSprite, soundOffSprite,  soundLabel, "Sound");
+        UpdateButton(musicButton, _musicOn, musicOnSprite, musicOffSprite, musicLabel, "Music");
+        UpdateButton(soundButton, _soundOn, soundOnSprite, soundOffSprite, soundLabel, "Sound");
+        // Swap state icon sprites immediately
+        SwapIcon(soundIconImage, _soundOn, soundOnSprite, soundOffSprite);
+        SwapIcon(musicIconImage, _musicOn, musicOnSprite, musicOffSprite);
+    }
+
+    // Swaps the sprite on a child state-icon Image (preserveAspect, no distortion)
+    private void SwapIcon(Image iconImg, bool isOn, Sprite onSpr, Sprite offSpr)
+    {
+        if (iconImg == null) return;
+        Sprite target = isOn ? onSpr : offSpr;
+        if (target != null)
+        {
+            iconImg.sprite        = target;
+            iconImg.preserveAspect = true;
+            iconImg.enabled       = true;
+        }
     }
 
     private void UpdateButton(Button btn, bool isOn,
@@ -115,21 +149,56 @@ public class SettingsManager : MonoBehaviour
     {
         if (btn == null) return;
 
-        // Swap sprite
-        var img = btn.GetComponent<Image>();
-        if (img != null)
+        // ── Swap icon sprite (child "Icon" Image) ────────────────────────────
+        // The button background is a plain panel; the icon child holds the sprite.
+        var iconTF = btn.transform.Find("Icon");
+        if (iconTF != null)
         {
-            if (isOn  && onSprite  != null) img.sprite = onSprite;
-            if (!isOn && offSprite != null) img.sprite = offSprite;
-            // If no sprites, use color tint
-            if (onSprite == null && offSprite == null)
-                img.color = isOn ? onColor : offColor;
+            var iconImg = iconTF.GetComponent<Image>();
+            if (iconImg != null)
+            {
+                if (isOn  && onSprite  != null) iconImg.sprite = onSprite;
+                if (!isOn && offSprite != null) iconImg.sprite = offSprite;
+                // Color-tint the icon to show ON (white) / OFF (grey) even without sprites
+                iconImg.color = isOn ? Color.white : new Color(0.5f, 0.5f, 0.5f, 0.8f);
+            }
+        }
+        else
+        {
+            // Fallback: swap sprite on the button's own Image (old button design)
+            var img = btn.GetComponent<Image>();
+            if (img != null)
+            {
+                if (isOn  && onSprite  != null) img.sprite = onSprite;
+                if (!isOn && offSprite != null) img.sprite = offSprite;
+                if (onSprite == null && offSprite == null)
+                    img.color = isOn ? onColor : offColor;
+            }
         }
 
-        // Update label
+        // ── Tint button background green (ON) or red (OFF) ───────────────────
+        var bgImg = btn.GetComponent<Image>();
+        if (bgImg != null && bgImg.sprite == null)
+        {
+            // Panel-style button: tint background
+            bgImg.color = isOn
+                ? new Color(0.1f, 0.4f, 0.15f, 0.92f)   // dark green = ON
+                : new Color(0.4f, 0.1f, 0.1f, 0.92f);    // dark red   = OFF
+        }
+
+        // ── Update label text ─────────────────────────────────────────────────
         if (label != null)
         {
-            label.text  = $"{labelName}: {(isOn ? "<color=#33FF66>ON</color>" : "<color=#FF4444>OFF</color>")}";
+            label.text = $"{labelName}: {(isOn ? "<color=#33FF66>ON</color>" : "<color=#FF4444>OFF</color>")}";
+        }
+
+        // ── Also update state indicator strip if present ──────────────────────
+        var indTF = btn.transform.Find("StateIndicator");
+        if (indTF != null)
+        {
+            var indImg = indTF.GetComponent<Image>();
+            if (indImg != null)
+                indImg.color = isOn ? new Color(0.2f, 0.9f, 0.4f) : new Color(0.9f, 0.2f, 0.2f);
         }
     }
 

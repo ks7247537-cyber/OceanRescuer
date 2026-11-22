@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Represents a single level entry in the Level Selection screen.
@@ -17,20 +18,27 @@ public class LevelButton : MonoBehaviour
 
     [Header("Labels")]
     [SerializeField] private Text levelNumberText;
+    [SerializeField] private TextMeshProUGUI levelNumberTMP;
 
     [Header("Star Sprites")]
     [SerializeField] private Sprite starFilledSprite;
     [SerializeField] private Sprite starEmptySprite;
 
-    // ── Internal ─────────────────────────────────────────────────────────────
     private Button _button;
     private Action _onClickCallback;
+    private bool _isUnlocked = false;
 
     private void Awake()
     {
         _button = GetComponent<Button>();
         if (_button != null)
+        {
+            _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(HandleClick);
+        }
+
+        if (levelNumberTMP == null)
+            levelNumberTMP = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void OnDestroy()
@@ -39,19 +47,30 @@ public class LevelButton : MonoBehaviour
             _button.onClick.RemoveListener(HandleClick);
     }
 
-    // ── Public API ───────────────────────────────────────────────────────────
-
     /// <summary>
-    /// Configure this button's visuals.
+    /// Configure this button's visuals and interactability.
     /// </summary>
     /// <param name="levelNum">1-based level number shown on the button.</param>
     /// <param name="stars">Stars earned (0-3).</param>
     /// <param name="isUnlocked">Whether the level is playable.</param>
     public void Setup(int levelNum, int stars, bool isUnlocked)
     {
-        // Level number label
+        _isUnlocked = isUnlocked;
+
+        if (levelNumberTMP == null)
+            levelNumberTMP = GetComponentInChildren<TextMeshProUGUI>(true);
+
+        // Level number label (support both UI.Text and TextMeshProUGUI)
         if (levelNumberText != null)
+        {
             levelNumberText.text = levelNum.ToString();
+            levelNumberText.gameObject.SetActive(isUnlocked);
+        }
+        if (levelNumberTMP != null)
+        {
+            levelNumberTMP.text = levelNum.ToString();
+            levelNumberTMP.gameObject.SetActive(isUnlocked);
+        }
 
         // Stars (0-3 filled)
         stars = Mathf.Clamp(stars, 0, 3);
@@ -66,14 +85,21 @@ public class LevelButton : MonoBehaviour
 
                 // Tint as a fallback when no sprites are assigned
                 starImages[i].color = filled ? Color.yellow : new Color(0.4f, 0.4f, 0.4f, 1f);
+                starImages[i].gameObject.SetActive(isUnlocked);
+            }
+
+            // Toggle parent container if available (e.g. "Stars" GameObject)
+            if (starImages.Length > 0 && starImages[0] != null && starImages[0].transform.parent != null)
+            {
+                starImages[0].transform.parent.gameObject.SetActive(isUnlocked);
             }
         }
 
-        // Lock overlay
+        // Lock overlay: visible when locked, hidden when unlocked
         if (lockedOverlay != null)
             lockedOverlay.SetActive(!isUnlocked);
 
-        // Button interactability
+        // Button interactability: interactable only when unlocked
         if (_button != null)
             _button.interactable = isUnlocked;
     }
@@ -84,10 +110,15 @@ public class LevelButton : MonoBehaviour
         _onClickCallback = callback;
     }
 
-    // ── Internal ─────────────────────────────────────────────────────────────
-
     private void HandleClick()
     {
+        // Guard against clicking if locked
+        if (!_isUnlocked)
+        {
+            Debug.Log("[LevelButton] Click ignored: Level is locked.");
+            return;
+        }
+
         _onClickCallback?.Invoke();
     }
 }

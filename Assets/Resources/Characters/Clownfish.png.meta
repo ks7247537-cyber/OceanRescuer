@@ -1,0 +1,2418 @@
+fileFormatVersion: 2
+guid: 045f633d73a33477ba2a6e9126fc62c8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3040762595238011028
+    second: Clownfish_0
+  - first:
+      213: -7606964831758018631
+    second: Clownfish_1
+  - first:
+      213: -1298369833097546957
+    second: Clownfish_2
+  - first:
+      213: 3722055315330358577
+    second: Clownfish_3
+  - first:
+      213: -1462638358259537232
+    second: Clownfish_4
+  - first:
+      213: -2414964601357028092
+    second: Clownfish_5
+  - first:
+      213: -6915220222364347778
+    second: Clownfish_6
+  - first:
+      213: 7922672970929011751
+    second: Clownfish_7
+  - first:
+      213: -8237563482508257734
+    second: Clownfish_8
+  - first:
+      213: 7379874452248107163
+    second: Clownfish_9
+  - first:
+      213: -6668498786259555599
+    second: Clownfish_10
+  - first:
+      213: -7352435460581048230
+    second: Clownfish_11
+  - first:
+      213: -7270576717926315381
+    second: Clownfish_12
+  - first:
+      213: 5373081176474953819
+    second: Clownfish_13
+  - first:
+      213: 2283802418947838846
+    second: Clownfish_14
+  - first:
+      213: 2056547897092662081
+    second: Clownfish_15
+  - first:
+      213: -503618604324744814
+    second: Clownfish_16
+  - first:
+      213: -4139904068548205106
+    second: Clownfish_17
+  - first:
+      213: 473787727373022921
+    second: Clownfish_18
+  - first:
+      213: 8895250767765062719
+    second: Clownfish_19
+  - first:
+      213: 7394497217690401378
+    second: Clownfish_20
+  - first:
+      213: 3386521188179649120
+    second: Clownfish_21
+  - first:
+      213: 273338549150194303
+    second: Clownfish_22
+  - first:
+      213: 8689801088011659238
+    second: Clownfish_23
+  - first:
+      213: 5901261975363744426
+    second: Clownfish_24
+  - first:
+      213: 7713135515023968918
+    second: Clownfish_25
+  - first:
+      213: -4449779987529808924
+    second: Clownfish_26
+  - first:
+      213: -2348061832093043886
+    second: Clownfish_27
+  - first:
+      213: 5174447406325853401
+    second: Clownfish_28
+  - first:
+      213: -4899133336053473821
+    second: Clownfish_29
+  - first:
+      213: 9106128922623385952
+    second: Clownfish_30
+  - first:
+      213: 8510122650678175728
+    second: Clownfish_31
+  - first:
+      213: -3269391101657882599
+    second: Clownfish_32
+  - first:
+      213: -6118464866330081496
+    second: Clownfish_33
+  - first:
+      213: 2100868752388003871
+    second: Clownfish_34
+  - first:
+      213: -1786211076103277392
+    second: Clownfish_35
+  - first:
+      213: -518247800806461634
+    second: Clownfish_36
+  - first:
+      213: 5596629807940561935
+    second: Clownfish_37
+  - first:
+      213: -8840957730711068892
+    second: Clownfish_38
+  - first:
+      213: -3496239769294103704
+    second: Clownfish_39
+  - first:
+      213: 6736763435997868247
+    second: Clownfish_40
+  - first:
+      213: 3126601455304789444
+    second: Clownfish_41
+  - first:
+      213: -8476085547936075247
+    second: Clownfish_42
+  - first:
+      213: -2295283553647813505
+    second: Clownfish_43
+  - first:
+      213: 272786139344649361
+    second: Clownfish_44
+  - first:
+      213: -5175589344256328131
+    second: Clownfish_45
+  - first:
+      213: 3019147867893451644
+    second: Clownfish_46
+  - first:
+      213: 1718515113083480765
+    second: Clownfish_47
+  - first:
+      213: 8367473144435088633
+    second: Clownfish_48
+  - first:
+      213: -7466105717313599946
+    second: Clownfish_49
+  - first:
+      213: 1427339567977655932
+    second: Clownfish_50
+  - first:
+      213: 9138946640270980233
+    second: Clownfish_51
+  - first:
+      213: 4886301538698480543
+    second: Clownfish_52
+  - first:
+      213: -8093996233987976483
+    second: Clownfish_53
+  - first:
+      213: -5683113516533179937
+    second: Clownfish_54
+  - first:
+      213: 3415195501960691746
+    second: Clownfish_55
+  - first:
+      213: -4228129460670303199
+    second: Clownfish_56
+  - first:
+      213: 1548430420067149393
+    second: Clownfish_57
+  - first:
+      213: -3574450293715569734
+    second: Clownfish_58
+  - first:
+      213: 5252854012300906071
+    second: Clownfish_59
+  - first:
+      213: 4869527691980521941
+    second: Clownfish_60
+  - first:
+      213: 4067136877252815305
+    second: Clownfish_61
+  - first:
+      213: -7828627997003419233
+    second: Clownfish_62
+  - first:
+      213: -5626334854250333768
+    second: Clownfish_63
+  - first:
+      213: -9181825365423664379
+    second: Clownfish_64
+  - first:
+      213: -4303488841025431959
+    second: Clownfish_65
+  - first:
+      213: -4957269032946247202
+    second: Clownfish_66
+  - first:
+      213: -4570395066316833795
+    second: Clownfish_67
+  - first:
+      213: -3708898141182931786
+    second: Clownfish_68
+  - first:
+      213: -4567886674298803730
+    second: Clownfish_69
+  - first:
+      213: -2919869316889120057
+    second: Clownfish_70
+  - first:
+      213: -6177897588713362991
+    second: Clownfish_71
+  - first:
+      213: -5184596569950975891
+    second: Clownfish_72
+  - first:
+      213: -8223725611237314563
+    second: Clownfish_73
+  - first:
+      213: 1840774266599906456
+    second: Clownfish_74
+  - first:
+      213: -351436809690198414
+    second: Clownfish_75
+  - first:
+      213: -8018323357254172233
+    second: Clownfish_76
+  - first:
+      213: 2222883551082432361
+    second: Clownfish_77
+  - first:
+      213: -8204600215788512350
+    second: Clownfish_78
+  - first:
+      213: -4218642574833879816
+    second: Clownfish_79
+  - first:
+      213: -7537892328587689959
+    second: Clownfish_80
+  - first:
+      213: -8239152773628723496
+    second: Clownfish_81
+  - first:
+      213: 6945092324719464095
+    second: Clownfish_82
+  - first:
+      213: 1025587899939446947
+    second: Clownfish_83
+  - first:
+      213: 2053629718753402236
+    second: Clownfish_84
+  - first:
+      213: -1453559131169478865
+    second: Clownfish_85
+  - first:
+      213: -5318308578573671356
+    second: Clownfish_86
+  - first:
+      213: 8350390477438890760
+    second: Clownfish_87
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1570
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Clownfish_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1229
+        height: 1222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f1b80c78a0dc5d0800000000000000
+      internalID: -3040762595238011028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_1
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 953
+        width: 138
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b79c28f9c1ae6690800000000000000
+      internalID: -7606964831758018631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_2
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 1208
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 333332f04834bfde0800000000000000
+      internalID: -1298369833097546957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_3
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1032
+        width: 261
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13dde98c69567a330800000000000000
+      internalID: 3722055315330358577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_4
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 1201
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba641d992aa3bbe0800000000000000
+      internalID: -1462638358259537232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_5
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 1207
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 405b8f67d725c7ed0800000000000000
+      internalID: -2414964601357028092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_6
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 1140
+        width: 98
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72106e98d33800a0800000000000000
+      internalID: -6915220222364347778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_7
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1183
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72cffc7471df2fd60800000000000000
+      internalID: 7922672970929011751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_8
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1180
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a369d5a38ab4ead80800000000000000
+      internalID: -8237563482508257734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_9
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1157
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b989a3dc6b49a6660800000000000000
+      internalID: 7379874452248107163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_10
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 1165
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa20e36fabb473a0800000000000000
+      internalID: -6668498786259555599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_11
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1132
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50c41a47e6e6f990800000000000000
+      internalID: -7352435460581048230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_12
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1108
+        width: 60
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ac6c70ff8b91b90800000000000000
+      internalID: -7270576717926315381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_13
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1146
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58a029bcd4019a40800000000000000
+      internalID: 5373081176474953819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_14
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1144
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e73509e2332b1bf10800000000000000
+      internalID: 2283802418947838846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_15
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 1133
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 143e8c59a635a8c10800000000000000
+      internalID: 2056547897092662081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_16
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 1089
+        width: 57
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29112f23c89c209f0800000000000000
+      internalID: -503618604324744814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_17
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1100
+        width: 49
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec56dfd0f2b1c86c0800000000000000
+      internalID: -4139904068548205106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_18
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 1102
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c632058d6b339600800000000000000
+      internalID: 473787727373022921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_19
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 1098
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3448a8b177427b70800000000000000
+      internalID: 8895250767765062719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_20
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 1084
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26afc01ba088e9660800000000000000
+      internalID: 7394497217690401378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_21
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1082
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06228cdf3175ffe20800000000000000
+      internalID: 3386521188179649120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_22
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1079
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a948556f71bc300800000000000000
+      internalID: 273338549150194303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_23
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 1086
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7ecbb8c00689870800000000000000
+      internalID: 8689801088011659238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_24
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 939
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa27318108e75e150800000000000000
+      internalID: 5901261975363744426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_25
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 842
+        width: 106
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a047d82ef8a0b60800000000000000
+      internalID: 7713135515023968918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_26
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 835
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3c4a26da43f32c0800000000000000
+      internalID: -4449779987529808924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 757
+        width: 23
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 253f07b44320a6fd0800000000000000
+      internalID: -2348061832093043886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_28
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 809
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dc6efa20845fc740800000000000000
+      internalID: 5174447406325853401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_29
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 810
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed12450038c20cb0800000000000000
+      internalID: -4899133336053473821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_30
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 801
+        width: 33
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061a0ef32087f5e70800000000000000
+      internalID: 9106128922623385952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_31
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 793
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f7ada456770a1670800000000000000
+      internalID: 8510122650678175728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_32
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 779
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 910ebd17d1ac0a2d0800000000000000
+      internalID: -3269391101657882599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_33
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 773
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82700bffe98d61ba0800000000000000
+      internalID: -6118464866330081496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_34
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 761
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f181ec9dff8c72d10800000000000000
+      internalID: 2100868752388003871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_35
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 763
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4fef27d7a1637e0800000000000000
+      internalID: -1786211076103277392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_36
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 753
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3fad47fe50dec8f0800000000000000
+      internalID: -518247800806461634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_37
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 696
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ce8a978293bad40800000000000000
+      internalID: 5596629807940561935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_38
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 698
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f19ba09cb9e4580800000000000000
+      internalID: -8840957730711068892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_39
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 711
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86b91a5247cda7fc0800000000000000
+      internalID: -3496239769294103704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_40
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 696
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d03e72f6aacd7d50800000000000000
+      internalID: 6736763435997868247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_41
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 693
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd49a9457be36b20800000000000000
+      internalID: 3126601455304789444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_42
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 672
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112b2753a15ee5a80800000000000000
+      internalID: -8476085547936075247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_43
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 674
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c9606d4c38520e0800000000000000
+      internalID: -2295283553647813505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_44
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 624
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19cb9476c8129c300800000000000000
+      internalID: 272786139344649361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_45
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 585
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3efd40b9ec9c28b0800000000000000
+      internalID: -5175589344256328131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_46
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 572
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7bca2e5dfa26e920800000000000000
+      internalID: 3019147867893451644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_47
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 530
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dba2b78e36469d710800000000000000
+      internalID: 1718515113083480765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_48
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 524
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc9ca9fd7c3f1470800000000000000
+      internalID: 8367473144435088633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_49
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 513
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63682004860136890800000000000000
+      internalID: -7466105717313599946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 479
+        width: 6
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7eea2356cdeec310800000000000000
+      internalID: 1427339567977655932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_51
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 471
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 984f9929c8f04de70800000000000000
+      internalID: 9138946640270980233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_52
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 481
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9b41975c51afc340800000000000000
+      internalID: 4886301538698480543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_53
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 483
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd21ccb1f495caf80800000000000000
+      internalID: -8093996233987976483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_54
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 449
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd991dcfd568121b0800000000000000
+      internalID: -5683113516533179937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_55
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 464
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22001ece636356f20800000000000000
+      internalID: 3415195501960691746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_56
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 423
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 124f16838aaa255c0800000000000000
+      internalID: -4228129460670303199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_57
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 401
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156e28b53412d7510800000000000000
+      internalID: 1548430420067149393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_58
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 371
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab3fac76560056ec0800000000000000
+      internalID: -3574450293715569734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_59
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 371
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e4e24b4e2e5e840800000000000000
+      internalID: 5252854012300906071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_60
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 213
+        width: 112
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d14d60d2a9049340800000000000000
+      internalID: 4869527691980521941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_61
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 342
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c9ab85f07f517830800000000000000
+      internalID: 4067136877252815305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_62
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 312
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f91fee780502b5390800000000000000
+      internalID: -7828627997003419233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_63
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 288
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b97209724e3be1b0800000000000000
+      internalID: -5626334854250333768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_64
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 286
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50350404a7a939080800000000000000
+      internalID: -9181825365423664379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_65
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 272
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96652df23bfe644c0800000000000000
+      internalID: -4303488841025431959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_66
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 122
+        width: 103
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed9d13b441e343bb0800000000000000
+      internalID: -4957269032946247202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_67
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 208
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfbbcf4f6e1b290c0800000000000000
+      internalID: -4570395066316833795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_68
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 182
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc4faa8ac8578cc0800000000000000
+      internalID: -3708898141182931786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_69
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 177
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee9ed2c754b9b90c0800000000000000
+      internalID: -4567886674298803730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_70
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 160
+        width: 60
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c2f240935a8a77d0800000000000000
+      internalID: -2919869316889120057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_71
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 182
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d96ffdffd2b34aa0800000000000000
+      internalID: -6177897588713362991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_72
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 168
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d680d5883ec9c08b0800000000000000
+      internalID: -5184596569950975891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_73
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 174
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dffeae3b0257fdd80800000000000000
+      internalID: -8223725611237314563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_74
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 152
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c1e50517ebb8910800000000000000
+      internalID: 1840774266599906456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_75
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 164
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27e4b6565127f1bf0800000000000000
+      internalID: -351436809690198414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_76
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 160
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b1c5a4b36139b090800000000000000
+      internalID: -8018323357254172233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_77
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 162
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 967c357ffc449de10800000000000000
+      internalID: 2222883551082432361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_78
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 167
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab15d5d297632e80800000000000000
+      internalID: -8204600215788512350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_79
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 115
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4ffa4fdee5475c0800000000000000
+      internalID: -4218642574833879816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_80
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 117
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91083675dd6046790800000000000000
+      internalID: -7537892328587689959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_81
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 132
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8de7fad8436a8ad80800000000000000
+      internalID: -8239152773628723496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_82
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 111
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9e02333cace16060800000000000000
+      internalID: 6945092324719464095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_83
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 89
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a064ddd2ce9b3e00800000000000000
+      internalID: 1025587899939446947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_84
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 65
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d5b7e3955ff7c10800000000000000
+      internalID: 2053629718753402236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_85
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 55
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f272e96ebabe3dbe0800000000000000
+      internalID: -1453559131169478865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_86
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 18
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 444243086829136b0800000000000000
+      internalID: -5318308578573671356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clownfish_87
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 17
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803bc8f95eb82e370800000000000000
+      internalID: 8350390477438890760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Clownfish_0: -3040762595238011028
+      Clownfish_1: -7606964831758018631
+      Clownfish_10: -6668498786259555599
+      Clownfish_11: -7352435460581048230
+      Clownfish_12: -7270576717926315381
+      Clownfish_13: 5373081176474953819
+      Clownfish_14: 2283802418947838846
+      Clownfish_15: 2056547897092662081
+      Clownfish_16: -503618604324744814
+      Clownfish_17: -4139904068548205106
+      Clownfish_18: 473787727373022921
+      Clownfish_19: 8895250767765062719
+      Clownfish_2: -1298369833097546957
+      Clownfish_20: 7394497217690401378
+      Clownfish_21: 3386521188179649120
+      Clownfish_22: 273338549150194303
+      Clownfish_23: 8689801088011659238
+      Clownfish_24: 5901261975363744426
+      Clownfish_25: 7713135515023968918
+      Clownfish_26: -4449779987529808924
+      Clownfish_27: -2348061832093043886
+      Clownfish_28: 5174447406325853401
+      Clownfish_29: -4899133336053473821
+      Clownfish_3: 3722055315330358577
+      Clownfish_30: 9106128922623385952
+      Clownfish_31: 8510122650678175728
+      Clownfish_32: -3269391101657882599
+      Clownfish_33: -6118464866330081496
+      Clownfish_34: 2100868752388003871
+      Clownfish_35: -1786211076103277392
+      Clownfish_36: -518247800806461634
+      Clownfish_37: 5596629807940561935
+      Clownfish_38: -8840957730711068892
+      Clownfish_39: -3496239769294103704
+      Clownfish_4: -1462638358259537232
+      Clownfish_40: 6736763435997868247
+      Clownfish_41: 3126601455304789444
+      Clownfish_42: -8476085547936075247
+      Clownfish_43: -2295283553647813505
+      Clownfish_44: 272786139344649361
+      Clownfish_45: -5175589344256328131
+      Clownfish_46: 3019147867893451644
+      Clownfish_47: 1718515113083480765
+      Clownfish_48: 8367473144435088633
+      Clownfish_49: -7466105717313599946
+      Clownfish_5: -2414964601357028092
+      Clownfish_50: 1427339567977655932
+      Clownfish_51: 9138946640270980233
+      Clownfish_52: 4886301538698480543
+      Clownfish_53: -8093996233987976483
+      Clownfish_54: -5683113516533179937
+      Clownfish_55: 3415195501960691746
+      Clownfish_56: -4228129460670303199
+      Clownfish_57: 1548430420067149393
+      Clownfish_58: -3574450293715569734
+      Clownfish_59: 5252854012300906071
+      Clownfish_6: -6915220222364347778
+      Clownfish_60: 4869527691980521941
+      Clownfish_61: 4067136877252815305
+      Clownfish_62: -7828627997003419233
+      Clownfish_63: -5626334854250333768
+      Clownfish_64: -9181825365423664379
+      Clownfish_65: -4303488841025431959
+      Clownfish_66: -4957269032946247202
+      Clownfish_67: -4570395066316833795
+      Clownfish_68: -3708898141182931786
+      Clownfish_69: -4567886674298803730
+      Clownfish_7: 7922672970929011751
+      Clownfish_70: -2919869316889120057
+      Clownfish_71: -6177897588713362991
+      Clownfish_72: -5184596569950975891
+      Clownfish_73: -8223725611237314563
+      Clownfish_74: 1840774266599906456
+      Clownfish_75: -351436809690198414
+      Clownfish_76: -8018323357254172233
+      Clownfish_77: 2222883551082432361
+      Clownfish_78: -8204600215788512350
+      Clownfish_79: -4218642574833879816
+      Clownfish_8: -8237563482508257734
+      Clownfish_80: -7537892328587689959
+      Clownfish_81: -8239152773628723496
+      Clownfish_82: 6945092324719464095
+      Clownfish_83: 1025587899939446947
+      Clownfish_84: 2053629718753402236
+      Clownfish_85: -1453559131169478865
+      Clownfish_86: -5318308578573671356
+      Clownfish_87: 8350390477438890760
+      Clownfish_9: 7379874452248107163
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

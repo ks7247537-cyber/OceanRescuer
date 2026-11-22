@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
-/// Grid-based BFS/DFS flood fill — source se pani flow karta hai
-/// aur connected pipes ko light karta hai.
+/// Grid-based BFS flood fill — source se pani flow karta hai,
+/// interactive valves (ON/OFF, Directional) aur gates (Locked, Pressure)
+/// ko evaluate karta hai aur connected pipes ko light up karta hai.
 /// </summary>
 public class FlowManager : MonoBehaviour
 {
@@ -17,15 +18,27 @@ public class FlowManager : MonoBehaviour
     public Vector2Int sourceCell = new Vector2Int(0, 0);
 
     [Tooltip("Sink tile ka grid position (yahan pahunchna hai)")]
-    public Vector2Int sinkCell = new Vector2Int(4, 4);
+    public Vector2Int sinkCell = new Vector2Int(8, 0);
 
-    // ─────────────────────────────────────────────────────────
+    /// <summary>
+    /// Active interactive valves and gates indexed by their grid position.
+    /// </summary>
+    public Dictionary<Vector2Int, WaterValve> Valves { get; } = new Dictionary<Vector2Int, WaterValve>();
+    public Dictionary<Vector2Int, GateComponent> Gates { get; } = new Dictionary<Vector2Int, GateComponent>();
+
+    /// <summary>
+    /// Ordered list of grid coordinates from sourceCell to sinkCell when connected.
+    /// CharacterMover and water animation follow this path.
+    /// </summary>
+    public List<Vector2Int> CurrentPath { get; private set; } = new List<Vector2Int>();
+
+    // ─────────────────────────────────────────────────────────────────────────
 
     private static readonly int[] DX = {  0, 1,  0, -1 };   // Up, Right, Down, Left
     private static readonly int[] DY = {  1, 0, -1,  0 };
     private static readonly int[] Opposite = { 2, 3, 0, 1 }; // opposite direction
 
-    // ─────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────────────
 
     private void Start()
     {
@@ -33,28 +46,83 @@ public class FlowManager : MonoBehaviour
             gridManager = FindObjectOfType<GridManager>();
     }
 
+    public void RegisterValve(WaterValve v)
+    {
+        if (v != null) Valves[v.gridPos] = v;
+    }
+
+    public void RegisterGate(GateComponent g)
+    {
+        if (g != null) Gates[g.gridPos] = g;
+    }
+
+    public void ClearValvesAndGates()
+    {
+        Valves.Clear();
+        Gates.Clear();
+    }
+
+    public WaterValve GetValveAt(Vector2Int pos) => Valves.TryGetValue(pos, out var v) ? v : null;
+    public GateComponent GetGateAt(Vector2Int pos) => Gates.TryGetValue(pos, out var g) ? g : null;
+
+    /// <summary>
+    /// Called when any valve is tapped. Unlocks linked gates and triggers flow recheck.
+    /// </summary>
+    public void OnValveStateChanged(WaterValve valve)
+    {
+        if (valve == null) return;
+
+        foreach (var kvp in Gates)
+        {
+            var gate = kvp.Value;
+            if (gate != null && gate.gateType == GateType.LockedGate)
+            {
+                if (gate.linkedValvePos == valve.gridPos)
+                {
+                    gate.SetOpen(valve.isOpen);
+                }
+            }
+        }
+    }
+
     /// <summary>
     /// Source se BFS flood-fill chalao.
-    /// Sabse pehle saari tiles ka connected state reset karo,
-    /// phir naya flow calculate karo.
+    /// Evaluates pipe orientations, ON/OFF valves, directional valves, locked gates, and pressure gates.
     /// Returns: kya sink tak pahuncha?
     /// </summary>
     public bool RunFlow()
     {
+        if (gridManager == null) gridManager = FindObjectOfType<GridManager>();
+        if (gridManager == null || gridManager.Grid == null) return false;
+
         PipeTile[,] grid = gridManager.Grid;
         int cols = gridManager.Cols;
         int rows = gridManager.Rows;
 
-        // --- Reset ---
+        // Reset pipe connected states
         for (int x = 0; x < cols; x++)
             for (int y = 0; y < rows; y++)
                 grid[x, y]?.SetConnected(false);
 
-        // --- BFS ---
+        // Update locked gates based on current linked valve states
+        foreach (var kvp in Gates)
+        {
+            var gate = kvp.Value;
+            if (gate != null && gate.gateType == GateType.LockedGate)
+            {
+                if (gate.linkedValvePos.x >= 0 && gate.linkedValvePos.y >= 0)
+                {
+                    var linkedV = GetValveAt(gate.linkedValvePos);
+                    gate.SetOpen(linkedV != null && linkedV.isOpen);
+                }
+            }
+        }
+
+        // BFS traversal
         var visited = new bool[cols, rows];
         var queue = new Queue<Vector2Int>();
+        var parent = new Dictionary<Vector2Int, Vector2Int>();
 
-        // Source se shuru
         queue.Enqueue(sourceCell);
         visited[sourceCell.x, sourceCell.y] = true;
         grid[sourceCell.x, sourceCell.y]?.SetConnected(true);
@@ -67,35 +135,143 @@ public class FlowManager : MonoBehaviour
             PipeTile currTile = grid[curr.x, curr.y];
             if (currTile == null) continue;
 
-            // Char directions check karo
+            // Check if current tile has a valve blocking outgoing water
+            var currValve = GetValveAt(curr);
+
             for (int dir = 0; dir < 4; dir++)
             {
-                // Current tile ki is direction mein opening hai?
                 if (!currTile.HasOpening(dir)) continue;
+
+                // Valve check on current tile
+                if (currValve != null && !currValve.CanPassFlow(dir)) continue;
 
                 int nx = curr.x + DX[dir];
                 int ny = curr.y + DY[dir];
 
-                // Bounds check
                 if (nx < 0 || nx >= cols || ny < 0 || ny >= rows) continue;
                 if (visited[nx, ny]) continue;
 
                 PipeTile neighbor = grid[nx, ny];
                 if (neighbor == null) continue;
 
-                // Neighbor ki opposite direction mein opening hai?
                 if (!neighbor.HasOpening(Opposite[dir])) continue;
 
-                // Flow connect ho gaya!
+                Vector2Int nextPos = new Vector2Int(nx, ny);
+
+                // Check valve on neighbor tile (if OnOff, must be open to enter)
+                var neighborValve = GetValveAt(nextPos);
+                if (neighborValve != null && neighborValve.valveType == ValveType.OnOff && !neighborValve.isOpen)
+                    continue;
+
+                // Check gate on neighbor tile
+                var neighborGate = GetGateAt(nextPos);
+                if (neighborGate != null)
+                {
+                    if (neighborGate.gateType == GateType.PressureGate)
+                    {
+                        int pressure = CalculateUpstreamPressure(parent, curr);
+                        if (!neighborGate.EvaluatePressure(pressure))
+                        {
+                            continue; // Insufficient pressure blocks water!
+                        }
+                    }
+                    else
+                    {
+                        if (!neighborGate.IsOpen) continue; // Locked, electric gate or obstacle blocks water!
+                    }
+                }
+
+                // Water connects!
                 visited[nx, ny] = true;
+                parent[nextPos] = curr;
                 neighbor.SetConnected(true);
-                queue.Enqueue(new Vector2Int(nx, ny));
+                queue.Enqueue(nextPos);
 
                 if (nx == sinkCell.x && ny == sinkCell.y)
                     reachedSink = true;
             }
         }
 
+        // Reconstruct path if sink was reached
+        CurrentPath.Clear();
+        if (reachedSink)
+        {
+            Vector2Int curr = sinkCell;
+            while (curr != sourceCell)
+            {
+                CurrentPath.Add(curr);
+                if (!parent.ContainsKey(curr)) break;
+                curr = parent[curr];
+            }
+            CurrentPath.Add(sourceCell);
+            CurrentPath.Reverse();
+            Debug.Log($"[FlowManager] Path solved! Length: {CurrentPath.Count} tiles.");
+        }
+
+        // Update visual connection states of all valves
+        foreach (var kvp in Valves)
+        {
+            bool isOnPath = CurrentPath.Contains(kvp.Key);
+            kvp.Value?.SetConnectedVisual(isOnPath);
+        }
+
         return reachedSink;
+    }
+
+    private int CalculateUpstreamPressure(Dictionary<Vector2Int, Vector2Int> parentDict, Vector2Int node)
+    {
+        int pressure = 1;
+        Vector2Int curr = node;
+        while (curr != sourceCell && parentDict.ContainsKey(curr))
+        {
+            pressure++;
+            curr = parentDict[curr];
+        }
+        return pressure;
+    }
+
+    /// <summary>
+    /// Sequential water animation that flows tile-by-tile from source to sink.
+    /// </summary>
+    public void AnimateWaterFlow(System.Action onComplete = null)
+    {
+        StartCoroutine(WaterFlowRoutine(onComplete));
+    }
+
+    private IEnumerator WaterFlowRoutine(System.Action onComplete)
+    {
+        if (gridManager == null || CurrentPath == null || CurrentPath.Count == 0)
+        {
+            onComplete?.Invoke();
+            yield break;
+        }
+
+        PipeTile[,] grid = gridManager.Grid;
+
+        for (int x = 0; x < gridManager.Cols; x++)
+            for (int y = 0; y < gridManager.Rows; y++)
+                grid[x, y]?.SetConnected(false);
+
+        for (int i = 0; i < CurrentPath.Count; i++)
+        {
+            Vector2Int pos = CurrentPath[i];
+            PipeTile tile = grid[pos.x, pos.y];
+            if (tile != null)
+            {
+                tile.SetConnected(true);
+                tile.PlayWaterPulse();
+            }
+
+            var valve = GetValveAt(pos);
+            if (valve != null) valve.SetConnectedVisual(true);
+
+            var gate = GetGateAt(pos);
+            if (gate != null) gate.SetOpen(true);
+
+            yield return new WaitForSeconds(0.08f);
+        }
+
+        yield return new WaitForSeconds(0.25f);
+        onComplete?.Invoke();
     }
 }

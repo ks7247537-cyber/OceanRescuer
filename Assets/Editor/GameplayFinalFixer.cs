@@ -136,11 +136,9 @@ public static class GameplayFinalFixer
         }
 
         // For 9x5 grid with TileSize=1.1:
-        // Grid height = 4 * 1.1 = 4.4 (row span from y=0 to y=4)
-        // Half height with padding: ~3.0 fits nicely
-        // But if pipes are centered at 0,0 → y spans from -2.2 to +2.2
-        // HUD_Canvas is overlay so camera only needs to show the grid
-        const float TARGET_ORTHO = 4.0f;
+        // Grid total = 9.9 x 5.5 units. Camera 16:9 needs orthoSize = max(5.5/2, 9.9/(2*16/9)) * 1.15 = 3.2
+        // orthoSize=3.2 → visible 7.11w x 6.4h units → grid 9.9w fits with 2.16u margins each side
+        const float TARGET_ORTHO = 3.2f;
         if (Mathf.Abs(cam.orthographicSize - TARGET_ORTHO) > 0.01f)
         {
             cam.orthographicSize = TARGET_ORTHO;
@@ -213,7 +211,7 @@ public static class GameplayFinalFixer
         bool changed = false;
         if (gm.Cols != 9) { gm.Cols = 9; changed = true; }
         if (gm.Rows != 5) { gm.Rows = 5; changed = true; }
-        if (Mathf.Abs(gm.TileSize - 1.1f) > 0.001f) { gm.TileSize = 1.1f; changed = true; }
+        if (Mathf.Abs(gm.TileSize - 1.0f) > 0.001f) { gm.TileSize = 1.0f; changed = true; }
 
         if (changed) Debug.Log("[Fix4] GridManager: Cols=9, Rows=5, TileSize=1.1");
         return changed;
@@ -276,8 +274,8 @@ public static class GameplayFinalFixer
         // Position at grid source (0,0)
         // Grid center formula: ox = -(Cols-1)*TileSize*0.5 = -(9-1)*1.1*0.5 = -4.4
         //                       oy = -(Rows-1)*TileSize*0.5 = -(5-1)*1.1*0.5 = -2.2
-        float ox = -(9 - 1) * 1.1f * 0.5f; // -4.4
-        float oy = -(5 - 1) * 1.1f * 0.5f; // -2.2
+        float ox = -(9 - 1) * 1.0f * 0.5f; // -4.0
+        float oy = -(5 - 1) * 1.0f * 0.5f; // -2.0
         fish.transform.position = new Vector3(ox, oy, -1f); // source (0,0)
 
         // Add CharacterMover

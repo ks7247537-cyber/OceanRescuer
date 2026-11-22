@@ -18,12 +18,21 @@ public class GameManager : MonoBehaviour
     public GameObject     levelUI;         // Normal game UI
 
     [Header("Win Settings")]
-    [Tooltip("Win ke baad agli scene ka naam")]
+    [Tooltip("Win ke baad agli scene ka naam (optional)")]
     public string nextSceneName = "";
 
-    private bool _hasWon = false;
+    [Header("Demo & Testing")]
+    [Tooltip("Keep false for normal gameplay — player must solve puzzle by rotating pipes!")]
+    public bool autoPlayDemo = false;
 
-    // ─────────────────────────────────────────────────────────
+    private bool _hasWon = false;
+    private bool _isFailed = false;
+
+    /// <summary>
+    /// Returns true if level has ended (either won or failed).
+    /// Prevents further moves or rotations.
+    /// </summary>
+    public bool IsGameOver => _hasWon || _isFailed;
 
     private void Awake()
     {
@@ -42,60 +51,161 @@ public class GameManager : MonoBehaviour
             flowManager = FindObjectOfType<FlowManager>();
         if (hud == null)
             hud = FindObjectOfType<GameplayHUD>();
+        if (characterMover == null)
+            characterMover = FindObjectOfType<CharacterMover>();
 
-        // Game shuru hote hi ek baar flow check karo
+        // Calculate initial water glow from source for starting pipes
+        bool connected = flowManager != null && flowManager.RunFlow();
+
+        if (connected && autoPlayDemo)
+        {
+            Invoke(nameof(TriggerDemo), 1.2f);
+        }
+    }
+
+    private void Update()
+    {
+#if UNITY_EDITOR
+        // Editor test helper: Spacebar instantly tests flow
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _hasWon = false;
+            _isFailed = false;
+            CheckWinCondition();
+        }
+#endif
+    }
+
+    /// <summary>
+    /// Triggers the full win sequence (water animation + clownfish swimming).
+    /// </summary>
+    public void TriggerDemo()
+    {
+        if (IsGameOver) return;
         CheckWinCondition();
     }
 
-    // ─────────────────────────────────────────────────────────
-    // Win condition
-    // ─────────────────────────────────────────────────────────
-
     /// <summary>
     /// Har pipe rotate hone ke baad call hoti hai.
+    /// Evaluates both win condition and move-limit fail condition.
     /// </summary>
     public void CheckWinCondition()
     {
-        if (_hasWon) return;
+        if (IsGameOver) return;
 
-        bool won = flowManager.RunFlow();
+        bool won = flowManager != null && flowManager.RunFlow();
 
         if (won)
         {
             _hasWon = true;
             OnWin();
         }
+        else if (MoveManager.Instance != null && MoveManager.Instance.maxMoves > 0 && MoveManager.Instance.RemainingMoves <= 0)
+        {
+            _isFailed = true;
+            OnFail();
+        }
+    }
+
+    private void OnFail()
+    {
+        Debug.Log("❌ Level Failed: Move limit reached!");
+
+        // Lock all tiles to prevent further rotations
+        LockAllTiles();
+
+        // Show Fail Panel via HUD
+        if (hud != null)
+        {
+            hud.ShowFailPanel();
+        }
     }
 
     private void OnWin()
     {
-        Debug.Log("🎉 Win! Pani pahunch gaya!");
+        Debug.Log("🎉 Win! Water path completed!");
 
-        // Character ko pipe path follow karwao
-        if (characterMover != null)
+        // Lock all tiles during victory sequence
+        LockAllTiles();
+
+        // 1. Play sequential water animation through all pipes
+        if (flowManager != null)
+        {
+            flowManager.AnimateWaterFlow(() =>
+            {
+                // 2. Once water fills the pipeline, clownfish swims to the destination!
+                if (characterMover != null)
+                {
+                    characterMover.OnDestinationReached += HandleDestinationReached;
+                    characterMover.StartJourney();
+                    Invoke(nameof(HandleDestinationReached), 8.0f); // Safety timeout
+                }
+                else
+                {
+                    Invoke(nameof(ShowVictoryDialog), 1.0f);
+                }
+            });
+        }
+        else if (characterMover != null)
+        {
+            characterMover.OnDestinationReached += HandleDestinationReached;
             characterMover.StartJourney();
+            Invoke(nameof(HandleDestinationReached), 8.0f);
+        }
+        else
+        {
+            Invoke(nameof(ShowVictoryDialog), 1.0f);
+        }
+    }
 
-        // HUD win panel
+    private void HandleDestinationReached()
+    {
+        CancelInvoke(nameof(HandleDestinationReached));
+        if (characterMover != null)
+            characterMover.OnDestinationReached -= HandleDestinationReached;
+
+        ShowVictoryDialog();
+    }
+
+    private void ShowVictoryDialog()
+    {
+        // HUD win panel displays stars, awards coins/gems, and unlocks next level
         if (hud != null)
+        {
             hud.ShowWinPanel();
-        else if (winPanel != null)
-            winPanel.SetActive(true);
+        }
+        else
+        {
+            // Fallback unlock if hud is missing
+            int w = SaveManager.GetSelectedWorld();
+            int l = SaveManager.GetSelectedLevel();
+            SaveManager.SaveLevelStars(w, l, 3);
+            SaveManager.UnlockLevel(w, l + 1);
+
+            if (winPanel != null)
+                winPanel.SetActive(true);
+        }
 
         if (levelUI != null) levelUI.SetActive(false);
 
-        // Thodi der baad next level load karo
+        // Optional delayed scene transition if nextSceneName is explicitly set
         if (!string.IsNullOrEmpty(nextSceneName))
             Invoke(nameof(LoadNextScene), 2f);
+    }
+
+    private void LockAllTiles()
+    {
+        var tiles = FindObjectsOfType<PipeTile>();
+        foreach (var t in tiles)
+        {
+            if (t != null) t.isLocked = true;
+        }
     }
 
     private void LoadNextScene()
     {
         SceneManager.LoadScene(nextSceneName);
     }
-
-    // ─────────────────────────────────────────────────────────
-    // UI Buttons ke liye public methods
-    // ─────────────────────────────────────────────────────────
 
     public void RestartLevel()
     {

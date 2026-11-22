@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// Fish/Turtle character ko pipe path ke saath move karta hai.
@@ -13,10 +14,10 @@ public class CharacterMover : MonoBehaviour
 {
     [Header("Movement")]
     [Tooltip("Movement speed (units per second)")]
-    public float moveSpeed = 2f;
+    public float moveSpeed = 3.5f;
 
     [Tooltip("Character kitna smooth rotate kare (degrees per second)")]
-    public float rotationSpeed = 180f;
+    public float rotationSpeed = 720f;
 
     [Header("References")]
     public FlowManager flowManager;
@@ -25,11 +26,39 @@ public class CharacterMover : MonoBehaviour
     [Header("Start Position (Grid Cell)")]
     public Vector2Int startCell = new Vector2Int(0, 0);
 
+    [Header("Creature Companion")]
+    public CreatureType creatureType = CreatureType.Clownfish;
+
+    public void SetCreature(CreatureType creature = CreatureType.Clownfish)
+    {
+        // Rescued character swimming inside the pipe puzzle is always Clownfish
+        creatureType = CreatureType.Clownfish;
+        var sr = GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            Sprite[] subs = Resources.LoadAll<Sprite>("Characters/Clownfish");
+            if (subs != null && subs.Length > 0) sr.sprite = subs[0];
+            else
+            {
+                Sprite s = Resources.Load<Sprite>("Characters/Clownfish");
+                if (s != null) sr.sprite = s;
+            }
+        }
+
+        transform.localScale = new Vector3(0.8f, 0.8f, 1f);
+    }
+
     [Header("Idle Bob")]
     [Tooltip("Character thoda upar neecha bob kare")]
     public bool idleBob = true;
     public float bobSpeed  = 1.5f;
     public float bobAmount = 0.08f;
+
+    /// <summary>
+    /// Event fired when character arrives at the sink.
+    /// Used by GameManager to show the Win popup cleanly after the journey.
+    /// </summary>
+    public System.Action OnDestinationReached;
 
     // ── State ─────────────────────────────────────────────
     private enum State { Idle, Moving, Done }
@@ -52,6 +81,11 @@ public class CharacterMover : MonoBehaviour
         if (gridManager  == null) gridManager  = FindObjectOfType<GridManager>();
 
         _currentCell = startCell;
+        SetCreature(CreatureType.Clownfish);
+        if (gridManager != null)
+        {
+            transform.position = GridToWorld(_currentCell);
+        }
         _basePos     = transform.position;
     }
 
@@ -73,28 +107,57 @@ public class CharacterMover : MonoBehaviour
         }
     }
 
+    private List<Vector2Int> _path;
+    private int _pathIndex = 0;
+
     // ─────────────────────────────────────────────────────
     // Public API
     // ─────────────────────────────────────────────────────
 
     /// <summary>
-    /// GameManager ya koi bhi call kar sakta hai —
-    /// character connected path follow karta hai.
+    /// Starts the clownfish swimming journey along the solved water pipeline.
     /// </summary>
     public void StartJourney()
     {
         if (_state == State.Moving) return;
 
-        _currentCell = startCell;
-        _state       = State.Moving;
+        if (flowManager == null) flowManager = FindObjectOfType<FlowManager>();
+        if (gridManager == null) gridManager = FindObjectOfType<GridManager>();
 
+        _path = flowManager != null ? flowManager.CurrentPath : null;
+
+        if (_path == null || _path.Count == 0)
+        {
+            Debug.LogWarning("[CharacterMover] No connected water path found for character journey.");
+            OnDestinationReached?.Invoke();
+            return;
+        }
+
+        _pathIndex = 0;
+        _currentCell = _path[0];
         _targetWorldPos = GridToWorld(_currentCell);
         transform.position = _targetWorldPos;
         _basePos = _targetWorldPos;
+        _state = State.Moving;
 
-        // Re‑calculate flow so the connected flags are current
-        flowManager?.RunFlow();
-        TryMoveNext();
+        MoveToNextWaypoint();
+    }
+
+    private void MoveToNextWaypoint()
+    {
+        _pathIndex++;
+        if (_pathIndex < _path.Count)
+        {
+            _currentCell = _path[_pathIndex];
+            _targetWorldPos = GridToWorld(_currentCell);
+            _basePos = _targetWorldPos;
+        }
+        else
+        {
+            _state = State.Done;
+            Debug.Log("[CharacterMover] 🎉 Clownfish reached destination sink!");
+            OnDestinationReached?.Invoke();
+        }
     }
 
     // ─────────────────────────────────────────────────────
@@ -103,9 +166,9 @@ public class CharacterMover : MonoBehaviour
 
     private void MoveTowardsTarget()
     {
-        // Smoothly move karo target tak
         Vector3 dir = (_targetWorldPos - transform.position);
-        if (dir.magnitude > 0.01f)
+        dir.z = 0f;
+        if (dir.magnitude > 0.04f)
         {
             // Rotation (face direction of movement)
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -113,61 +176,18 @@ public class CharacterMover : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(
                 transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
 
-            // Move
-            transform.position = Vector3.MoveTowards(
+            // Move (maintain z = -1 so fish stays on top of pipes)
+            Vector3 newPos = Vector3.MoveTowards(
                 transform.position, _targetWorldPos, moveSpeed * Time.deltaTime);
+            newPos.z = -1f;
+            transform.position = newPos;
         }
         else
         {
-            // Reached target — next cell
-            transform.position = _targetWorldPos;
-            _currentCell = WorldToGrid(transform.position);
-            TryMoveNext();
+            // Reached current waypoint — proceed to next
+            transform.position = new Vector3(_targetWorldPos.x, _targetWorldPos.y, -1f);
+            MoveToNextWaypoint();
         }
-    }
-
-    private void TryMoveNext()
-    {
-        PipeTile[,] grid = gridManager.Grid;
-        if (grid == null) return;
-
-        PipeTile current = GetTile(_currentCell);
-        if (current == null) { _state = State.Idle; return; }
-
-        // Check karo connected path mein koi adjacent connected tile hai?
-        for (int dir = 0; dir < 4; dir++)
-        {
-            if (!current.HasOpening(dir)) continue;
-
-            int nx = _currentCell.x + DX[dir];
-            int ny = _currentCell.y + DY[dir];
-
-            if (!InBounds(nx, ny)) continue;
-
-            PipeTile neighbor = grid[nx, ny];
-            if (neighbor == null || !neighbor.isConnected) continue;
-
-            // Neighbor ki opposite direction mein opening hai?
-            if (!neighbor.HasOpening(Opposite[dir])) continue;
-
-            // Move!
-            _currentCell    = new Vector2Int(nx, ny);
-            _targetWorldPos = GridToWorld(_currentCell);
-            _basePos        = _targetWorldPos;
-
-            // Sink tak pahuncha?
-            if (_currentCell == flowManager.sinkCell)
-            {
-                _state = State.Done;
-                Debug.Log("[Character] Destination reached!");
-                return;
-            }
-
-            return; // ek step kafi hai, baaki Update() mein hoga
-        }
-
-        // Koi connected neighbor nahi — wait
-        _state = State.Idle;
     }
 
     // ─────────────────────────────────────────────────────

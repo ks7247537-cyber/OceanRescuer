@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using System.Collections.Generic;
 using System.Linq;
 
 /// <summary>
@@ -12,8 +13,17 @@ using System.Linq;
 /// </summary>
 public static class PipePrefabScaleFixer
 {
-    // Target visual size in world units (matches GridManager.TileSize)
+    // Target visual size in world units (matches GridManager.TileSize and Bootstrapper tileSize)
+    // Pipe sprites at this scale fill each grid cell exactly with no gaps.
     const float TARGET_SIZE = 1.0f;
+
+    private static readonly System.Collections.Generic.Dictionary<string, float> CALIBRATED_SCALES = new System.Collections.Generic.Dictionary<string, float>
+    {
+        ["Pipe_Straight"] = 1.0f,
+        ["Pipe_Elbow"]    = 0.73f,
+        ["Pipe_T"]        = 0.97f,
+        ["Pipe_Cross"]    = 1.0f,
+    };
 
     [MenuItem("OceanRescuer/Fix Pipe Prefab Scales")]
     public static void FixPipeScales()
@@ -52,9 +62,7 @@ public static class PipePrefabScaleFixer
                 Vector2 spriteWorldSize = sr.sprite.bounds.size;
                 Debug.Log($"[PipeFix] {kv.Key} sprite world size: {spriteWorldSize}");
 
-                float scaleX = TARGET_SIZE / Mathf.Max(spriteWorldSize.x, 0.01f);
-                float scaleY = TARGET_SIZE / Mathf.Max(spriteWorldSize.y, 0.01f);
-                float uniformScale = Mathf.Min(scaleX, scaleY);
+                float uniformScale = CALIBRATED_SCALES.ContainsKey(kv.Key) ? CALIBRATED_SCALES[kv.Key] : 1.0f;
 
                 Vector3 newScale = new Vector3(uniformScale, uniformScale, 1f);
                 if (Vector3.Distance(root.transform.localScale, newScale) > 0.001f)

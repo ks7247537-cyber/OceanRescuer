@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b2c3d4e5f60718293a4b5c6d7e8f90, type: 3}
+  m_Name: Level_07
+  m_EditorClassIdentifier: 
+  levelNumber: 7
+  levelName: Level 7
+  worldName: Coral Reef
+  difficulty: Medium
+  activeCreature: 2
+  abilityUses: 2
+  cols: 9
+  rows: 5
+  sourceCell: {x: 0, y: 0}
+  sinkCell: {x: 8, y: 0}
+  maxMoves: 22
+  targetMovesFor3Stars: 11
+  pipeTypes:
+  - 0
+  - 0
+  - 1
+  - -1
+  - -1
+  - -1
+  - -1
+  - 1
+  - 0
+  - -1
+  - -1
+  - 0
+  - -1
+  - -1
+  - -1
+  - 1
+  - 1
+  - -1
+  - -1
+  - -1
+  - 0
+  - -1
+  - -1
+  - 1
+  - 1
+  - -1
+  - -1
+  - -1
+  - -1
+  - 1
+  - 0
+  - 0
+  - 1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  initialRotations:
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 2
+  - 1
+  - 2
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  solutionRotations:
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  valves: []
+  gates:
+  - gridPos: {x: 4, y: 3}
+    gateType: 4
+    isInitiallyOpen: 0
+    requiredPressure: 0
+    linkedValvePos: {x: -1, y: -1}
+

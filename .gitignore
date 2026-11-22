@@ -81,3 +81,11 @@ Thumbs.db
 
 # JetBrains Rider
 .idea/
+
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Ll]ogs/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/

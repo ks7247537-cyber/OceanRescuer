@@ -181,6 +181,34 @@ public class ShopManager : MonoBehaviour
         if (item.rewardCoins > 0) SaveManager.AddCoins(item.rewardCoins);
         if (item.rewardGems  > 0) SaveManager.SaveGems(SaveManager.GetGems() + item.rewardGems);
 
+        // Process Energy Purchases
+        if (item.itemId == "energy_sm")
+        {
+            EnergyManager.Instance.AddEnergy(5);
+        }
+        else if (item.itemId == "energy_full")
+        {
+            EnergyManager.Instance.RefillFullEnergy();
+        }
+        else if (item.itemId == "energy_inf")
+        {
+            EnergyManager.Instance.GrantUnlimitedEnergy(1f);
+        }
+
+        // Process Energy Purchases
+        if (item.itemId == "energy_sm")
+        {
+            EnergyManager.Instance.AddEnergy(5);
+        }
+        else if (item.itemId == "energy_full")
+        {
+            EnergyManager.Instance.RefillFullEnergy();
+        }
+        else if (item.itemId == "energy_inf")
+        {
+            EnergyManager.Instance.GrantUnlimitedEnergy(1f);
+        }
+
         // Mark one-time purchase
         if (item.oneTimePurchase)
         {
@@ -243,6 +271,20 @@ public class ShopManager : MonoBehaviour
 
         if (item.rewardCoins > 0) SaveManager.AddCoins(item.rewardCoins);
         if (item.rewardGems  > 0) SaveManager.SaveGems(SaveManager.GetGems() + item.rewardGems);
+
+        // Process Energy Purchases
+        if (item.itemId == "energy_sm")
+        {
+            EnergyManager.Instance.AddEnergy(5);
+        }
+        else if (item.itemId == "energy_full")
+        {
+            EnergyManager.Instance.RefillFullEnergy();
+        }
+        else if (item.itemId == "energy_inf")
+        {
+            EnergyManager.Instance.GrantUnlimitedEnergy(1f);
+        }
 
         if (item.oneTimePurchase)
         { PlayerPrefs.SetInt("Bought_" + item.itemId, 1); PlayerPrefs.Save(); }

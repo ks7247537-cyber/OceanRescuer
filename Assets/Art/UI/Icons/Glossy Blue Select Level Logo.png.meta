@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 4349baf30a883a949a38ce27bb7ae57a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -652789737456672306
+    second: Glossy Blue Select Level Logo_0
+  - first:
+      213: 8224319146581660216
+    second: Glossy Blue Select Level Logo_1
+  - first:
+      213: -3917160964984893849
+    second: Glossy Blue Select Level Logo_2
+  - first:
+      213: 68353656271793433
+    second: Glossy Blue Select Level Logo_3
+  - first:
+      213: 5544553072980166868
+    second: Glossy Blue Select Level Logo_4
+  - first:
+      213: -589239021865030246
+    second: Glossy Blue Select Level Logo_5
+  - first:
+      213: 4107897911471756210
+    second: Glossy Blue Select Level Logo_6
+  - first:
+      213: 2947991604337293775
+    second: Glossy Blue Select Level Logo_7
+  - first:
+      213: 1143971149551683217
+    second: Glossy Blue Select Level Logo_8
+  - first:
+      213: 3375715566776746322
+    second: Glossy Blue Select Level Logo_9
+  - first:
+      213: -1897401269819948277
+    second: Glossy Blue Select Level Logo_10
+  - first:
+      213: 4839686776565684446
+    second: Glossy Blue Select Level Logo_11
+  - first:
+      213: 3326909730854082998
+    second: Glossy Blue Select Level Logo_12
+  - first:
+      213: 4897863254501800036
+    second: Glossy Blue Select Level Logo_13
+  - first:
+      213: -1927614891704086460
+    second: Glossy Blue Select Level Logo_14
+  - first:
+      213: 5055449028323116546
+    second: Glossy Blue Select Level Logo_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 21
+        width: 1180
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec1efd14133d0f6f0800000000000000
+      internalID: -652789737456672306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 96
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832917380b6a22270800000000000000
+      internalID: 8224319146581660216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 64
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76e8c0a3bd273a9c0800000000000000
+      internalID: -3917160964984893849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_3
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 33
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91ded29c947d2f000800000000000000
+      internalID: 68353656271793433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_4
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 45
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d88841c4a532fc40800000000000000
+      internalID: 5544553072980166868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_5
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 63
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9dafe54b3a92d7f0800000000000000
+      internalID: -589239021865030246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_6
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 115
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b3d7dac26f220930800000000000000
+      internalID: 4107897911471756210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_7
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 112
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9bb59bebe59e820800000000000000
+      internalID: 2947991604337293775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_8
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 81
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 196c25213b330ef00800000000000000
+      internalID: 1143971149551683217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_9
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 112
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2510c743c63f8de20800000000000000
+      internalID: 3375715566776746322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_10
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 83
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b03c10419931ba5e0800000000000000
+      internalID: -1897401269819948277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_11
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 23
+        width: 955
+        height: 673
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed85a554b750a2340800000000000000
+      internalID: 4839686776565684446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_12
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 79
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b9195306ce8b2e20800000000000000
+      internalID: 3326909730854082998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_13
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 53
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 468b4031ea4b8f340800000000000000
+      internalID: 4897863254501800036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_14
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 63
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 440993c087cbf35e0800000000000000
+      internalID: -1927614891704086460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glossy Blue Select Level Logo_15
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 70
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2060b493b10982640800000000000000
+      internalID: 5055449028323116546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Glossy Blue Select Level Logo_0: -652789737456672306
+      Glossy Blue Select Level Logo_1: 8224319146581660216
+      Glossy Blue Select Level Logo_10: -1897401269819948277
+      Glossy Blue Select Level Logo_11: 4839686776565684446
+      Glossy Blue Select Level Logo_12: 3326909730854082998
+      Glossy Blue Select Level Logo_13: 4897863254501800036
+      Glossy Blue Select Level Logo_14: -1927614891704086460
+      Glossy Blue Select Level Logo_15: 5055449028323116546
+      Glossy Blue Select Level Logo_2: -3917160964984893849
+      Glossy Blue Select Level Logo_3: 68353656271793433
+      Glossy Blue Select Level Logo_4: 5544553072980166868
+      Glossy Blue Select Level Logo_5: -589239021865030246
+      Glossy Blue Select Level Logo_6: 4107897911471756210
+      Glossy Blue Select Level Logo_7: 2947991604337293775
+      Glossy Blue Select Level Logo_8: 1143971149551683217
+      Glossy Blue Select Level Logo_9: 3375715566776746322
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

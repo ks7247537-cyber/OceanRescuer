@@ -1,43 +1,336 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// Runtime bootstrapper for GameplayScene.
-/// Automatically loads pipe prefabs and builds the 9x5 snake grid
-/// when the scene loads — works even if pipe prefabs are not wired in Inspector.
-/// Attach to GameManager or any persistent GameObject in GameplayScene.
+/// Spawns the 9x5 puzzle grid, pipe prefabs, creature companion, and interactive mechanisms:
+/// - Sea Creatures: Clownfish, Turtle (Breakable Rocks), Octopus (Ink Hazard), Jellyfish (Electric Gates)
+/// - Water Valves (ON/OFF)
+/// - Directional Valves (one-way flow control)
+/// - Locked Gates, Pressure Gates, Electric Gates, Breakable Obstacles, Inked Hazards
 /// </summary>
 [DefaultExecutionOrder(-100)]
 public class GameplayBootstrapper : MonoBehaviour
 {
-    [Header("Grid Config (matches Level01Setup)")]
+    [Header("Grid Config")]
     public int   cols     = 9;
     public int   rows     = 5;
-    public float tileSize = 1.1f;
+    public float tileSize = 1.0f;
 
-    // Per-type scale: TILE_SIZE / sprite-world-width at PPU=1024
-    private static readonly float[] PIPE_SCALE = { 0.528f, 0.815f, 0.746f, 0.887f };
+    // Per-type scale calibrated to tileSize=1.0
+    private static readonly float[] PIPE_SCALE = { 1.0f, 0.73f, 0.97f, 1.0f };
 
-    // Layout: 0=Straight,1=Elbow,2=TJunction,3=Cross,-1=Empty
-    // row 0 = bottom, row 4 = top
-    private static readonly int[,] LAYOUT = new int[5, 9]
+    private static readonly int[] DEFAULT_MAX_MOVES = { 16, 18, 18, 20, 22, 26, 22, 24, 26, 28, 28, 32 };
+
+    public static int GetDefaultMaxMoves(int levelIndex)
     {
-        // row 0  col 0..8
-        { 1, 0, 0, 2, 0, 0, 2, 0, 1 },   // bottom: E-S-S-T-S-S-T-S-E
-        {-1,-1,-1,-1,-1,-1,-1,-1, 0 },   // right vertical connector x=8
-        { 1, 0, 0, 2, 0, 0, 2, 0, 1 },   // middle row
-        { 0,-1,-1,-1,-1,-1,-1,-1,-1 },   // left vertical connector x=0
-        { 1, 0, 0, 2, 0, 0, 2, 0, 1 },   // top row
+        levelIndex = Mathf.Clamp(levelIndex, 0, DEFAULT_MAX_MOVES.Length - 1);
+        return DEFAULT_MAX_MOVES[levelIndex];
+    }
+
+    public static CreatureType GetDefaultCreature(int levelIndex)
+    {
+        switch (levelIndex)
+        {
+            case 4:
+            case 5:
+            case 10:
+                return CreatureType.Turtle;
+            case 6:
+            case 7:
+                return CreatureType.Octopus;
+            case 8:
+            case 9:
+            case 11:
+                return CreatureType.Jellyfish;
+            default:
+                return CreatureType.Clownfish;
+        }
+    }
+
+    public static int GetDefaultAbilityUses(int levelIndex)
+    {
+        return levelIndex < 4 ? 0 : 2;
+    }
+    private static readonly int[,] LAYOUT_L01 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1, -1,  0 },
+        {  0, -1, -1, -1, -1, -1,  1,  0,  1 },
+        {  1,  0,  0,  0,  0,  0,  1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L01 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  0,  1 },
+        {  2,  0,  0,  0,  0,  0,  1,  1,  2 },
+        {  0,  2,  3,  1,  2,  3,  1,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L02 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1,  1,  0 },
+        {  1,  1, -1, -1, -1, -1,  1,  1, -1 },
+        { -1,  1,  1, -1, -1,  1,  1, -1, -1 },
+        { -1, -1,  1,  0,  0,  1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L02 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  0,  0 },
+        {  0,  3,  0,  0,  0,  0,  0,  3,  0 },
+        {  0,  1,  0,  0,  0,  0,  3,  0,  0 },
+        {  0,  0,  2,  1,  2,  3,  0,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L03 = new int[5, 9]
+    {
+        {  0,  1, -1, -1, -1, -1,  1,  0,  0 },
+        { -1,  0, -1, -1, -1, -1,  0, -1, -1 },
+        { -1,  1,  0,  0,  0,  0,  1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L03 = new int[5, 9]
+    {
+        {  0,  3,  0,  0,  0,  0,  0,  3,  0 },
+        {  0,  3,  0,  0,  0,  0,  0,  0,  0 },
+        {  0,  1,  3,  1,  2,  3,  1,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L04 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1,  1,  0 },
+        {  0, -1, -1, -1, -1, -1, -1,  0, -1 },
+        {  0, -1, -1, -1, -1, -1, -1,  0, -1 },
+        {  1,  0,  0,  0,  0,  0,  0,  1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L04 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  0,  0 },
+        {  2,  0,  0,  0,  0,  0,  0,  0,  0 },
+        {  2,  0,  0,  0,  0,  0,  0,  2,  0 },
+        {  0,  2,  3,  1,  2,  3,  1,  2,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L05 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1,  1,  0 },
+        {  1,  0,  1, -1, -1,  1,  0,  1, -1 },
+        { -1, -1,  1,  0,  0,  1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L05 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  1,  0 },
+        {  0,  2,  0,  0,  0,  0,  3,  1,  0 },
+        {  0,  0,  2,  1,  2,  3,  0,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L06 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1,  1,  0 },
+        {  0, -1, -1, -1, -1, -1,  1,  1, -1 },
+        {  1,  1, -1,  1,  0,  1,  0, -1, -1 },
+        { -1,  0, -1,  0, -1,  1,  1, -1, -1 },
+        { -1,  1,  0,  1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L06 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  1,  0 },
+        {  2,  0,  0,  0,  0,  0,  1,  1,  0 },
+        {  0,  3,  0,  0,  3,  2,  2,  0,  0 },
+        {  0,  3,  0,  0,  0,  0,  2,  0,  0 },
+        {  0,  1,  3,  1,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L07 = new int[5, 9]
+    {
+        {  0,  0,  1, -1, -1, -1, -1,  1,  0 },
+        { -1, -1,  0, -1, -1, -1,  1,  1, -1 },
+        { -1, -1,  0, -1, -1,  1,  1, -1, -1 },
+        { -1, -1,  1,  0,  0,  1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L07 = new int[5, 9]
+    {
+        {  0,  2,  0,  0,  0,  0,  0,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  3,  0 },
+        {  0,  0,  0,  0,  0,  0,  3,  0,  0 },
+        {  0,  0,  2,  1,  2,  3,  0,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L08 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1,  1,  0 },
+        {  0, -1,  1,  0,  1, -1, -1,  0, -1 },
+        {  1,  0,  1, -1,  0, -1,  1,  1, -1 },
+        { -1, -1, -1, -1,  1,  0,  1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L08 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  3,  0 },
+        {  2,  0,  0,  3,  2,  0,  0,  3,  0 },
+        {  0,  2,  3,  0,  2,  0,  0,  3,  0 },
+        {  0,  0,  0,  0,  0,  2,  3,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L09 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1,  1,  0 },
+        {  1,  0,  1, -1, -1, -1,  1,  1, -1 },
+        { -1, -1,  0,  1,  0,  1,  0, -1, -1 },
+        { -1, -1,  1,  1, -1,  1,  1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L09 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  3,  0 },
+        {  0,  2,  0,  0,  0,  0,  3,  2,  0 },
+        {  0,  0,  0,  1,  1,  3,  3,  0,  0 },
+        {  0,  0,  2,  1,  0,  1,  3,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L10 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1,  1,  0 },
+        {  0, -1, -1, -1,  1,  0,  0,  1, -1 },
+        {  0, -1, -1,  1,  1, -1, -1, -1, -1 },
+        {  0, -1, -1,  0, -1, -1, -1, -1, -1 },
+        {  1,  0,  0,  1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L10 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  3,  0 },
+        {  2,  0,  0,  0,  0,  3,  1,  2,  0 },
+        {  2,  0,  0,  0,  3,  0,  0,  0,  0 },
+        {  2,  0,  0,  0,  0,  0,  0,  0,  0 },
+        {  0,  2,  3,  1,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L11 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1,  1,  0 },
+        {  1,  1, -1, -1, -1,  1,  0,  1, -1 },
+        { -1,  1,  1,  1,  0,  1, -1, -1, -1 },
+        { -1, -1,  1,  1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L11 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  0,  0 },
+        {  0,  3,  0,  0,  0,  3,  2,  3,  0 },
+        {  0,  1,  0,  1,  1,  2,  0,  0,  0 },
+        {  0,  0,  2,  1,  0,  0,  0,  0,  0 },
+        {  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+    };
+    private static readonly int[,] LAYOUT_L12 = new int[5, 9]
+    {
+        {  0, -1, -1, -1, -1, -1, -1,  1,  0 },
+        {  0, -1, -1, -1, -1, -1,  1,  1, -1 },
+        {  1,  1, -1,  1,  1,  1,  1, -1, -1 },
+        { -1,  0, -1,  0,  1,  1, -1, -1, -1 },
+        { -1,  1,  0,  1, -1, -1, -1, -1, -1 },
+    };
+    private static readonly int[,] ROT_INIT_L12 = new int[5, 9]
+    {
+        {  1,  0,  0,  0,  0,  0,  0,  1,  0 },
+        {  2,  0,  0,  0,  0,  0,  1,  1,  0 },
+        {  0,  3,  0,  0,  0,  1,  1,  0,  0 },
+        {  0,  3,  0,  0,  2,  1,  0,  0,  0 },
+        {  0,  1,  3,  1,  0,  0,  0,  0,  0 },
     };
 
-    // Rotations per cell
-    private static readonly int[,] ROTATIONS = new int[5, 9]
+    public static void GetLevelConfig(int levelIndex, out int[,] layout, out int[,] rotations)
     {
-        { 0, 1, 1, 2, 1, 1, 2, 1, 3 },
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 1, 1, 2, 1, 1, 2, 1, 2 },
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 1, 1, 1, 2, 1, 1, 2, 1, 2 },
-    };
+        levelIndex = Mathf.Clamp(levelIndex, 0, 11);
+        switch (levelIndex)
+        {
+            case 0:  layout = (int[,])LAYOUT_L01.Clone(); rotations = (int[,])ROT_INIT_L01.Clone(); break;
+            case 1:  layout = (int[,])LAYOUT_L02.Clone(); rotations = (int[,])ROT_INIT_L02.Clone(); break;
+            case 2:  layout = (int[,])LAYOUT_L03.Clone(); rotations = (int[,])ROT_INIT_L03.Clone(); break;
+            case 3:  layout = (int[,])LAYOUT_L04.Clone(); rotations = (int[,])ROT_INIT_L04.Clone(); break;
+            case 4:  layout = (int[,])LAYOUT_L05.Clone(); rotations = (int[,])ROT_INIT_L05.Clone(); break;
+            case 5:  layout = (int[,])LAYOUT_L06.Clone(); rotations = (int[,])ROT_INIT_L06.Clone(); break;
+            case 6:  layout = (int[,])LAYOUT_L07.Clone(); rotations = (int[,])ROT_INIT_L07.Clone(); break;
+            case 7:  layout = (int[,])LAYOUT_L08.Clone(); rotations = (int[,])ROT_INIT_L08.Clone(); break;
+            case 8:  layout = (int[,])LAYOUT_L09.Clone(); rotations = (int[,])ROT_INIT_L09.Clone(); break;
+            case 9:  layout = (int[,])LAYOUT_L10.Clone(); rotations = (int[,])ROT_INIT_L10.Clone(); break;
+            case 10: layout = (int[,])LAYOUT_L11.Clone(); rotations = (int[,])ROT_INIT_L11.Clone(); break;
+            case 11: 
+            default: layout = (int[,])LAYOUT_L12.Clone(); rotations = (int[,])ROT_INIT_L12.Clone(); break;
+        }
+    }
+
+    public static List<ValveConfig> GetFallbackValves(int levelIndex)
+    {
+        var list = new List<ValveConfig>();
+        switch (levelIndex)
+        {
+            case 2: // Level 3: On/Off Valve
+                list.Add(new ValveConfig { gridPos = new Vector2Int(4, 2), valveType = ValveType.OnOff, isInitiallyOpen = false, allowedDirection = 1 });
+                break;
+            case 3: // Level 4: Directional Valve (Right)
+                list.Add(new ValveConfig { gridPos = new Vector2Int(4, 3), valveType = ValveType.Directional, isInitiallyOpen = true, allowedDirection = 1 });
+                break;
+            case 5: // Level 6: On/Off Valve
+                list.Add(new ValveConfig { gridPos = new Vector2Int(6, 3), valveType = ValveType.OnOff, isInitiallyOpen = false, allowedDirection = 1 });
+                break;
+            case 7: // Level 8: Directional Valve (Right)
+                list.Add(new ValveConfig { gridPos = new Vector2Int(5, 3), valveType = ValveType.Directional, isInitiallyOpen = true, allowedDirection = 1 });
+                break;
+            case 9: // Level 10: On/Off Valve
+                list.Add(new ValveConfig { gridPos = new Vector2Int(2, 4), valveType = ValveType.OnOff, isInitiallyOpen = false, allowedDirection = 1 });
+                break;
+            case 10: // Level 11: On/Off Valve (opens locked gate)
+                list.Add(new ValveConfig { gridPos = new Vector2Int(2, 3), valveType = ValveType.OnOff, isInitiallyOpen = false, allowedDirection = 1 });
+                break;
+            case 11: // Level 12: Dual Valves
+                list.Add(new ValveConfig { gridPos = new Vector2Int(3, 3), valveType = ValveType.OnOff, isInitiallyOpen = false, allowedDirection = 2 });
+                list.Add(new ValveConfig { gridPos = new Vector2Int(6, 2), valveType = ValveType.OnOff, isInitiallyOpen = false, allowedDirection = 2 });
+                break;
+        }
+        return list;
+    }
+
+    public static List<GateConfig> GetFallbackGates(int levelIndex)
+    {
+        var list = new List<GateConfig>();
+        switch (levelIndex)
+        {
+            case 4: // Level 5: Breakable rock for Turtle!
+                list.Add(new GateConfig { gridPos = new Vector2Int(4, 2), gateType = GateType.BreakableRock, isInitiallyOpen = false });
+                break;
+            case 5: // Level 6: Breakable rock for Turtle!
+                list.Add(new GateConfig { gridPos = new Vector2Int(3, 3), gateType = GateType.BreakableRock, isInitiallyOpen = false });
+                break;
+            case 6: // Level 7: Inked Hazard for Octopus!
+                list.Add(new GateConfig { gridPos = new Vector2Int(4, 3), gateType = GateType.InkedHazard, isInitiallyOpen = false });
+                break;
+            case 7: // Level 8: Inked Hazard for Octopus!
+                list.Add(new GateConfig { gridPos = new Vector2Int(3, 1), gateType = GateType.InkedHazard, isInitiallyOpen = false });
+                break;
+            case 8: // Level 9: Electric Gate for Jellyfish!
+                list.Add(new GateConfig { gridPos = new Vector2Int(4, 2), gateType = GateType.ElectricGate, isInitiallyOpen = false });
+                break;
+            case 9: // Level 10: Pressure Gate
+                list.Add(new GateConfig { gridPos = new Vector2Int(5, 1), gateType = GateType.PressureGate, isInitiallyOpen = false, requiredPressure = 8 });
+                break;
+            case 10: // Level 11: Rock + Locked Gate
+                list.Add(new GateConfig { gridPos = new Vector2Int(3, 2), gateType = GateType.BreakableRock, isInitiallyOpen = false });
+                list.Add(new GateConfig { gridPos = new Vector2Int(6, 1), gateType = GateType.LockedGate, isInitiallyOpen = false, linkedValvePos = new Vector2Int(2, 3) });
+                break;
+            case 11: // Level 12: Electric Gate + Pressure Gate
+                list.Add(new GateConfig { gridPos = new Vector2Int(4, 2), gateType = GateType.ElectricGate, isInitiallyOpen = false });
+                list.Add(new GateConfig { gridPos = new Vector2Int(7, 1), gateType = GateType.PressureGate, isInitiallyOpen = false, requiredPressure = 12 });
+                break;
+        }
+        return list;
+    }
 
     private GridManager _grid;
 
@@ -47,11 +340,9 @@ public class GameplayBootstrapper : MonoBehaviour
         if (_grid == null) _grid = FindObjectOfType<GridManager>();
         if (_grid == null) return;
 
-        // Only bootstrap if no tiles placed yet
-        bool tilesExist = FindObjectOfType<PipeTile>() != null;
-        if (tilesExist) return;
+        var oldBootstrap = GameObject.Find("PipeGrid_Bootstrap");
+        if (oldBootstrap != null) DestroyImmediate(oldBootstrap);
 
-        // Try load prefabs from Resources first, then from project assets
         var pS = LoadPrefab("Pipe_Straight");
         var pE = LoadPrefab("Pipe_Elbow");
         var pT = LoadPrefab("Pipe_T");
@@ -59,9 +350,7 @@ public class GameplayBootstrapper : MonoBehaviour
 
         if (pS == null || pE == null || pT == null || pX == null)
         {
-            Debug.LogWarning("[GameplayBootstrapper] One or more pipe prefabs not found. " +
-                             "Run OceanRescuer > Build Level 01 from the Editor menu, " +
-                             "or assign prefabs to GridManager in Inspector.");
+            Debug.LogWarning("[GameplayBootstrapper] One or more pipe prefabs not found in Resources.");
             return;
         }
 
@@ -70,16 +359,63 @@ public class GameplayBootstrapper : MonoBehaviour
 
     private void BuildGrid(GameObject pS, GameObject pE, GameObject pT, GameObject pX)
     {
+        tileSize = 1.0f;
+        cols = 9;
+        rows = 5;
         _grid.Cols             = cols;
         _grid.Rows             = rows;
         _grid.TileSize         = tileSize;
         _grid.useScenePlacedTiles = true;
 
-        // Wire prefabs
         _grid.straightPrefab  = pS;
         _grid.elbowPrefab     = pE;
         _grid.tJunctionPrefab = pT;
         _grid.crossPrefab     = pX;
+
+        _grid.ResizeGrid(cols, rows);
+
+        int levelIndex = SaveManager.GetSelectedLevel();
+        int levelNum = levelIndex + 1;
+
+        LevelData levelData = Resources.Load<LevelData>($"Levels/Level_{levelNum:D2}");
+
+        int maxMoves = levelData != null && levelData.maxMoves > 0 
+            ? levelData.maxMoves 
+            : GetDefaultMaxMoves(levelIndex);
+
+        MoveManager.Instance.ResetForLevel(levelIndex);
+        MoveManager.Instance.SetMaxMoves(maxMoves);
+
+        CreatureType creature = levelData != null ? levelData.activeCreature : GetDefaultCreature(levelIndex);
+        int abilityUses = levelData != null ? levelData.abilityUses : GetDefaultAbilityUses(levelIndex);
+
+        Vector2Int src = levelData != null ? levelData.sourceCell : new Vector2Int(0, 0);
+        Vector2Int snk = levelData != null ? levelData.sinkCell   : new Vector2Int(8, 0);
+
+        var flow = FindObjectOfType<FlowManager>();
+        if (flow != null)
+        {
+            flow.sourceCell = src;
+            flow.sinkCell   = snk;
+            flow.ClearValvesAndGates();
+        }
+
+        var mover = FindObjectOfType<CharacterMover>();
+        if (mover != null)
+        {
+            mover.startCell = src;
+            mover.SetCreature(CreatureType.Clownfish); // Clownfish is always the rescued fish swimming through the pipes!
+        }
+
+        var abilityCtrl = FindObjectOfType<CreatureAbilityController>();
+        if (abilityCtrl == null)
+        {
+            var actGo = new GameObject("CreatureAbilityController");
+            abilityCtrl = actGo.AddComponent<CreatureAbilityController>();
+        }
+        abilityCtrl.Setup(creature, abilityUses);
+
+        GetLevelConfig(levelIndex, out int[,] layout, out int[,] rotations);
 
         float ox = -(cols - 1) * tileSize * 0.5f;
         float oy = -(rows - 1) * tileSize * 0.5f;
@@ -90,7 +426,7 @@ public class GameplayBootstrapper : MonoBehaviour
         {
             for (int row = 0; row < rows; row++)
             {
-                int ptype = LAYOUT[row, col];
+                int ptype = levelData != null ? levelData.GetPipeType(col, row) : layout[row, col];
                 if (ptype < 0) continue;
 
                 GameObject prefab = ptype == 0 ? pS : ptype == 1 ? pE : ptype == 2 ? pT : pX;
@@ -101,17 +437,21 @@ public class GameplayBootstrapper : MonoBehaviour
                 go.transform.position   = new Vector3(ox + col * tileSize, oy + row * tileSize, 0f);
                 go.transform.localScale = new Vector3(sc, sc, 1f);
 
-                int rot = ROTATIONS[row, col];
+                int rot = levelData != null ? levelData.GetInitialRotation(col, row) : rotations[row, col];
                 go.transform.rotation = Quaternion.Euler(0f, 0f, -90f * rot);
 
                 var tile = go.GetComponent<PipeTile>();
                 var cell = go.GetComponent<GridCell>();
-                if (tile != null) { tile.pipeType = (PipeTile.PipeType)ptype; tile.rotationStep = rot; }
+                if (tile != null)
+                {
+                    tile.pipeType = (PipeTile.PipeType)ptype;
+                    tile.rotationStep = rot;
+                    if (_grid.Grid != null) _grid.Grid[col, row] = tile;
+                }
                 if (cell != null) { cell.gridX = col; cell.gridY = row; }
 
-                // Lock and color Source (0,0) and Sink (8,0)
-                bool isSource = col == 0 && row == 0;
-                bool isSink   = col == 8 && row == 0;
+                bool isSource = col == src.x && row == src.y;
+                bool isSink   = col == snk.x && row == snk.y;
                 if (isSource || isSink)
                 {
                     if (tile != null) tile.isLocked = true;
@@ -123,17 +463,55 @@ public class GameplayBootstrapper : MonoBehaviour
             }
         }
 
-        Debug.Log("[GameplayBootstrapper] Grid built at runtime.");
+        // Spawn interactive Water Valves & Directional Valves
+        List<ValveConfig> valveList = (levelData != null && levelData.valves.Count > 0)
+            ? levelData.valves
+            : GetFallbackValves(levelIndex);
+
+        foreach (var vc in valveList)
+        {
+            var vObj = new GameObject($"Valve_{vc.gridPos.x}_{vc.gridPos.y}");
+            vObj.transform.SetParent(container.transform, false);
+            vObj.transform.position = new Vector3(ox + vc.gridPos.x * tileSize, oy + vc.gridPos.y * tileSize, -0.2f);
+            
+            var valve = vObj.AddComponent<WaterValve>();
+            valve.gridPos = vc.gridPos;
+            valve.valveType = vc.valveType;
+            valve.isOpen = vc.isInitiallyOpen;
+            valve.allowedDirection = vc.allowedDirection;
+
+            if (flow != null) flow.RegisterValve(valve);
+        }
+
+        // Spawn Gates & Obstacles
+        List<GateConfig> gateList = (levelData != null && levelData.gates.Count > 0)
+            ? levelData.gates
+            : GetFallbackGates(levelIndex);
+
+        foreach (var gc in gateList)
+        {
+            var gObj = new GameObject($"Gate_{gc.gridPos.x}_{gc.gridPos.y}");
+            gObj.transform.SetParent(container.transform, false);
+            gObj.transform.position = new Vector3(ox + gc.gridPos.x * tileSize, oy + gc.gridPos.y * tileSize, -0.3f);
+
+            var gate = gObj.AddComponent<GateComponent>();
+            gate.gridPos = gc.gridPos;
+            gate.gateType = gc.gateType;
+            gate.isOpen = gc.isInitiallyOpen;
+            gate.requiredPressure = gc.requiredPressure;
+            gate.linkedValvePos = gc.linkedValvePos;
+
+            if (flow != null) flow.RegisterGate(gate);
+        }
+
+        string diff = levelData != null ? levelData.difficulty : (levelIndex < 4 ? "Easy" : levelIndex < 8 ? "Medium" : "Hard");
+        Debug.Log($"[GameplayBootstrapper] Grid built for Level {levelNum} ({diff}, Creature={creature}, Moves={maxMoves}, Valves={valveList.Count}, Gates={gateList.Count}).");
     }
 
     private static GameObject LoadPrefab(string name)
     {
-        // Try Resources folder first
         var r = Resources.Load<GameObject>("Prefabs/" + name);
         if (r != null) return r;
-
-        // Fall back: search all loaded assets (Editor only via AssetDatabase — not available at runtime)
-        // At runtime we rely on Resources or Inspector assignment
         return null;
     }
 }

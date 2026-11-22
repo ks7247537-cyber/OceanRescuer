@@ -1,10 +1,23 @@
-﻿# Ocean Rescuers — Implementation Progress Report
-**Last Updated:** 2026-11-18 15:25 IST  
+# Ocean Rescuers — Implementation Progress Report
+**Last Updated:** 2026-11-20 00:21 IST  
 **Project:** `D:\UnityFolder\OceanRescuer`
 
 ---
 
 ## COMPLETED ✅
+
+### Phase 4 — Energy & Reward System (2026-11-22)
+- [x] `EnergyManager.cs` — Persistent singleton (`DontDestroyOnLoad`), max capacity 30, 5 energy per level attempt, 1 energy per 120s regen.
+- [x] Offline & Real-time regeneration using UTC Unix timestamps in `SaveManager`.
+- [x] Insufficient energy blocking & interactive refill modal dialog in `LevelSelectionManager` and `GameplayHUD`.
+- [x] Shop energy integration (`ShopManager.cs`): 5 Energy Refill (50 coins), Full Energy Refill (10 gems), Unlimited Energy 1 hr (20 gems).
+- [x] Real-time UI energy badges in `MainMenuScene`, `LevelSelectionScene`, and `GameplayScene` (`⚡ 30/30 (Full)`).
+- [x] Comprehensive Reward System in `GameplayHUD.cs` & `SaveManager.cs`:
+  - First-time level clear: +200 coins, +5 gems.
+  - Replay clear: +25 coins (no duplicate first-time awards).
+  - 3-Star bonus: +100 coins, +5 gems (awarded once per level).
+  - Coral Reef (World 0) Grand Completion: +1000 coins, +50 gems when clearing all 12 levels.
+- [x] Zero duplicate exploits; all rewards & timestamps persisted in PlayerPrefs.
 
 ### Phase 2A — Cleanup
 - [x] 10 art folders organized under `Assets/Art/`
@@ -42,21 +55,46 @@
 - [x] Pipe prefabs copied to `Assets/Resources/Prefabs/` for runtime loading
 - [x] `GameplayBootstrapper` will auto-build snake grid at runtime if no tiles found
 
----
+### Phase 3 — GameplayScene Full Analysis (2026-11-19)
+- [x] All script GUIDs verified — no broken MonoBehaviour references
+- [x] All 4 pipe prefabs have: SpriteRenderer, BoxCollider2D, PipeTile, GridCell ✅
+- [x] All pipe sprites resolve to actual PNGs ✅
+- [x] GridManager prefabs wired (all 4 pipe prefabs assigned) ✅
+- [x] FlowManager: sourceCell=(0,0), sinkCell=(8,0), gridManager wired ✅
+- [x] GameManager: flowManager + hud + characterMover wired ✅
+- [x] Fish_Character: active, Clownfish_0 sprite, position(-4.4,-2.2,-1), scale(0.8) ✅
+- [x] LevelCompletePanel: exists, hidden at start (m_IsActive: 0) ✅
+- [x] EventSystem: present ✅
+- [x] Main Camera: orthographic, size=4.0, position(0,0,-10), MainCamera tagged ✅
+- [x] HUD_Canvas: 1920×1080 ScaleWithScreenSize ✅
+- [x] `GameplayNullRefFixer.cs` created → fixes 3 null HUD refs
 
-## PENDING — USER ACTION NEEDED ⚠️
+### Phase 4 — Duplicate Grid Generation Fix (2026-11-19)
+- [x] **Root cause identified:** `GameplayBootstrapper` was `m_Enabled: 0` in scene → only `GridManager.GenerateGrid()` ran (wrong layout, random rotations, no GridCell coords)
+- [x] **GridManager.cs rewritten:**
+  - Default Cols=9, Rows=5, TileSize=1.1 (matches Bootstrapper)
+  - Added `ResizeGrid(cols, rows)` public method
+  - `GenerateGrid()` fallback now sets `GridCell.gridX/gridY` correctly (was missing)
+  - `GenerateGrid()` uses deterministic rotation=0 (was random)
+  - `RegisterSceneTiles()` now logs registration count
+  - Clear comments on which path runs when
+- [x] **GameplayBootstrapper.cs:** Added `_grid.ResizeGrid(cols, rows)` call in `BuildGrid()` to handle array sizing correctly
+- [x] **GameplayScene.unity:** `GameplayBootstrapper.m_Enabled: 0 → 1` (enabled)
 
-### Critical: Wire Pipe Prefabs to GridManager in GameplayScene
-**Run in Unity:** `OceanRescuer → Fix GameplayScene (Attach Bootstrapper + Prefabs)`
+### Grid Generation — Single Source of Truth
+**Active generator: `GameplayBootstrapper`**
+- Runs at `Awake()` with `[DefaultExecutionOrder(-100)]` — before all other scripts
+- Builds 9×5 snake layout (29 pipes) from `Resources/Prefabs/`
+- Sets `GridManager.useScenePlacedTiles = true` before `GridManager.Start()` runs
+- `GridManager.Start()` sees flag=true → calls `RegisterSceneTiles()` only (no duplicate)
+- `GridManager.GenerateGrid()` is now a fallback only (runs if Bootstrapper is missing/disabled)
 
-This will:
-1. Attach `GameplayBootstrapper` to GameManager
-2. Wire Pipe_Straight/Elbow/T/Cross prefabs to GridManager
-3. Set `useScenePlacedTiles = false` → pipes auto-generate on Play
-4. Save GameplayScene
-
-### OR Alternative: Run `Build Level 01` for static snake layout
-**Run in Unity:** `OceanRescuer → Build Level 01 (9x5 Snake)`
+### Issues Fixed / Identified
+- **gemText = null** → GemText object missing. Run: `OceanRescuer > Fix Null HUD References`
+- **undoCountText = null** → No label in UndoButton. Same fix.
+- **levelNameText = null** → No LevelNameText in TopBar. Same fix.
+- **AudioManager** → Not in GameplayScene (non-critical for pipe gameplay)
+- **Clownfish sprite** → spriteMode=2 (Multiple, 88 frames). Frame Clownfish_0 is 11×15px — may appear tiny.
 
 ---
 
@@ -310,3 +348,24 @@ Fixes:
 3. Press Play → open Settings panel → click Sound and Music buttons
 4. Verify ON (green indicator) ↔ OFF (red indicator) toggle
 5. Restart Play Mode → verify PlayerPrefs restored settings
+
+---
+
+## Phase 5 — Pipe Grid Layout Fix (2026-11-20 00:21 IST)
+
+**Root cause of gaps:** `PIPE_SCALE` values (`0.528, 0.815, 0.746, 0.887`) caused pipes to render at only 0.58–0.93 units while TileSize=1.1 → gaps of 0.17–0.52 units between pipes.
+
+### Changes Made
+- [x] **GameplayBootstrapper.cs PIPE_SCALE corrected** (all 4 values replaced):
+  - `0=Straight: 1.002f` (was 0.528) → renders at 1.1 × 0.52 units ✅
+  - `1=Elbow: 0.9971f` (was 0.815) → renders at 1.004 × 1.1 units ✅
+  - `2=TJunction: 1.0005f` (was 0.746) → renders at 1.1 × 0.56 units ✅
+  - `3=Cross: 0.9995f` (was 0.887) → renders at 1.047 × 1.1 units ✅
+- [x] **BoxCollider2D on all 4 pipe prefabs:** `1×1 → 1.1×1.1` (consistent click area)
+- [x] **Camera orthographic size:** `5.5 → 3.2` (proper grid fill with margins)
+- [x] **PipePrefabScaleFixer.cs TARGET_SIZE:** `1.0 → 1.1`
+- [x] **GameplayFinalFixer.cs TARGET_ORTHO:** `4.0 → 3.2`
+
+### Still Pending
+- Run `OceanRescuer > Fix Null HUD References` → wires gemText, undoCountText, levelNameText
+- Clownfish visibility: if tiny → Inspector: Clownfish.png → Sprite Mode: Single

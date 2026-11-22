@@ -18,13 +18,14 @@ public class PipeTile : MonoBehaviour
 
     [Header("Visuals")]
     [Tooltip("Color when the tile is part of a valid flow.")]
-    public Color connectedColor = new Color(0.3f, 0.9f, 1f);
+    public Color connectedColor = new Color(0.1f, 1.0f, 1.0f, 1.0f);
     [Tooltip("Default color when not connected.")]
-    public Color normalColor = Color.white;
+    public Color normalColor = new Color(0.5f, 0.62f, 0.78f, 0.65f);
 
     private SpriteRenderer _sr;
     private bool _isAnimating = false;
     private Quaternion _targetRotation;
+    private int _lastRotateFrame = -1;
 
     // Base openings for each pipe type (Up, Right, Down, Left) before rotation.
     private static bool[][] _baseOpenings;
@@ -35,10 +36,10 @@ public class PipeTile : MonoBehaviour
         if (_baseOpenings == null)
         {
             _baseOpenings = new bool[4][];
-            // Straight: Up & Down
-            _baseOpenings[(int)PipeType.Straight] = new bool[] { true, false, true, false };
-            // Elbow: Up & Right
-            _baseOpenings[(int)PipeType.Elbow] = new bool[] { true, true, false, false };
+            // Straight: Right & Left (Horizontal at rot 0)
+            _baseOpenings[(int)PipeType.Straight] = new bool[] { false, true, false, true };
+            // Elbow: Down & Left at rot 0
+            _baseOpenings[(int)PipeType.Elbow] = new bool[] { false, false, true, true };
             // TJunction: Up, Right, Left
             _baseOpenings[(int)PipeType.TJunction] = new bool[] { true, true, false, true };
             // Cross: all four sides
@@ -52,14 +53,27 @@ public class PipeTile : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (Time.timeScale == 0f) return;
+        if (UnityEngine.EventSystems.EventSystem.current != null && UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) return;
         if (isLocked || _isAnimating) return;
+        if (GameManager.Instance != null && GameManager.Instance.IsGameOver) return;
         Rotate();
     }
 
     public void Rotate()
     {
-        // Record move before changing state.
-        MoveManager.Instance?.RecordMove(this, rotationStep);
+        if (Time.frameCount == _lastRotateFrame) return;
+        _lastRotateFrame = Time.frameCount;
+
+        if (GameManager.Instance != null && GameManager.Instance.IsGameOver) return;
+
+        // Record move before changing state. Abort rotation if move was rejected (e.g. out of moves)
+        if (MoveManager.Instance != null)
+        {
+            bool allowed = MoveManager.Instance.RecordMove(this, rotationStep);
+            if (!allowed) return;
+        }
+
         rotationStep = (rotationStep + 1) % 4;
         _targetRotation = Quaternion.Euler(0f, 0f, -90f * rotationStep);
         StartCoroutine(AnimateRotation());
@@ -114,7 +128,36 @@ public class PipeTile : MonoBehaviour
         isConnected = connected;
         if (_sr != null)
         {
+            if (isLocked) return; // Keep Source/Sink distinct color
             _sr.color = connected ? connectedColor : normalColor;
         }
+    }
+
+    /// <summary>
+    /// Visual water pulse effect when water enters this pipe tile.
+    /// </summary>
+    public void PlayWaterPulse()
+    {
+        StartCoroutine(WaterPulseRoutine());
+    }
+
+    private IEnumerator WaterPulseRoutine()
+    {
+        Vector3 baseScale = transform.localScale;
+        Vector3 peakScale = baseScale * 1.15f;
+        float elapsed = 0f;
+        float duration = 0.16f;
+
+        if (_sr != null && !isLocked) _sr.color = Color.white;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Sin(elapsed / duration * Mathf.PI);
+            transform.localScale = Vector3.Lerp(baseScale, peakScale, t);
+            yield return null;
+        }
+        transform.localScale = baseScale;
+        if (_sr != null && !isLocked) _sr.color = connectedColor;
     }
 }

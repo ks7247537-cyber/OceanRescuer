@@ -17,14 +17,28 @@ public static class SettingsPanelFixer
 {
     private const string SCENE_PATH = "Assets/Scenes/MainMenuScene.unity";
 
-    // Sprite GUIDs
-    private const string SOUND_ON_GUID  = "95ddebbd5b023374d9c6d74b4c2401b1"; // button_sound.png
-    private const string SOUND_OFF_GUID = "74dabcd7704d68b49aae099595e163fa"; // button_mute.png
+    // Sprite GUIDs — user-provided icons (icon_sound_on.png / icon_sound_off.png)
+    // These are the blue speaker icons provided by the user for the toggle buttons.
+    private const string SOUND_ON_GUID   = "e3429685d5c2d554bb921b39feb76c53"; // icon_sound_on.png  (blue speaker ON)
+    private const string SOUND_OFF_GUID  = "8eca980a4f53b73409b10f486d8081c1"; // icon_sound_off.png (blue muted speaker OFF)
+
+    // Fallback: original button art (used if new icons aren't importable yet)
+    private const string FALLBACK_ON_GUID  = "95ddebbd5b023374d9c6d74b4c2401b1"; // button_sound.png
+    private const string FALLBACK_OFF_GUID = "74dabcd7704d68b49aae099595e163fa"; // button_mute.png
 
     [MenuItem("OceanRescuer/Fix Settings Panel")]
     public static void Run()
     {
-        // ── 1. Open MainMenuScene ────────────────────────────────────────────
+        // ── 0. Force reimport new icon sprites so Unity picks them up ─────────
+        AssetDatabase.ImportAsset(
+            "Assets/Art/UI/Buttons/icon_sound_on.png",
+            ImportAssetOptions.ForceUpdate);
+        AssetDatabase.ImportAsset(
+            "Assets/Art/UI/Buttons/icon_sound_off.png",
+            ImportAssetOptions.ForceUpdate);
+        AssetDatabase.Refresh();
+
+        // ── 1. Open MainMenuScene ─────────────────────────────────────────────
         var activeScene = SceneManager.GetActiveScene();
         if (activeScene.name != "MainMenuScene")
         {
@@ -33,15 +47,41 @@ public static class SettingsPanelFixer
             activeScene = SceneManager.GetActiveScene();
         }
 
-        // ── 2. Load sprites ──────────────────────────────────────────────────
+        // ── 2. Load sprites (new user icons first, fallback to original art) ──
         string soundOnPath  = AssetDatabase.GUIDToAssetPath(SOUND_ON_GUID);
         string soundOffPath = AssetDatabase.GUIDToAssetPath(SOUND_OFF_GUID);
 
-        Sprite soundOnSprite  = LoadFirstSprite(soundOnPath,  "button_sound");
-        Sprite soundOffSprite = LoadFirstSprite(soundOffPath, "button_mute");
+        Sprite soundOnSprite  = LoadFirstSprite(soundOnPath,  "icon_sound_on");
+        Sprite soundOffSprite = LoadFirstSprite(soundOffPath, "icon_sound_off");
 
-        if (soundOnSprite  == null) Debug.LogWarning("[SettingsPanelFixer] button_sound.png sprite not found.");
-        if (soundOffSprite == null) Debug.LogWarning("[SettingsPanelFixer] button_mute.png sprite not found.");
+        // Fallback to original button_sound / button_mute if new icons not yet imported
+        if (soundOnSprite == null)
+        {
+            string fbPath = AssetDatabase.GUIDToAssetPath(FALLBACK_ON_GUID);
+            soundOnSprite = LoadFirstSprite(fbPath, "button_sound");
+            if (soundOnSprite != null)
+                Debug.LogWarning("[SettingsPanelFixer] icon_sound_on.png not ready — using button_sound.png fallback.");
+            else
+                Debug.LogWarning("[SettingsPanelFixer] ⚠ No sound-ON sprite found.");
+        }
+        else
+        {
+            Debug.Log("[SettingsPanelFixer] ✓ icon_sound_on.png loaded.");
+        }
+
+        if (soundOffSprite == null)
+        {
+            string fbPath = AssetDatabase.GUIDToAssetPath(FALLBACK_OFF_GUID);
+            soundOffSprite = LoadFirstSprite(fbPath, "button_mute");
+            if (soundOffSprite != null)
+                Debug.LogWarning("[SettingsPanelFixer] icon_sound_off.png not ready — using button_mute.png fallback.");
+            else
+                Debug.LogWarning("[SettingsPanelFixer] ⚠ No sound-OFF sprite found.");
+        }
+        else
+        {
+            Debug.Log("[SettingsPanelFixer] ✓ icon_sound_off.png loaded.");
+        }
 
         // ── 3. Find SettingsPanel ────────────────────────────────────────────
         GameObject settingsPanel = GameObject.Find("SettingsPanel");
@@ -95,7 +135,8 @@ public static class SettingsPanelFixer
             anchorMin: new Vector2(0.08f, 0.42f),
             anchorMax: new Vector2(0.48f, 0.75f),
             labelText: "Sound",
-            sprite: soundOnSprite
+            onSprite: soundOnSprite,
+            offSprite: soundOffSprite
         );
 
         // ── 6. Create / fix MusicButton ─────────────────────────────────────
@@ -104,7 +145,8 @@ public static class SettingsPanelFixer
             anchorMin: new Vector2(0.52f, 0.42f),
             anchorMax: new Vector2(0.92f, 0.75f),
             labelText: "Music",
-            sprite: soundOnSprite   // same ON image for music
+            onSprite: soundOnSprite,
+            offSprite: soundOffSprite
         );
 
         // ── 7. Fix / find CloseSettBtn ──────────────────────────────────────
@@ -184,7 +226,7 @@ public static class SettingsPanelFixer
     static Button CreateOrFixToggleButton(
         GameObject parent, string name,
         Vector2 anchorMin, Vector2 anchorMax,
-        string labelText, Sprite sprite)
+        string labelText, Sprite onSprite, Sprite offSprite = null)
     {
         // Find existing or create new
         GameObject go = parent.transform.Find(name)?.gameObject;
@@ -202,28 +244,44 @@ public static class SettingsPanelFixer
         rt.anchoredPosition = Vector2.zero;
         rt.sizeDelta        = Vector2.zero;
 
-        // Image (button background)
+        // Image (button background — solid color, no sprite, so icon shows clearly)
         var img = go.GetOrAddComponent<Image>();
-        if (sprite != null) img.sprite = sprite;
-        img.color         = Color.white;
-        img.preserveAspect = true;
+        img.sprite        = null;
+        img.color         = new Color(0.15f, 0.15f, 0.35f, 0.92f); // dark blue panel
         img.raycastTarget = true;   // Button needs this
 
         // Button component
         var btn = go.GetOrAddComponent<Button>();
         btn.targetGraphic = img;
-        // Color tint transition
         var colors = btn.colors;
         colors.normalColor      = Color.white;
-        colors.highlightedColor = new Color(0.9f, 0.9f, 0.9f);
-        colors.pressedColor     = new Color(0.7f, 0.7f, 0.7f);
+        colors.highlightedColor = new Color(0.85f, 0.85f, 0.85f);
+        colors.pressedColor     = new Color(0.65f, 0.65f, 0.65f);
         btn.colors = colors;
         btn.interactable = true;
 
         // Clear existing onClick so we don't duplicate
         btn.onClick.RemoveAllListeners();
 
-        // ── State indicator label ────────────────────────────────────────────
+        // ── Icon Image (shows ON sprite, swapped by SettingsManager.RefreshUI) ─
+        GameObject iconGO = go.transform.Find("Icon")?.gameObject;
+        if (iconGO == null)
+        {
+            iconGO = new GameObject("Icon");
+            iconGO.transform.SetParent(go.transform, false);
+        }
+        var iconRT = iconGO.GetOrAddComponent<RectTransform>();
+        iconRT.anchorMin        = new Vector2(0.15f, 0.25f);
+        iconRT.anchorMax        = new Vector2(0.85f, 0.90f);
+        iconRT.anchoredPosition = Vector2.zero;
+        iconRT.sizeDelta        = Vector2.zero;
+        var iconImg = iconGO.GetOrAddComponent<Image>();
+        if (onSprite != null) iconImg.sprite = onSprite;
+        iconImg.color         = Color.white;
+        iconImg.preserveAspect = true;
+        iconImg.raycastTarget = false;  // ← must NOT block button clicks
+
+        // ── State label (Sound: ON / Music: ON) ───────────────────────────────
         GameObject labelGO = go.transform.Find("Label")?.gameObject;
         if (labelGO == null)
         {
@@ -231,33 +289,17 @@ public static class SettingsPanelFixer
             labelGO.transform.SetParent(go.transform, false);
         }
         var lblRT = labelGO.GetOrAddComponent<RectTransform>();
-        lblRT.anchorMin        = new Vector2(0f, -0.35f);
-        lblRT.anchorMax        = new Vector2(1f, -0.02f);
+        lblRT.anchorMin        = new Vector2(0f, 0.02f);
+        lblRT.anchorMax        = new Vector2(1f, 0.28f);
         lblRT.anchoredPosition = Vector2.zero;
         lblRT.sizeDelta        = Vector2.zero;
         var lblTMP = labelGO.GetOrAddComponent<TextMeshProUGUI>();
         lblTMP.text            = labelText + ": <color=#33FF66>ON</color>";
-        lblTMP.fontSize        = 32;
+        lblTMP.fontSize        = 28;
         lblTMP.alignment       = TextAlignmentOptions.Center;
         lblTMP.color           = Color.white;
         lblTMP.fontStyle       = FontStyles.Bold;
         lblTMP.raycastTarget   = false;   // ← IMPORTANT: don't block clicks
-
-        // ── ON/OFF indicator strip at bottom of button ───────────────────────
-        GameObject indicatorGO = go.transform.Find("StateIndicator")?.gameObject;
-        if (indicatorGO == null)
-        {
-            indicatorGO = new GameObject("StateIndicator");
-            indicatorGO.transform.SetParent(go.transform, false);
-        }
-        var indRT = indicatorGO.GetOrAddComponent<RectTransform>();
-        indRT.anchorMin        = new Vector2(0.1f, 0.02f);
-        indRT.anchorMax        = new Vector2(0.9f, 0.18f);
-        indRT.anchoredPosition = Vector2.zero;
-        indRT.sizeDelta        = Vector2.zero;
-        var indImg = indicatorGO.GetOrAddComponent<Image>();
-        indImg.color          = new Color(0.2f, 0.9f, 0.4f); // green = ON
-        indImg.raycastTarget  = false;   // ← don't block clicks
 
         return btn;
     }
