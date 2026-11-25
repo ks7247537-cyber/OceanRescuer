@@ -51,10 +51,22 @@ public class PipeTile : MonoBehaviour
         SetConnected(false);
     }
 
+    private bool IsPointerOverUI()
+    {
+        if (UnityEngine.EventSystems.EventSystem.current == null) return false;
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) return true;
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(Input.GetTouch(i).fingerId))
+                return true;
+        }
+        return false;
+    }
+
     private void OnMouseDown()
     {
         if (Time.timeScale == 0f) return;
-        if (UnityEngine.EventSystems.EventSystem.current != null && UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) return;
+        if (IsPointerOverUI()) return;
         if (isLocked || _isAnimating) return;
         if (GameManager.Instance != null && GameManager.Instance.IsGameOver) return;
         Rotate();
@@ -76,6 +88,7 @@ public class PipeTile : MonoBehaviour
 
         rotationStep = (rotationStep + 1) % 4;
         _targetRotation = Quaternion.Euler(0f, 0f, -90f * rotationStep);
+        AudioManager.Instance?.PlayPipeRotate();
         StartCoroutine(AnimateRotation());
         GameManager.Instance?.CheckWinCondition();
     }

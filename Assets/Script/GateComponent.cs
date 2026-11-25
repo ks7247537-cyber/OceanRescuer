@@ -25,9 +25,14 @@ public class GateComponent : MonoBehaviour
     [Tooltip("For Locked Gate: Linked valve coordinates that trigger opening (-1,-1 if none)")]
     public Vector2Int linkedValvePos = new Vector2Int(-1, -1);
 
-    [Header("Visual References")]
-    private SpriteRenderer _barrierSr;
-    private SpriteRenderer _badgeSr;
+    [Header("Visual References (Inspector Editable)")]
+    public SpriteRenderer barrierRenderer;
+    public SpriteRenderer badgeRenderer;
+    public Sprite lockedSprite;
+    public Sprite unlockedSprite;
+
+    private SpriteRenderer _barrierSr => barrierRenderer;
+    private SpriteRenderer _badgeSr => badgeRenderer;
     private TextMeshPro _pressureText;
     private TextMeshPro _hintText;
 
@@ -52,8 +57,10 @@ public class GateComponent : MonoBehaviour
 
     private void SetupComponents()
     {
-        _spriteLocked     = Resources.Load<Sprite>("Sprites/icon_locked");
-        _spriteUnlocked   = Resources.Load<Sprite>("Sprites/icon_unlocked");
+        if (lockedSprite == null)   lockedSprite   = Resources.Load<Sprite>("Sprites/icon_locked");
+        if (unlockedSprite == null) unlockedSprite = Resources.Load<Sprite>("Sprites/icon_unlocked");
+        _spriteLocked     = lockedSprite;
+        _spriteUnlocked   = unlockedSprite;
         _spriteGoldShield = Resources.Load<Sprite>("Sprites/icon_locked_gold_shield");
         _spriteBlueShield = Resources.Load<Sprite>("Sprites/icon_locked_blue_shield");
         _spriteBarrier    = Resources.Load<Sprite>("Sprites/obstacle");
@@ -68,19 +75,20 @@ public class GateComponent : MonoBehaviour
         }
 
         // Barrier renderer (physical obstacle on pipe)
-        _barrierSr = GetComponent<SpriteRenderer>();
-        if (_barrierSr == null) _barrierSr = gameObject.AddComponent<SpriteRenderer>();
-        _barrierSr.sortingOrder = 7;
-        transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+        if (barrierRenderer == null) barrierRenderer = GetComponent<SpriteRenderer>();
+        if (barrierRenderer == null) barrierRenderer = gameObject.AddComponent<SpriteRenderer>();
+        barrierRenderer.sortingOrder = 7;
+        // Compact scale: ~38% of tile so it sits neatly on the pipe coupling without covering the pipe
+        transform.localScale = new Vector3(0.38f, 0.38f, 1f);
 
         // Assign sprite depending on type
         if (gateType == GateType.BreakableRock)
         {
-            _barrierSr.sprite = _spriteRocks != null ? _spriteRocks : _spriteBarrier;
+            barrierRenderer.sprite = _spriteRocks != null ? _spriteRocks : _spriteBarrier;
         }
         else
         {
-            _barrierSr.sprite = _spriteBarrier;
+            barrierRenderer.sprite = _spriteBarrier;
         }
 
         // Badge child (lock icon, shield, or power symbol)
@@ -89,14 +97,14 @@ public class GateComponent : MonoBehaviour
         {
             var go = new GameObject("GateBadge");
             go.transform.SetParent(transform, false);
-            _badgeSr = go.AddComponent<SpriteRenderer>();
-            _badgeSr.sortingOrder = 8;
-            go.transform.localScale = new Vector3(0.55f, 0.55f, 1f);
+            badgeRenderer = go.AddComponent<SpriteRenderer>();
+            badgeRenderer.sortingOrder = 8;
+            go.transform.localScale = new Vector3(1f, 1f, 1f);
             go.transform.localPosition = new Vector3(0f, 0f, -0.1f);
         }
         else
         {
-            _badgeSr = badgeObj.GetComponent<SpriteRenderer>();
+            badgeRenderer = badgeObj.GetComponent<SpriteRenderer>();
         }
 
         // Pressure text display
@@ -122,7 +130,27 @@ public class GateComponent : MonoBehaviour
     {
         if (Time.timeScale == 0f) return;
         if (UnityEngine.EventSystems.EventSystem.current != null && UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) return;
-        InteractWithAbility();
+
+        if (!isOpen)
+        {
+            InteractWithAbility();
+        }
+
+        // Always allow rotating the pipe tile on this grid position!
+        RotatePipeUnderneath();
+    }
+
+    private void RotatePipeUnderneath()
+    {
+        var grid = GridManager.Instance != null ? GridManager.Instance : FindObjectOfType<GridManager>();
+        if (grid != null)
+        {
+            var pipe = grid.GetTileAt(gridPos.x, gridPos.y);
+            if (pipe != null)
+            {
+                pipe.Rotate();
+            }
+        }
     }
 
     public void InteractWithAbility()
@@ -192,15 +220,31 @@ public class GateComponent : MonoBehaviour
     {
         if (_barrierSr == null) return;
 
+        var col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = !isOpen; // Disable collider when unlocked so clicks directly hit the pipe tile!
+
         switch (gateType)
         {
             case GateType.LockedGate:
-                if (_badgeSr != null)
+                if (isOpen)
                 {
-                    _badgeSr.sprite = isOpen ? _spriteUnlocked : _spriteLocked;
-                    _badgeSr.color  = isOpen ? new Color(0.2f, 1f, 0.4f, 0.9f) : Color.white;
+                    // When unlocked, the lock opens and fades away so the pipe is completely clear and water flows visibly!
+                    if (_barrierSr != null) _barrierSr.sprite = _spriteUnlocked;
+                    if (_badgeSr != null) _badgeSr.sprite = _spriteUnlocked;
+                    ApplyBarrierColor(new Color(0.2f, 1f, 0.4f, 0f), immediate);
                 }
-                ApplyBarrierColor(isOpen ? new Color(0.3f, 0.8f, 1f, 0.25f) : new Color(1f, 0.4f, 0.4f, 0.95f), immediate);
+                else
+                {
+                    if (_barrierSr != null)
+                    {
+                        _barrierSr.sprite = _spriteBarrier != null ? _spriteBarrier : _spriteLocked;
+                    }
+                    if (_badgeSr != null)
+                    {
+                        _badgeSr.sprite = _spriteLocked;
+                    }
+                    ApplyBarrierColor(Color.white, immediate);
+                }
                 break;
 
             case GateType.PressureGate:
@@ -245,27 +289,33 @@ public class GateComponent : MonoBehaviour
     {
         if (immediate)
         {
-            _barrierSr.color = targetColor;
+            if (_barrierSr != null) _barrierSr.color = targetColor;
+            if (_badgeSr != null)   _badgeSr.color   = targetColor;
         }
         else
         {
+            StopAllCoroutines();
             StartCoroutine(AnimateBarrier(targetColor));
         }
     }
 
     private IEnumerator AnimateBarrier(Color targetColor)
     {
-        Color start = _barrierSr.color;
+        Color start = _barrierSr != null ? _barrierSr.color : Color.white;
+        Color badgeStart = _badgeSr != null ? _badgeSr.color : Color.white;
         float elapsed = 0f;
-        const float duration = 0.2f;
+        const float duration = 0.25f;
 
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            _barrierSr.color = Color.Lerp(start, targetColor, elapsed / duration);
+            float t = elapsed / duration;
+            if (_barrierSr != null) _barrierSr.color = Color.Lerp(start, targetColor, t);
+            if (_badgeSr != null)   _badgeSr.color   = Color.Lerp(badgeStart, targetColor, t);
             yield return null;
         }
 
-        _barrierSr.color = targetColor;
+        if (_barrierSr != null) _barrierSr.color = targetColor;
+        if (_badgeSr != null)   _badgeSr.color   = targetColor;
     }
 }

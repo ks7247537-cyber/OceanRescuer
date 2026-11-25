@@ -235,6 +235,7 @@ public class FlowManager : MonoBehaviour
     /// </summary>
     public void AnimateWaterFlow(System.Action onComplete = null)
     {
+        AudioManager.Instance?.PlayWaterFlow();
         StartCoroutine(WaterFlowRoutine(onComplete));
     }
 

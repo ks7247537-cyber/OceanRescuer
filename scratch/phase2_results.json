@@ -1,0 +1,946 @@
+[
+  {
+    "level": 1,
+    "name": "Level 1",
+    "difficulty": 2,
+    "companion": "Clownfish",
+    "pathLength": 13,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 14,
+    "maxMoves": 16,
+    "target3Stars": 8,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 2,
+    "name": "Level 2",
+    "difficulty": 2,
+    "companion": "Clownfish",
+    "pathLength": 15,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 19,
+    "maxMoves": 20,
+    "target3Stars": 10,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 3,
+    "name": "Level 3",
+    "difficulty": 2,
+    "companion": "Clownfish",
+    "pathLength": 13,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 14,
+    "maxMoves": 18,
+    "target3Stars": 9,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 4,
+    "name": "Level 4",
+    "difficulty": 2,
+    "companion": "Clownfish",
+    "pathLength": 15,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        7,
+        3
+      ],
+      [
+        7,
+        2
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 15,
+    "maxMoves": 20,
+    "target3Stars": 11,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 5,
+    "name": "Level 5",
+    "difficulty": 2,
+    "companion": "Turtle",
+    "pathLength": 13,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 14,
+    "maxMoves": 22,
+    "target3Stars": 10,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 6,
+    "name": "Level 6",
+    "difficulty": 2,
+    "companion": "Turtle",
+    "pathLength": 19,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 30,
+    "maxMoves": 31,
+    "target3Stars": 15,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 7,
+    "name": "Level 7",
+    "difficulty": 2,
+    "companion": "Octopus",
+    "pathLength": 15,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 14,
+    "maxMoves": 22,
+    "target3Stars": 11,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 8,
+    "name": "Level 8",
+    "difficulty": 2,
+    "companion": "Octopus",
+    "pathLength": 17,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        7,
+        2
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 22,
+    "maxMoves": 24,
+    "target3Stars": 13,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 9,
+    "name": "Level 9",
+    "difficulty": 2,
+    "companion": "Jellyfish",
+    "pathLength": 17,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 24,
+    "maxMoves": 26,
+    "target3Stars": 14,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 10,
+    "name": "Level 10",
+    "difficulty": 2,
+    "companion": "Jellyfish",
+    "pathLength": 17,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 23,
+    "maxMoves": 28,
+    "target3Stars": 14,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 11,
+    "name": "Level 11",
+    "difficulty": 2,
+    "companion": "Turtle",
+    "pathLength": 15,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 22,
+    "maxMoves": 28,
+    "target3Stars": 13,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  },
+  {
+    "level": 12,
+    "name": "Level 12",
+    "difficulty": 2,
+    "companion": "Jellyfish",
+    "pathLength": 19,
+    "pathCoordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "minMovesToSolve": 29,
+    "maxMoves": 32,
+    "target3Stars": 17,
+    "starsEarned": 2,
+    "solvable": true,
+    "movesWithinLimit": true,
+    "status": "PASS"
+  }
+]

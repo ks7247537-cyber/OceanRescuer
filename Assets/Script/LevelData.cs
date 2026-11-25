@@ -90,4 +90,35 @@ public class LevelData : ScriptableObject
         int idx = row * cols + col;
         return (idx >= 0 && idx < solutionRotations.Length) ? solutionRotations[idx] : 0;
     }
+
+    /// <summary>
+    /// Loads the appropriate LevelData ScriptableObject based on world and level index.
+    /// World 0: Coral Reef (Levels 1-12)
+    /// World 1: Deep Ocean (Levels 1-12)
+    /// World 2: Lost City (Levels 1-12)
+    /// </summary>
+    public static LevelData LoadLevel(int worldIndex, int levelIndex)
+    {
+        int levelNum = levelIndex + 1;
+        LevelData ld = null;
+
+        if (worldIndex == 1) // Deep Ocean
+        {
+            ld = Resources.Load<LevelData>($"Levels/DeepOcean/Level_{levelNum:D2}")
+              ?? Resources.Load<LevelData>($"Levels/W1_Level_{levelNum:D2}")
+              ?? Resources.Load<LevelData>($"Levels/Level_{levelNum + 12:D2}");
+        }
+        else if (worldIndex == 0) // Coral Reef
+        {
+            ld = Resources.Load<LevelData>($"Levels/CoralReef/Level_{levelNum:D2}")
+              ?? Resources.Load<LevelData>($"Levels/Level_{levelNum:D2}");
+        }
+
+        if (ld == null)
+        {
+            ld = Resources.Load<LevelData>($"Levels/Level_{levelNum:D2}");
+        }
+
+        return ld;
+    }
 }

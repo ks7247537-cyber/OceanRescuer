@@ -1,0 +1,150 @@
+{
+  "clips": [
+    {
+      "clip": "bgm_menu.wav",
+      "description": "Menu Background Music",
+      "status": "PASS",
+      "details": "16-bit PCM 44100Hz Mono, duration=8.00s (705644 bytes), deployed with .meta."
+    },
+    {
+      "clip": "bgm_gameplay.wav",
+      "description": "Gameplay Background Music",
+      "status": "PASS",
+      "details": "16-bit PCM 44100Hz Mono, duration=12.00s (1058444 bytes), deployed with .meta."
+    },
+    {
+      "clip": "sfx_pipe_rotate.wav",
+      "description": "Pipe Rotation SFX",
+      "status": "PASS",
+      "details": "16-bit PCM 44100Hz Mono, duration=0.18s (15920 bytes), deployed with .meta."
+    },
+    {
+      "clip": "sfx_win.wav",
+      "description": "Win Fanfare SFX",
+      "status": "PASS",
+      "details": "16-bit PCM 44100Hz Mono, duration=1.70s (149984 bytes), deployed with .meta."
+    },
+    {
+      "clip": "sfx_fail.wav",
+      "description": "Fail SFX",
+      "status": "PASS",
+      "details": "16-bit PCM 44100Hz Mono, duration=1.10s (97064 bytes), deployed with .meta."
+    },
+    {
+      "clip": "sfx_button_click.wav",
+      "description": "Button Click SFX",
+      "status": "PASS",
+      "details": "16-bit PCM 44100Hz Mono, duration=0.07s (6218 bytes), deployed with .meta."
+    },
+    {
+      "clip": "sfx_water_flow.wav",
+      "description": "Water Flow SFX",
+      "status": "PASS",
+      "details": "16-bit PCM 44100Hz Mono, duration=2.20s (194084 bytes), deployed with .meta."
+    }
+  ],
+  "code_checks": [
+    {
+      "check": "EnsureClipsLoaded() dynamically loads all 7 clips",
+      "status": "PASS"
+    },
+    {
+      "check": "PlayMenuMusic() implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "PlayGameplayMusic() implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "PlayPipeRotate() implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "PlayWin() implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "PlayFail() implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "PlayButtonClick() implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "PlayWaterFlow() implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "SFX Debounce protection implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "BGM restart prevention implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "SetMusicEnabled() and SetSFXEnabled() implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "Null-safety checks in PlayBGM and PlaySFX",
+      "status": "PASS"
+    },
+    {
+      "check": "SettingsManager calls SetMusicEnabled",
+      "status": "PASS"
+    },
+    {
+      "check": "SettingsManager calls SetSFXEnabled",
+      "status": "PASS"
+    },
+    {
+      "check": "SettingsManager saves to PlayerPrefs (MusicEnabled & SFXEnabled)",
+      "status": "PASS"
+    },
+    {
+      "check": "SettingsManager loads from PlayerPrefs on enable",
+      "status": "PASS"
+    },
+    {
+      "check": "GameplayHUD triggers PlayGameplayMusic() on level start",
+      "status": "PASS"
+    },
+    {
+      "check": "GameplayHUD triggers PlayWin() on win",
+      "status": "PASS"
+    },
+    {
+      "check": "GameplayHUD triggers PlayFail() on move limit reach",
+      "status": "PASS"
+    },
+    {
+      "check": "MainMenuManager triggers PlayMenuMusic()",
+      "status": "PASS"
+    },
+    {
+      "check": "LevelSelectionManager triggers PlayMenuMusic()",
+      "status": "PASS"
+    },
+    {
+      "check": "PipeTile triggers PlayPipeRotate() on rotation",
+      "status": "PASS"
+    },
+    {
+      "check": "FlowManager triggers PlayWaterFlow() on water flow animation",
+      "status": "PASS"
+    },
+    {
+      "check": "Physical Speaker / Human Ear Acoustic Audition",
+      "status": "NOT TESTED",
+      "details": "Audio files synthetically and spectrally verified via script. Human ear acoustic playback on physical Android speaker not performed."
+    }
+  ],
+  "summary": {
+    "PASS": 30,
+    "FAIL": 0,
+    "NOT_TESTED": 1
+  }
+}

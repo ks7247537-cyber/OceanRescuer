@@ -26,6 +26,34 @@ public class MainMenuManager : MonoBehaviour
         RefreshCurrencyDisplay();
         AudioManager.Instance?.PlayMenuMusic();
 
+        var canvas = FindObjectOfType<Canvas>();
+        if (canvas != null)
+        {
+            if (canvas.GetComponent<UIBubbleEffect>() == null)
+            {
+                canvas.gameObject.AddComponent<UIBubbleEffect>();
+            }
+            UIButtonFeedback.AttachRecursively(canvas.transform);
+
+            var playBtn = canvas.transform.Find("PlayButton");
+            if (playBtn != null && playBtn.GetComponent<UIGlowPulse>() == null)
+            {
+                playBtn.gameObject.AddComponent<UIGlowPulse>();
+            }
+
+            // Mobile Safe Area Protection for Top Bar Badges
+            var coinPanel = canvas.transform.Find("CoinPanel");
+            if (coinPanel != null && coinPanel.GetComponent<UISafeAreaHandler>() == null)
+            {
+                coinPanel.gameObject.AddComponent<UISafeAreaHandler>();
+            }
+            var gemPanel = canvas.transform.Find("GemPanel");
+            if (gemPanel != null && gemPanel.GetComponent<UISafeAreaHandler>() == null)
+            {
+                gemPanel.gameObject.AddComponent<UISafeAreaHandler>();
+            }
+        }
+
         EnergyManager.OnEnergyChanged += RefreshCurrencyDisplay;
     }
 
@@ -43,7 +71,9 @@ public class MainMenuManager : MonoBehaviour
         var canvas = FindObjectOfType<Canvas>();
         if (canvas == null) return;
 
-        var existing = canvas.transform.Find("TopBar/EnergyBadge") ?? canvas.transform.Find("EnergyBadge");
+        var existing = canvas.transform.Find("SafeAreaContainer/TopBar/EnergyBadge")
+                    ?? canvas.transform.Find("TopBar/EnergyBadge") 
+                    ?? canvas.transform.Find("EnergyBadge");
         if (existing != null)
         {
             energyText = existing.GetComponentInChildren<TextMeshProUGUI>();
@@ -65,16 +95,7 @@ public class MainMenuManager : MonoBehaviour
         if (gemText  != null) gemText.text  = SaveManager.GetGems().ToString();
         if (energyText != null && EnergyManager.Instance != null)
         {
-            string e = EnergyManager.Instance.GetFormattedEnergy();
-            if (EnergyManager.Instance.CurrentEnergy < EnergyManager.Instance.MaxEnergy)
-            {
-                int sec = EnergyManager.Instance.SecondsUntilNextEnergy;
-                energyText.text = $"{e} ({sec / 60:D2}:{sec % 60:D2})";
-            }
-            else
-            {
-                energyText.text = e;
-            }
+            energyText.text = EnergyManager.Instance.GetFormattedEnergy();
         }
     }
 
@@ -91,23 +112,43 @@ public class MainMenuManager : MonoBehaviour
     public void OnShopClicked()
     {
         AudioManager.Instance?.PlayButtonClick();
-        bool isOpen = shopPanel != null && shopPanel.activeSelf;
-        if (settingsPanel != null) settingsPanel.SetActive(false);
-        if (shopPanel     != null) shopPanel.SetActive(!isOpen);
-
-        // Refresh balance when opening
-        if (shopPanel != null && shopPanel.activeSelf)
+        if (settingsPanel != null && settingsPanel.activeSelf)
         {
-            var sm = shopPanel.GetComponent<ShopManager>();
-            if (sm != null) sm.RefreshBalance();
-            RefreshCurrencyDisplay();
+            var st = settingsPanel.GetComponent<UIPanelTransition>();
+            if (st != null) st.PlayClose();
+            else settingsPanel.SetActive(false);
+        }
+
+        if (shopPanel != null)
+        {
+            bool isOpen = shopPanel.activeSelf;
+            if (!isOpen)
+            {
+                shopPanel.SetActive(true);
+                var transition = shopPanel.GetComponent<UIPanelTransition>() ?? shopPanel.AddComponent<UIPanelTransition>();
+                transition.PlayOpen();
+                var sm = shopPanel.GetComponent<ShopManager>();
+                if (sm != null) sm.RefreshBalance();
+                RefreshCurrencyDisplay();
+            }
+            else
+            {
+                var transition = shopPanel.GetComponent<UIPanelTransition>();
+                if (transition != null) transition.PlayClose();
+                else shopPanel.SetActive(false);
+            }
         }
     }
 
     public void OnCloseShopClicked()
     {
-        if (shopPanel != null) shopPanel.SetActive(false);
-        RefreshCurrencyDisplay(); // update top bar after any purchases
+        if (shopPanel != null)
+        {
+            var transition = shopPanel.GetComponent<UIPanelTransition>();
+            if (transition != null) transition.PlayClose();
+            else shopPanel.SetActive(false);
+        }
+        RefreshCurrencyDisplay();
     }
 
     // ── Settings ──────────────────────────────────────────────────────────────
@@ -115,14 +156,39 @@ public class MainMenuManager : MonoBehaviour
     public void OnSettingsClicked()
     {
         AudioManager.Instance?.PlayButtonClick();
-        bool isOpen = settingsPanel != null && settingsPanel.activeSelf;
-        if (shopPanel     != null) shopPanel.SetActive(false);
-        if (settingsPanel != null) settingsPanel.SetActive(!isOpen);
+        if (shopPanel != null && shopPanel.activeSelf)
+        {
+            var st = shopPanel.GetComponent<UIPanelTransition>();
+            if (st != null) st.PlayClose();
+            else shopPanel.SetActive(false);
+        }
+
+        if (settingsPanel != null)
+        {
+            bool isOpen = settingsPanel.activeSelf;
+            if (!isOpen)
+            {
+                settingsPanel.SetActive(true);
+                var transition = settingsPanel.GetComponent<UIPanelTransition>() ?? settingsPanel.AddComponent<UIPanelTransition>();
+                transition.PlayOpen();
+            }
+            else
+            {
+                var transition = settingsPanel.GetComponent<UIPanelTransition>();
+                if (transition != null) transition.PlayClose();
+                else settingsPanel.SetActive(false);
+            }
+        }
     }
 
     public void OnCloseSettingsClicked()
     {
-        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (settingsPanel != null)
+        {
+            var transition = settingsPanel.GetComponent<UIPanelTransition>();
+            if (transition != null) transition.PlayClose();
+            else settingsPanel.SetActive(false);
+        }
     }
 
     // ── Settings toggles (legacy — kept for backward compat) ─────────────────

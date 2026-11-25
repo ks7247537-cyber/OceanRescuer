@@ -17,10 +17,14 @@ public class GameplayBootstrapper : MonoBehaviour
     public int   rows     = 5;
     public float tileSize = 1.0f;
 
+    [Header("Obstacle Controls")]
+    [Tooltip("If disabled, annoying Locked Gate obstacles on pipes won't spawn, keeping puzzle pipes completely free to rotate.")]
+    public bool enableLockedGates = false;
+
     // Per-type scale calibrated to tileSize=1.0
     private static readonly float[] PIPE_SCALE = { 1.0f, 0.73f, 0.97f, 1.0f };
 
-    private static readonly int[] DEFAULT_MAX_MOVES = { 16, 18, 18, 20, 22, 26, 22, 24, 26, 28, 28, 32 };
+    private static readonly int[] DEFAULT_MAX_MOVES = { 16, 20, 18, 20, 22, 31, 22, 24, 26, 28, 28, 32 };
 
     public static int GetDefaultMaxMoves(int levelIndex)
     {
@@ -336,6 +340,29 @@ public class GameplayBootstrapper : MonoBehaviour
 
     private void Awake()
     {
+        // Clean up any stray LevelSelection headers or buttons that might have leaked into DontDestroyOnLoad
+        var strayHeader = GameObject.Find("WorldNavigationHeader");
+        if (strayHeader != null) Destroy(strayHeader);
+        var straySwitch = GameObject.Find("WorldSwitchBtn");
+        if (straySwitch != null) Destroy(straySwitch);
+
+        // Ensure Main Camera has ResponsiveGameplayCamera attached
+        var mainCam = Camera.main;
+        if (mainCam != null && mainCam.GetComponent<ResponsiveGameplayCamera>() == null)
+        {
+            mainCam.gameObject.AddComponent<ResponsiveGameplayCamera>();
+        }
+
+        // Ensure Phase 1 Power-Up Managers (PowerUpService, HintManager, SuperWrenchManager) are present
+        if (FindObjectOfType<PowerUpService>() == null || FindObjectOfType<HintManager>() == null || FindObjectOfType<SuperWrenchManager>() == null)
+        {
+            var pSys = GameObject.Find("PowerUpSystems");
+            if (pSys == null) pSys = new GameObject("PowerUpSystems");
+            if (pSys.GetComponent<PowerUpService>() == null) pSys.AddComponent<PowerUpService>();
+            if (pSys.GetComponent<HintManager>() == null) pSys.AddComponent<HintManager>();
+            if (pSys.GetComponent<SuperWrenchManager>() == null) pSys.AddComponent<SuperWrenchManager>();
+        }
+
         _grid = GetComponent<GridManager>();
         if (_grid == null) _grid = FindObjectOfType<GridManager>();
         if (_grid == null) return;
@@ -374,10 +401,17 @@ public class GameplayBootstrapper : MonoBehaviour
 
         _grid.ResizeGrid(cols, rows);
 
+        int worldIndex = SaveManager.GetSelectedWorld();
         int levelIndex = SaveManager.GetSelectedLevel();
         int levelNum = levelIndex + 1;
 
-        LevelData levelData = Resources.Load<LevelData>($"Levels/Level_{levelNum:D2}");
+        LevelData levelData = LevelData.LoadLevel(worldIndex, levelIndex);
+
+        // Configure Deep Ocean visual atmosphere if in World 1
+        if (worldIndex == 1 && GetComponent<DeepOceanEnvironment>() == null)
+        {
+            gameObject.AddComponent<DeepOceanEnvironment>();
+        }
 
         int maxMoves = levelData != null && levelData.maxMoves > 0 
             ? levelData.maxMoves 
@@ -420,7 +454,28 @@ public class GameplayBootstrapper : MonoBehaviour
         float ox = -(cols - 1) * tileSize * 0.5f;
         float oy = -(rows - 1) * tileSize * 0.5f;
 
-        var container = new GameObject("PipeGrid_Bootstrap");
+        // Clean hierarchy containers
+        Transform pipeRoot = GameObject.Find("PipeContainer")?.transform;
+        if (pipeRoot == null) pipeRoot = new GameObject("PipeContainer").transform;
+
+        Transform obstacleRoot = GameObject.Find("ObstacleContainer")?.transform;
+        if (obstacleRoot == null) obstacleRoot = new GameObject("ObstacleContainer").transform;
+
+        Transform valveFolder = obstacleRoot.Find("Valves");
+        if (valveFolder == null)
+        {
+            var vf = new GameObject("Valves");
+            vf.transform.SetParent(obstacleRoot, false);
+            valveFolder = vf.transform;
+        }
+
+        Transform gateFolder = obstacleRoot.Find("Gates");
+        if (gateFolder == null)
+        {
+            var gf = new GameObject("Gates");
+            gf.transform.SetParent(obstacleRoot, false);
+            gateFolder = gf.transform;
+        }
 
         for (int col = 0; col < cols; col++)
         {
@@ -430,7 +485,7 @@ public class GameplayBootstrapper : MonoBehaviour
                 if (ptype < 0) continue;
 
                 GameObject prefab = ptype == 0 ? pS : ptype == 1 ? pE : ptype == 2 ? pT : pX;
-                var go = Instantiate(prefab, container.transform);
+                var go = Instantiate(prefab, pipeRoot);
                 go.name = $"Pipe_{col}_{row}";
 
                 float sc = PIPE_SCALE[ptype];
@@ -471,8 +526,9 @@ public class GameplayBootstrapper : MonoBehaviour
         foreach (var vc in valveList)
         {
             var vObj = new GameObject($"Valve_{vc.gridPos.x}_{vc.gridPos.y}");
-            vObj.transform.SetParent(container.transform, false);
+            vObj.transform.SetParent(valveFolder, false);
             vObj.transform.position = new Vector3(ox + vc.gridPos.x * tileSize, oy + vc.gridPos.y * tileSize, -0.2f);
+            vObj.transform.localScale = new Vector3(0.38f, 0.38f, 1f);
             
             var valve = vObj.AddComponent<WaterValve>();
             valve.gridPos = vc.gridPos;
@@ -490,8 +546,14 @@ public class GameplayBootstrapper : MonoBehaviour
 
         foreach (var gc in gateList)
         {
+            // If user prefers no locked gate obstacles, skip them to keep pipes free!
+            if (gc.gateType == GateType.LockedGate && !enableLockedGates)
+            {
+                continue;
+            }
+
             var gObj = new GameObject($"Gate_{gc.gridPos.x}_{gc.gridPos.y}");
-            gObj.transform.SetParent(container.transform, false);
+            gObj.transform.SetParent(gateFolder, false);
             gObj.transform.position = new Vector3(ox + gc.gridPos.x * tileSize, oy + gc.gridPos.y * tileSize, -0.3f);
 
             var gate = gObj.AddComponent<GateComponent>();

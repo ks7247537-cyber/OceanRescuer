@@ -24,7 +24,14 @@ public class SplashManager : MonoBehaviour
             go.AddComponent<SceneLoader>();
         }
 
-        if (logoGroup != null) StartCoroutine(SplashSequence());
+        if (logoGroup != null)
+        {
+            if (logoGroup.GetComponent<UISafeAreaHandler>() == null)
+            {
+                logoGroup.gameObject.AddComponent<UISafeAreaHandler>();
+            }
+            StartCoroutine(SplashSequence());
+        }
         else StartCoroutine(DelayedLoad());
     }
 

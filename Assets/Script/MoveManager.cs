@@ -53,6 +53,7 @@ public class MoveManager : MonoBehaviour
 
     // Events
     public event System.Action<int> OnMoveCountChanged;  // move count
+    public event System.Action<int> OnMoveLimitChanged;  // max moves updated
     public event System.Action OnUndoStackChanged;
     public event System.Action OnMoveLimitReached;
 
@@ -80,7 +81,8 @@ public class MoveManager : MonoBehaviour
         MoveCount = 0;
         _undoStack.Clear();
 
-        LevelData ld = Resources.Load<LevelData>($"Levels/Level_{levelIndex + 1:D2}");
+        int worldIndex = SaveManager.GetSelectedWorld();
+        LevelData ld = LevelData.LoadLevel(worldIndex, levelIndex);
         if (ld != null && ld.maxMoves > 0)
         {
             maxMoves = ld.maxMoves;
@@ -98,6 +100,47 @@ public class MoveManager : MonoBehaviour
     {
         maxMoves = moves;
         OnMoveCountChanged?.Invoke(MoveCount);
+        OnMoveLimitChanged?.Invoke(maxMoves);
+    }
+
+    /// <summary>
+    /// Safely adds extra moves to the current level attempt.
+    /// Increases maxMoves without modifying or resetting MoveCount.
+    /// Immediately triggers HUD updates and re-evaluates remaining moves.
+    /// Added moves are session-only and revert upon level restart/reload.
+    /// </summary>
+    public bool AddExtraMoves(int amount)
+    {
+        if (amount <= 0)
+        {
+            Debug.LogWarning("[MoveManager] AddExtraMoves: amount must be positive.");
+            return false;
+        }
+
+        // Cannot add moves if level is already won
+        if (GameManager.Instance != null && GameManager.Instance.HasWon)
+        {
+            Debug.LogWarning("[MoveManager] AddExtraMoves: cannot add moves when level is already won.");
+            return false;
+        }
+
+        // If maxMoves is 0 (unlimited), keep unlimited
+        if (maxMoves > 0)
+        {
+            maxMoves += amount;
+        }
+
+        // If the level was close to or at move limit and failed, resume active play safely!
+        if (GameManager.Instance != null && GameManager.Instance.IsFailed)
+        {
+            GameManager.Instance.ResumeFromFail();
+        }
+
+        OnMoveCountChanged?.Invoke(MoveCount);
+        OnMoveLimitChanged?.Invoke(maxMoves);
+
+        Debug.Log($"[MoveManager] +{amount} extra moves added! New maxMoves: {maxMoves}, Remaining: {RemainingMoves}");
+        return true;
     }
 
     // ─────────────────────────────────────────────────────────────────────────

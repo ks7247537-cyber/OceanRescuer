@@ -21,6 +21,10 @@ public class CreatureAbilityController : MonoBehaviour
     public float abilityCooldown = 1.0f;
     private float _cooldownTimer = 0f;
 
+    // Events
+    public event System.Action<CreatureType, int, int> OnChargesChanged;
+    public event System.Action<CreatureType> OnAbilityUsed;
+
     [Header("Visual References")]
     private CharacterMover _mover;
     private TextMeshPro _abilityHudText;
@@ -103,6 +107,8 @@ public class CreatureAbilityController : MonoBehaviour
             _mover.SetCreature(CreatureType.Clownfish);
         }
 
+        OnChargesChanged?.Invoke(activeCreature, abilityUsesRemaining, maxAbilityUses);
+        CreatureAbilityHUD.Instance?.Refresh(activeCreature, abilityUsesRemaining, maxAbilityUses);
         CreateOrUpdateHudBadge();
     }
 
@@ -146,7 +152,7 @@ public class CreatureAbilityController : MonoBehaviour
             }
             else
             {
-                gate.ShowHint("Requires Octopus Ink! 🐙");
+                gate.ShowHint("Requires Octopus Ink Clear! 🐙");
                 return false;
             }
         }
@@ -183,6 +189,11 @@ public class CreatureAbilityController : MonoBehaviour
             MoveManager.Instance.RecordGateAbility(gate, oldGateOpen);
         }
 
+        OnChargesChanged?.Invoke(activeCreature, abilityUsesRemaining, maxAbilityUses);
+        OnAbilityUsed?.Invoke(activeCreature);
+        CreatureAbilityHUD.Instance?.Refresh(activeCreature, abilityUsesRemaining, maxAbilityUses);
+        CreatureAbilityHUD.Instance?.PlayAbilityFeedback();
+
         UpdateHudBadge();
     }
 
@@ -190,6 +201,11 @@ public class CreatureAbilityController : MonoBehaviour
     {
         abilityUsesRemaining = Mathf.Min(maxAbilityUses, abilityUsesRemaining + 1);
         _cooldownTimer = 0f;
+
+        OnChargesChanged?.Invoke(activeCreature, abilityUsesRemaining, maxAbilityUses);
+        CreatureAbilityHUD.Instance?.Refresh(activeCreature, abilityUsesRemaining, maxAbilityUses);
+        CreatureAbilityHUD.Instance?.PlayAbilityFeedback();
+
         UpdateHudBadge();
     }
 
@@ -199,35 +215,12 @@ public class CreatureAbilityController : MonoBehaviour
 
     private IEnumerator TurtleSmashRoutine(GateComponent gate)
     {
-        Transform activeActor = (_abilityHudBadge != null && _abilityHudBadge.activeSelf) 
-            ? _abilityHudBadge.transform 
-            : (_mover != null ? _mover.transform : transform);
-
-        Vector3 startPos = activeActor.position;
         Vector3 targetPos = gate.transform.position;
-
-        // Turtle fast charge lunge
-        float elapsed = 0f;
-        while (elapsed < 0.16f)
-        {
-            elapsed += Time.deltaTime;
-            activeActor.position = Vector3.Lerp(startPos, targetPos, elapsed / 0.16f);
-            yield return null;
-        }
 
         // Rock shatter visual burst effect
         CreateRockShatterEffect(targetPos);
+        yield return new WaitForSeconds(0.15f);
         gate.SetOpen(true);
-
-        // Return turtle back to companion spot
-        elapsed = 0f;
-        while (elapsed < 0.20f)
-        {
-            elapsed += Time.deltaTime;
-            activeActor.position = Vector3.Lerp(targetPos, startPos, elapsed / 0.20f);
-            yield return null;
-        }
-        activeActor.position = startPos;
 
         GameManager.Instance?.CheckWinCondition();
     }
@@ -247,9 +240,7 @@ public class CreatureAbilityController : MonoBehaviour
 
     private IEnumerator JellyfishElectricRoutine(GateComponent gate)
     {
-        Vector3 startPos = (_abilityHudBadge != null && _abilityHudBadge.activeSelf) 
-            ? _abilityHudBadge.transform.position 
-            : (_mover != null ? _mover.transform.position : transform.position);
+        Vector3 startPos = (_mover != null ? _mover.transform.position : transform.position);
         Vector3 targetPos = gate.transform.position;
 
         // Electric lightning bolt arc
@@ -346,59 +337,16 @@ public class CreatureAbilityController : MonoBehaviour
 
     private void CreateOrUpdateHudBadge()
     {
-        if (activeCreature == CreatureType.Clownfish || maxAbilityUses <= 0)
+        // Clean up any old world-space badge to ensure puzzle grid remains 100% visible
+        if (_abilityHudBadge != null)
         {
-            if (_abilityHudBadge != null) _abilityHudBadge.SetActive(false);
-            return;
+            _abilityHudBadge.SetActive(false);
+            Destroy(_abilityHudBadge);
+            _abilityHudBadge = null;
         }
-
-        if (_abilityHudBadge == null)
-        {
-            _abilityHudBadge = new GameObject("CreatureAbilityHUD");
-            // Placed neatly on the far left coral reef (off the pipe grid which starts at x = -2.75)
-            _abilityHudBadge.transform.position = new Vector3(-6.2f, 0.4f, -2f);
-
-            var iconObj = new GameObject("CreatureIcon");
-            iconObj.transform.SetParent(_abilityHudBadge.transform, false);
-            var isr = iconObj.AddComponent<SpriteRenderer>();
-            isr.sortingOrder = 15;
-            // PPU is 1800, scale 1.0 gives standard 0.85 unit companion size
-            iconObj.transform.localScale = new Vector3(1.0f, 1.0f, 1f);
-
-            var textObj = new GameObject("AbilityUsesText");
-            textObj.transform.SetParent(_abilityHudBadge.transform, false);
-            textObj.transform.localPosition = new Vector3(0f, -0.6f, 0f);
-            _abilityHudText = textObj.AddComponent<TextMeshPro>();
-            _abilityHudText.fontSize = 2.4f;
-            _abilityHudText.sortingOrder = 16;
-            _abilityHudText.alignment = TextAlignmentOptions.Center;
-        }
-
-        _abilityHudBadge.SetActive(true);
-        var iconSr = _abilityHudBadge.transform.Find("CreatureIcon")?.GetComponent<SpriteRenderer>();
-        if (iconSr != null)
-        {
-            string spriteName = activeCreature.ToString();
-            Sprite[] subSprites = Resources.LoadAll<Sprite>($"Characters/{spriteName}");
-            if (subSprites != null && subSprites.Length > 0)
-            {
-                iconSr.sprite = subSprites[0];
-            }
-            else
-            {
-                iconSr.sprite = Resources.Load<Sprite>($"Characters/{spriteName}");
-            }
-        }
-
-        UpdateHudBadge();
     }
 
     private void UpdateHudBadge()
     {
-        if (_abilityHudText != null)
-        {
-            _abilityHudText.text = $"x{abilityUsesRemaining}";
-            _abilityHudText.color = abilityUsesRemaining > 0 ? Color.yellow : Color.gray;
-        }
     }
 }

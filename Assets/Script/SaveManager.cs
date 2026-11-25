@@ -112,6 +112,16 @@ public static class SaveManager
     public static void SaveGems(int gems) { PlayerPrefs.SetInt(KEY_GEMS, Mathf.Max(0, gems)); PlayerPrefs.Save(); }
     public static int  GetGems()     => PlayerPrefs.GetInt(KEY_GEMS, 0);
 
+    // ── Power-Ups Inventory ─────────────────────────────────────────────────
+    public static int GetPowerUpCount(string powerUpType) => PlayerPrefs.GetInt("PowerUp_" + powerUpType, 0);
+    public static void AddPowerUp(string powerUpType, int count = 1)
+    {
+        int current = GetPowerUpCount(powerUpType);
+        PlayerPrefs.SetInt("PowerUp_" + powerUpType, Mathf.Max(0, current + count));
+        PlayerPrefs.Save();
+        Debug.Log($"[SaveManager] PowerUp {powerUpType} updated to {GetPowerUpCount(powerUpType)}");
+    }
+
     // ── Energy System Storage ───────────────────────────────────────────────
     public static int GetEnergy() => PlayerPrefs.GetInt(KEY_ENERGY_CURRENT, DEFAULT_MAX_ENERGY);
     public static void SaveEnergy(int energy)

@@ -178,9 +178,4 @@ MonoBehaviour:
     isInitiallyOpen: 0
     requiredPressure: 0
     linkedValvePos: {x: -1, y: -1}
-  - gridPos: {x: 7, y: 1}
-    gateType: 1
-    isInitiallyOpen: 0
-    requiredPressure: 12
-    linkedValvePos: {x: -1, y: -1}
 

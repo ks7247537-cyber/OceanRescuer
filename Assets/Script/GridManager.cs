@@ -24,8 +24,17 @@ public class GridManager : MonoBehaviour
     public GameObject tJunctionPrefab;
     public GameObject crossPrefab;
 
+    public static GridManager Instance { get; private set; }
+
     // Public grid array — FlowManager issi se padhta hai
     public PipeTile[,] Grid { get; private set; }
+
+    public PipeTile GetTileAt(int x, int y)
+    {
+        if (Grid == null) return null;
+        if (x < 0 || x >= Cols || y < 0 || y >= Rows) return null;
+        return Grid[x, y];
+    }
 
     /// <summary>
     /// GameplayBootstrapper Awake() mein isse true karta hai.
@@ -38,9 +47,15 @@ public class GridManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         // Grid array allocate karo — Bootstrapper Awake() ke baad bhi sahi rahega
         // kyunki Bootstrapper ka ExecutionOrder -100 hai (pehle chalta hai).
         Grid = new PipeTile[Cols, Rows];
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     /// <summary>

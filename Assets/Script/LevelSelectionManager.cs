@@ -31,8 +31,34 @@ public class LevelSelectionManager : MonoBehaviour
         SaveManager.EnsureInitialized();
         worldIndex = SaveManager.GetSelectedWorld();
 
-        if (worldTitleText != null && worldIndex < WORLD_NAMES.Length)
-            worldTitleText.text = WORLD_NAMES[worldIndex];
+        // If World 0 (Coral Reef) is completed and World 1 is unlocked, switch to World 1 if World 1 still has pending levels
+        if (worldIndex == 0 && SaveManager.IsWorldUnlocked(1))
+        {
+            bool world0AllDone = true;
+            for (int i = 0; i < 12; i++)
+            {
+                if (SaveManager.GetLevelStars(0, i) == 0) { world0AllDone = false; break; }
+            }
+            if (world0AllDone)
+            {
+                bool world1HasPending = false;
+                for (int i = 0; i < 12; i++)
+                {
+                    if (SaveManager.GetLevelStars(1, i) == 0) { world1HasPending = true; break; }
+                }
+                if (world1HasPending)
+                {
+                    worldIndex = 1;
+                    SaveManager.SetSelectedWorld(1);
+                }
+            }
+        }
+
+        if (worldTitleText != null)
+        {
+            worldTitleText.gameObject.SetActive(true);
+            worldTitleText.text = WORLD_NAMES[Mathf.Clamp(worldIndex, 0, WORLD_NAMES.Length - 1)];
+        }
 
         if (backButton != null)
         {
@@ -40,17 +66,117 @@ public class LevelSelectionManager : MonoBehaviour
             backButton.onClick.AddListener(OnBackClicked);
         }
 
+        SetupWorldNavigation();
         SetupEnergyDisplay();
         PopulateLevelButtons();
         AudioManager.Instance?.PlayMenuMusic();
+
+        if (worldIndex == 1 && GetComponent<DeepOceanEnvironment>() == null)
+        {
+            gameObject.AddComponent<DeepOceanEnvironment>();
+        }
+
+        var canvas = FindObjectOfType<Canvas>();
+        if (canvas != null)
+        {
+            if (canvas.GetComponent<UIBubbleEffect>() == null)
+            {
+                canvas.gameObject.AddComponent<UIBubbleEffect>();
+            }
+            UIButtonFeedback.AttachRecursively(canvas.transform);
+        }
 
         EnergyManager.OnEnergyChanged += UpdateEnergyUI;
         UpdateEnergyUI();
     }
 
+    private GameObject _headerObj;
+    private GameObject _switchBtnObj;
+
+    private Canvas GetLocalCanvas()
+    {
+        var canvases = FindObjectsOfType<Canvas>();
+        foreach (var c in canvases)
+        {
+            if (c.gameObject.scene.name == "LevelSelectionScene" && c.gameObject.name != "FadeCanvas")
+                return c;
+        }
+        return GetComponentInParent<Canvas>();
+    }
+
+    private void SetupWorldNavigation()
+    {
+        var canvas = GetLocalCanvas();
+        if (canvas == null) return;
+
+        var navObj = canvas.transform.Find("WorldNavigationHeader");
+        if (navObj == null)
+        {
+            _headerObj = new GameObject("WorldNavigationHeader", typeof(RectTransform));
+            _headerObj.transform.SetParent(canvas.transform, false);
+            var rt = _headerObj.GetComponent<RectTransform>();
+            rt.anchorMin = new Vector2(0.25f, 0.88f);
+            rt.anchorMax = new Vector2(0.75f, 0.94f);
+            rt.anchoredPosition = Vector2.zero;
+            rt.sizeDelta = Vector2.zero;
+
+            // World Subtitle
+            var titleGo = new GameObject("WorldNameText", typeof(RectTransform), typeof(TextMeshProUGUI));
+            titleGo.transform.SetParent(_headerObj.transform, false);
+            var trt = titleGo.GetComponent<RectTransform>();
+            trt.anchorMin = Vector2.zero;
+            trt.anchorMax = Vector2.one;
+            trt.sizeDelta = Vector2.zero;
+            var tmp = titleGo.GetComponent<TextMeshProUGUI>();
+            tmp.alignment = TextAlignmentOptions.Center;
+            tmp.fontSize = 26;
+            tmp.fontStyle = FontStyles.Bold;
+            tmp.color = new Color(1f, 0.95f, 0.4f, 1f);
+            tmp.text = $"[ World {worldIndex + 1}: {WORLD_NAMES[Mathf.Clamp(worldIndex, 0, WORLD_NAMES.Length - 1)]} ]";
+
+            // If World 1 is unlocked, show Toggle button
+            if (SaveManager.IsWorldUnlocked(1))
+            {
+                _switchBtnObj = new GameObject("WorldSwitchBtn", typeof(RectTransform), typeof(Image), typeof(Button));
+                _switchBtnObj.transform.SetParent(canvas.transform, false);
+                var toggleRt = _switchBtnObj.GetComponent<RectTransform>();
+                toggleRt.anchorMin = new Vector2(0.97f, 0.94f);
+                toggleRt.anchorMax = new Vector2(0.97f, 0.94f);
+                toggleRt.pivot = new Vector2(1f, 1f);
+                toggleRt.anchoredPosition = new Vector2(0f, 0f);
+                toggleRt.sizeDelta = new Vector2(210f, 54f);
+
+                var toggleImg = _switchBtnObj.GetComponent<Image>();
+                toggleImg.color = new Color(0.08f, 0.45f, 0.85f, 0.95f);
+                var btn = _switchBtnObj.GetComponent<Button>();
+
+                var btnTxtGo = new GameObject("Text", typeof(RectTransform), typeof(TextMeshProUGUI));
+                btnTxtGo.transform.SetParent(_switchBtnObj.transform, false);
+                var btnTxtRt = btnTxtGo.GetComponent<RectTransform>();
+                btnTxtRt.anchorMin = Vector2.zero; btnTxtRt.anchorMax = Vector2.one;
+                btnTxtRt.sizeDelta = Vector2.zero;
+                var btnTmp = btnTxtGo.GetComponent<TextMeshProUGUI>();
+                btnTmp.alignment = TextAlignmentOptions.Center;
+                btnTmp.fontSize = 20;
+                btnTmp.fontStyle = FontStyles.Bold;
+                btnTmp.color = Color.white;
+                btnTmp.text = (worldIndex == 0) ? "Deep Ocean >" : "< Coral Reef";
+
+                btn.onClick.AddListener(() =>
+                {
+                    int newWorld = (worldIndex == 0) ? 1 : 0;
+                    SaveManager.SetSelectedWorld(newWorld);
+                    SceneLoader.LoadScene(SceneLoader.LEVEL_SELECT);
+                });
+            }
+        }
+    }
+
     private void OnDestroy()
     {
         EnergyManager.OnEnergyChanged -= UpdateEnergyUI;
+        if (_headerObj != null) Destroy(_headerObj);
+        if (_switchBtnObj != null) Destroy(_switchBtnObj);
     }
 
     private void SetupEnergyDisplay()
@@ -60,7 +186,9 @@ public class LevelSelectionManager : MonoBehaviour
         var canvas = FindObjectOfType<Canvas>();
         if (canvas == null) return;
 
-        var existing = canvas.transform.Find("TopBar/EnergyBadge") ?? canvas.transform.Find("EnergyBadge");
+        var existing = canvas.transform.Find("SafeAreaContainer/TopBar/EnergyBadge")
+                    ?? canvas.transform.Find("TopBar/EnergyBadge") 
+                    ?? canvas.transform.Find("EnergyBadge");
         if (existing != null)
         {
             energyText = existing.GetComponentInChildren<TextMeshProUGUI>();
@@ -80,16 +208,7 @@ public class LevelSelectionManager : MonoBehaviour
     {
         if (energyText != null && EnergyManager.Instance != null)
         {
-            string e = EnergyManager.Instance.GetFormattedEnergy();
-            if (EnergyManager.Instance.CurrentEnergy < EnergyManager.Instance.MaxEnergy)
-            {
-                int sec = EnergyManager.Instance.SecondsUntilNextEnergy;
-                energyText.text = $"{e} ({sec / 60:D2}:{sec % 60:D2})";
-            }
-            else
-            {
-                energyText.text = e;
-            }
+            energyText.text = EnergyManager.Instance.GetFormattedEnergy();
         }
     }
 
@@ -161,7 +280,7 @@ public class LevelSelectionManager : MonoBehaviour
         titleRT.offsetMin = Vector2.zero;
         titleRT.offsetMax = Vector2.zero;
         var titleTxt = titleGO.AddComponent<TextMeshProUGUI>();
-        titleTxt.text = "⚡ Out of Energy!";
+        titleTxt.text = "Out of Energy!";
         titleTxt.alignment = TextAlignmentOptions.Center;
         titleTxt.fontSize = 36;
         titleTxt.fontStyle = FontStyles.Bold;
@@ -178,7 +297,7 @@ public class LevelSelectionManager : MonoBehaviour
         var msgTxt = msgGO.AddComponent<TextMeshProUGUI>();
         int cur = EnergyManager.Instance != null ? EnergyManager.Instance.CurrentEnergy : 0;
         string timer = EnergyManager.Instance != null ? EnergyManager.Instance.GetFormattedTimer() : "";
-        msgTxt.text = $"Need {EnergyManager.ENERGY_COST_PER_LEVEL} ⚡ to enter this level.\nCurrent Energy: {cur}/{EnergyManager.MAX_ENERGY}\nNext energy in: {timer}\n\nRefill in Shop or with Coins!";
+        msgTxt.text = $"Need {EnergyManager.ENERGY_COST_PER_LEVEL} Energy to enter this level.\nCurrent Energy: {cur}/{EnergyManager.MAX_ENERGY}\nNext energy in: {timer}\n\nRefill with Coins or in Shop!";
         msgTxt.alignment = TextAlignmentOptions.Center;
         msgTxt.fontSize = 22;
         msgTxt.color = Color.white;
@@ -200,7 +319,7 @@ public class LevelSelectionManager : MonoBehaviour
         rTextRT.anchorMin = Vector2.zero; rTextRT.anchorMax = Vector2.one;
         rTextRT.offsetMin = Vector2.zero; rTextRT.offsetMax = Vector2.zero;
         var rTxt = rTextGO.AddComponent<TextMeshProUGUI>();
-        rTxt.text = "+5 ⚡ (50 🪙)";
+        rTxt.text = "+5 Energy (50 Coins)";
         rTxt.alignment = TextAlignmentOptions.Center;
         rTxt.fontSize = 22;
         rTxt.fontStyle = FontStyles.Bold;
@@ -215,7 +334,7 @@ public class LevelSelectionManager : MonoBehaviour
             }
             else
             {
-                msgTxt.text = "Not enough Coins! Need 50 🪙.\nEarn coins by solving puzzles!";
+                msgTxt.text = "Not enough Coins! Need 50 Coins.\nEarn coins by solving puzzles!";
                 msgTxt.color = Color.red;
             }
         });
@@ -248,7 +367,11 @@ public class LevelSelectionManager : MonoBehaviour
         });
     }
 
-    public void OnBackClicked() => SceneLoader.LoadScene(SceneLoader.WORLD_SELECT);
+    public void OnBackClicked()
+    {
+        AudioManager.Instance?.PlayButtonClick();
+        SceneLoader.LoadScene(SceneLoader.WORLD_SELECT);
+    }
 
     public void RefreshLevelButtons()
     {
@@ -258,6 +381,21 @@ public class LevelSelectionManager : MonoBehaviour
     private void PopulateLevelButtons()
     {
         if (levelButtons == null) return;
+
+        // Find the current active progression level
+        int currentProgressionIndex = 0;
+        for (int i = 0; i < levelButtons.Length; i++)
+        {
+            if (SaveManager.IsLevelUnlocked(worldIndex, i))
+            {
+                currentProgressionIndex = i;
+                if (SaveManager.GetLevelStars(worldIndex, i) == 0)
+                {
+                    break; // First uncompleted unlocked level
+                }
+            }
+        }
+
         for (int i = 0; i < levelButtons.Length; i++)
         {
             if (levelButtons[i] == null) continue;
@@ -265,7 +403,9 @@ public class LevelSelectionManager : MonoBehaviour
             int   stars         = SaveManager.GetLevelStars(worldIndex, i);
             bool  unlocked      = SaveManager.IsLevelUnlocked(worldIndex, i);
             int   capturedIndex = i;
-            levelButtons[i].Setup(levelNum, stars, unlocked);
+            bool  isCurrent     = (i == currentProgressionIndex);
+
+            levelButtons[i].Setup(levelNum, stars, unlocked, isCurrent);
             levelButtons[i].SetClickCallback(() => OnLevelSelected(capturedIndex));
         }
     }

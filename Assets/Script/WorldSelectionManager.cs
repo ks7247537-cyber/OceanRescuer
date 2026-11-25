@@ -28,7 +28,8 @@ public class WorldSelectionManager : MonoBehaviour
 
     private void Start()
     {
-        if (backButton != null) backButton.onClick.AddListener(OnBackClicked);
+        if (backButton != null)
+            backButton.onClick.AddListener(OnBackClicked);
         UpdateWorldCards();
         AudioManager.Instance?.PlayMenuMusic();
     }

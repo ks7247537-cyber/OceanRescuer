@@ -33,6 +33,50 @@ public class GameManager : MonoBehaviour
     /// Prevents further moves or rotations.
     /// </summary>
     public bool IsGameOver => _hasWon || _isFailed;
+    public bool HasWon => _hasWon;
+    public bool IsFailed => _isFailed;
+
+    /// <summary>
+    /// Resumes active play if the level was failed due to running out of moves (used by Extra Moves power-up).
+    /// </summary>
+    public void ResumeFromFail()
+    {
+        if (!_isFailed) return;
+        _isFailed = false;
+
+        UnlockAllTiles();
+
+        if (hud != null && hud.failPanel != null)
+        {
+            hud.failPanel.SetActive(false);
+        }
+    }
+
+    private void UnlockAllTiles()
+    {
+        int worldIndex = SaveManager.GetSelectedWorld();
+        int levelIndex = SaveManager.GetSelectedLevel();
+        LevelData ld = LevelData.LoadLevel(worldIndex, levelIndex);
+        Vector2Int src = ld != null ? ld.sourceCell : new Vector2Int(0, 0);
+        Vector2Int snk = ld != null ? ld.sinkCell : new Vector2Int(8, 0);
+
+        var gridMgr = FindObjectOfType<GridManager>();
+        if (gridMgr != null && gridMgr.Grid != null)
+        {
+            for (int x = 0; x < gridMgr.Cols; x++)
+            {
+                for (int y = 0; y < gridMgr.Rows; y++)
+                {
+                    var t = gridMgr.Grid[x, y];
+                    if (t != null)
+                    {
+                        bool isEdge = (x == src.x && y == src.y) || (x == snk.x && y == snk.y);
+                        t.isLocked = isEdge;
+                    }
+                }
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -164,7 +208,17 @@ public class GameManager : MonoBehaviour
         if (characterMover != null)
             characterMover.OnDestinationReached -= HandleDestinationReached;
 
-        ShowVictoryDialog();
+        Vector3 destinationPos = characterMover != null ? characterMover.transform.position : Vector3.zero;
+        Transform creatureTransform = characterMover != null ? characterMover.transform : null;
+
+        if (RescueCelebrationController.Instance != null)
+        {
+            RescueCelebrationController.Instance.PlayRescueCelebration(destinationPos, creatureTransform, ShowVictoryDialog);
+        }
+        else
+        {
+            ShowVictoryDialog();
+        }
     }
 
     private void ShowVictoryDialog()

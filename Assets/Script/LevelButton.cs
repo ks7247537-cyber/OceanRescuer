@@ -5,7 +5,8 @@ using TMPro;
 
 /// <summary>
 /// Represents a single level entry in the Level Selection screen.
-/// Wire up Inspector references and call Setup() from LevelSelectionManager.
+/// Provides rich visual feedback for Locked, Unlocked, and Completed (1-3 stars) states,
+/// plus subtle pulse highlighting for the current active level.
 /// </summary>
 [RequireComponent(typeof(Button))]
 public class LevelButton : MonoBehaviour
@@ -25,20 +26,46 @@ public class LevelButton : MonoBehaviour
     [SerializeField] private Sprite starEmptySprite;
 
     private Button _button;
+    private Image _buttonImage;
     private Action _onClickCallback;
     private bool _isUnlocked = false;
+    private UIGlowPulse _glowPulse;
 
     private void Awake()
     {
         _button = GetComponent<Button>();
+        _buttonImage = GetComponent<Image>();
+
         if (_button != null)
         {
             _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(HandleClick);
+
+            // Ensure tactile button feedback is attached
+            if (GetComponent<UIButtonFeedback>() == null)
+            {
+                gameObject.AddComponent<UIButtonFeedback>();
+            }
         }
 
         if (levelNumberTMP == null)
             levelNumberTMP = GetComponentInChildren<TextMeshProUGUI>();
+
+        EnsureStarSprites();
+    }
+
+    private void EnsureStarSprites()
+    {
+        if (starFilledSprite == null)
+        {
+            starFilledSprite = Resources.Load<Sprite>("Art/UI/Icons/icon_star_gold") 
+                            ?? Resources.Load<Sprite>("icon_star_gold");
+        }
+        if (starEmptySprite == null)
+        {
+            starEmptySprite = Resources.Load<Sprite>("Art/UI/Icons/icon_star_silver") 
+                           ?? Resources.Load<Sprite>("icon_star_silver");
+        }
     }
 
     private void OnDestroy()
@@ -48,19 +75,17 @@ public class LevelButton : MonoBehaviour
     }
 
     /// <summary>
-    /// Configure this button's visuals and interactability.
+    /// Configure this button's visuals, star rating, lock status, and active pulse.
     /// </summary>
-    /// <param name="levelNum">1-based level number shown on the button.</param>
-    /// <param name="stars">Stars earned (0-3).</param>
-    /// <param name="isUnlocked">Whether the level is playable.</param>
-    public void Setup(int levelNum, int stars, bool isUnlocked)
+    public void Setup(int levelNum, int stars, bool isUnlocked, bool isCurrent = false)
     {
         _isUnlocked = isUnlocked;
 
-        if (levelNumberTMP == null)
-            levelNumberTMP = GetComponentInChildren<TextMeshProUGUI>(true);
+        if (_buttonImage == null) _buttonImage = GetComponent<Image>();
+        if (levelNumberTMP == null) levelNumberTMP = GetComponentInChildren<TextMeshProUGUI>(true);
+        EnsureStarSprites();
 
-        // Level number label (support both UI.Text and TextMeshProUGUI)
+        // Level number label
         if (levelNumberText != null)
         {
             levelNumberText.text = levelNum.ToString();
@@ -70,36 +95,66 @@ public class LevelButton : MonoBehaviour
         {
             levelNumberTMP.text = levelNum.ToString();
             levelNumberTMP.gameObject.SetActive(isUnlocked);
+            levelNumberTMP.color = isUnlocked ? Color.white : new Color(0.7f, 0.7f, 0.7f, 0.5f);
         }
 
         // Stars (0-3 filled)
         stars = Mathf.Clamp(stars, 0, 3);
-        if (starImages != null)
+        if (starImages != null && starImages.Length > 0)
         {
             for (int i = 0; i < starImages.Length; i++)
             {
                 if (starImages[i] == null) continue;
                 bool filled = i < stars;
-                if (starFilledSprite != null && starEmptySprite != null)
-                    starImages[i].sprite = filled ? starFilledSprite : starEmptySprite;
 
-                // Tint as a fallback when no sprites are assigned
-                starImages[i].color = filled ? Color.yellow : new Color(0.4f, 0.4f, 0.4f, 1f);
+                if (filled && starFilledSprite != null)
+                {
+                    starImages[i].sprite = starFilledSprite;
+                    starImages[i].color = Color.white;
+                }
+                else if (!filled && starEmptySprite != null)
+                {
+                    starImages[i].sprite = starEmptySprite;
+                    starImages[i].color = new Color(0.6f, 0.6f, 0.65f, 0.85f);
+                }
+                else
+                {
+                    starImages[i].color = filled ? new Color(1f, 0.88f, 0.2f, 1f) : new Color(0.35f, 0.35f, 0.4f, 0.8f);
+                }
+
                 starImages[i].gameObject.SetActive(isUnlocked);
             }
 
-            // Toggle parent container if available (e.g. "Stars" GameObject)
-            if (starImages.Length > 0 && starImages[0] != null && starImages[0].transform.parent != null)
+            // Toggle stars container if applicable
+            if (starImages[0] != null && starImages[0].transform.parent != null)
             {
                 starImages[0].transform.parent.gameObject.SetActive(isUnlocked);
             }
         }
 
-        // Lock overlay: visible when locked, hidden when unlocked
+        // Lock overlay
         if (lockedOverlay != null)
             lockedOverlay.SetActive(!isUnlocked);
 
-        // Button interactability: interactable only when unlocked
+        // Visual tint for locked vs unlocked
+        if (_buttonImage != null)
+        {
+            if (!isUnlocked)
+            {
+                _buttonImage.color = new Color(0.55f, 0.60f, 0.70f, 0.85f); // Cool underwater dimmed tone
+            }
+            else
+            {
+                _buttonImage.color = Color.white; // Full glossy vibrant
+            }
+        }
+
+        // Pulse animation on level buttons
+        if (_glowPulse == null)
+            _glowPulse = gameObject.GetComponent<UIGlowPulse>() ?? gameObject.AddComponent<UIGlowPulse>();
+        _glowPulse.enabled = true;
+
+        // Button interactability
         if (_button != null)
             _button.interactable = isUnlocked;
     }
@@ -112,7 +167,6 @@ public class LevelButton : MonoBehaviour
 
     private void HandleClick()
     {
-        // Guard against clicking if locked
         if (!_isUnlocked)
         {
             Debug.Log("[LevelButton] Click ignored: Level is locked.");

@@ -6,7 +6,24 @@ using UnityEngine;
 /// </summary>
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
+    private static AudioManager _instance;
+    public static AudioManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = Object.FindAnyObjectByType<AudioManager>();
+                if (_instance == null)
+                {
+                    var go = new GameObject("AudioManager");
+                    _instance = go.AddComponent<AudioManager>();
+                }
+            }
+            return _instance;
+        }
+        private set { _instance = value; }
+    }
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource bgmSource;
@@ -25,6 +42,8 @@ public class AudioManager : MonoBehaviour
 
     private bool _musicEnabled = true;
     private bool _sfxEnabled   = true;
+    private float _lastSfxTime = 0f;
+    private AudioClip _lastSfxClip = null;
 
     private void Awake()
     {
@@ -44,11 +63,30 @@ public class AudioManager : MonoBehaviour
         _sfxEnabled   = PlayerPrefs.GetInt("SFXEnabled",   1) == 1;
         bgmSource.volume = _musicEnabled ? PlayerPrefs.GetFloat("MusicVolume", 0.7f) : 0f;
         sfxSource.volume = _sfxEnabled   ? PlayerPrefs.GetFloat("SFXVolume",   1.0f) : 0f;
+
+        EnsureClipsLoaded();
+    }
+
+    /// <summary>
+    /// Guarantees that all 7 required audio clips are loaded into memory from Resources/Audio.
+    /// Safely handles missing clips without throwing exceptions.
+    /// </summary>
+    public void EnsureClipsLoaded()
+    {
+        if (menuMusic == null) menuMusic = Resources.Load<AudioClip>("Audio/bgm_menu");
+        if (gameplayMusic == null) gameplayMusic = Resources.Load<AudioClip>("Audio/bgm_gameplay");
+        if (pipeRotateClip == null) pipeRotateClip = Resources.Load<AudioClip>("Audio/sfx_pipe_rotate");
+        if (winClip == null) winClip = Resources.Load<AudioClip>("Audio/sfx_win");
+        if (failClip == null) failClip = Resources.Load<AudioClip>("Audio/sfx_fail");
+        if (buttonClickClip == null) buttonClickClip = Resources.Load<AudioClip>("Audio/sfx_button_click");
+        if (waterFlowClip == null) waterFlowClip = Resources.Load<AudioClip>("Audio/sfx_water_flow");
     }
 
     public void PlayBGM(AudioClip clip)
     {
-        if (clip == null || bgmSource.clip == clip) return;
+        EnsureClipsLoaded();
+        if (clip == null) return;
+        if (bgmSource.clip == clip && bgmSource.isPlaying) return;
         bgmSource.clip = clip;
         if (_musicEnabled) bgmSource.Play();
     }
@@ -57,18 +95,24 @@ public class AudioManager : MonoBehaviour
     public void PlayGameplayMusic() => PlayBGM(gameplayMusic);
     public void StopBGM()           => bgmSource.Stop();
 
-    // Overload accepting clip name string (for future Resources.Load support)
+    // Overload accepting clip name string
     public void PlayBGM(string clipName)
     {
-        // Map known names to assigned clips
+        EnsureClipsLoaded();
         if (clipName == "MainMenuBGM" || clipName == "LevelSelectBGM")  PlayBGM(menuMusic);
         else if (clipName == "GameplayBGM") PlayBGM(gameplayMusic);
-        // If no clip found, silently ignore (no assets yet)
     }
 
     public void PlaySFX(AudioClip clip)
     {
+        EnsureClipsLoaded();
         if (clip == null || !_sfxEnabled) return;
+
+        // Prevent identical SFX retrigger within 50ms to stop machine-gun audio stutter
+        if (clip == _lastSfxClip && (Time.unscaledTime - _lastSfxTime) < 0.05f) return;
+        _lastSfxClip = clip;
+        _lastSfxTime = Time.unscaledTime;
+
         sfxSource.PlayOneShot(clip);
     }
 
@@ -76,13 +120,14 @@ public class AudioManager : MonoBehaviour
     public void PlayWin()          => PlaySFX(winClip);
     public void PlayFail()         => PlaySFX(failClip);
     public void PlayButtonClick()  => PlaySFX(buttonClickClip);
+    public void PlayWaterFlow()    => PlaySFX(waterFlowClip);
 
     public void SetMusicVolume(float v) { bgmSource.volume = v; PlayerPrefs.SetFloat("MusicVolume", v); PlayerPrefs.Save(); }
     public void SetSFXVolume(float v)   { sfxSource.volume = v; PlayerPrefs.SetFloat("SFXVolume",   v); PlayerPrefs.Save(); }
 
-    public void ToggleMusic()
+    public void SetMusicEnabled(bool enable)
     {
-        _musicEnabled = !_musicEnabled;
+        _musicEnabled = enable;
         bgmSource.volume = _musicEnabled ? PlayerPrefs.GetFloat("MusicVolume", 0.7f) : 0f;
         if (_musicEnabled && !bgmSource.isPlaying && bgmSource.clip != null) bgmSource.Play();
         else if (!_musicEnabled) bgmSource.Pause();
@@ -90,12 +135,22 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void ToggleSFX()
+    public void SetSFXEnabled(bool enable)
     {
-        _sfxEnabled = !_sfxEnabled;
+        _sfxEnabled = enable;
         sfxSource.volume = _sfxEnabled ? PlayerPrefs.GetFloat("SFXVolume", 1.0f) : 0f;
         PlayerPrefs.SetInt("SFXEnabled", _sfxEnabled ? 1 : 0);
         PlayerPrefs.Save();
+    }
+
+    public void ToggleMusic()
+    {
+        SetMusicEnabled(!_musicEnabled);
+    }
+
+    public void ToggleSFX()
+    {
+        SetSFXEnabled(!_sfxEnabled);
     }
 
     public bool IsMusicEnabled => _musicEnabled;

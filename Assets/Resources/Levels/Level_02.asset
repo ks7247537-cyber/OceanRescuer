@@ -22,7 +22,7 @@ MonoBehaviour:
   rows: 5
   sourceCell: {x: 0, y: 0}
   sinkCell: {x: 8, y: 0}
-  maxMoves: 18
+  maxMoves: 20
   targetMovesFor3Stars: 10
   pipeTypes:
   - 0
