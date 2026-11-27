@@ -13,51 +13,51 @@ MonoBehaviour:
   m_Name: Level_07
   m_EditorClassIdentifier: 
   levelNumber: 7
-  levelName: Level 7
+  levelName: Seahorse Garden
   worldName: Coral Reef
   difficulty: Medium
   activeCreature: 2
   abilityUses: 2
   cols: 9
   rows: 5
-  sourceCell: {x: 0, y: 0}
-  sinkCell: {x: 8, y: 0}
-  maxMoves: 22
-  targetMovesFor3Stars: 11
+  sourceCell: {x: 0, y: 2}
+  sinkCell: {x: 8, y: 2}
+  maxMoves: 32
+  targetMovesFor3Stars: 20
   pipeTypes:
-  - 0
-  - 0
-  - 1
   - -1
   - -1
   - -1
   - -1
-  - 1
-  - 0
-  - -1
-  - -1
-  - 0
   - -1
   - -1
   - -1
-  - 1
-  - 1
   - -1
   - -1
-  - -1
-  - 0
-  - -1
-  - -1
-  - 1
-  - 1
   - -1
   - -1
   - -1
   - -1
   - 1
   - 0
+  - 1
+  - -1
+  - -1
+  - 0
+  - 0
+  - 2
+  - 0
+  - 3
+  - 0
+  - 2
+  - 0
+  - 0
+  - -1
+  - -1
+  - 1
   - 0
   - 1
+  - -1
   - -1
   - -1
   - -1
@@ -72,38 +72,38 @@ MonoBehaviour:
   - -1
   initialRotations:
   - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 3
+  - 3
+  - 0
+  - 0
+  - 0
+  - 1
+  - 3
+  - 3
+  - 1
   - 2
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
   - 3
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 3
-  - 0
+  - 1
   - 0
   - 0
   - 0
   - 2
   - 1
-  - 2
   - 3
+  - 0
   - 0
   - 0
   - 0
@@ -119,29 +119,29 @@ MonoBehaviour:
   solutionRotations:
   - 0
   - 0
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
   - 0
   - 2
   - 0
-  - 0
-  - 0
   - 1
   - 0
   - 0
   - 0
-  - 2
   - 0
   - 0
   - 0
-  - 0
-  - 1
   - 0
   - 0
   - 2
-  - 0
   - 0
   - 0
   - 0
@@ -162,11 +162,38 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  valves: []
+  valves:
+  - gridPos: {x: 3, y: 3}
+    valveType: OnOff
+    isInitiallyOpen: false
+    allowedDirection: 1
+  - gridPos: {x: 5, y: 1}
+    valveType: OnOff
+    isInitiallyOpen: false
+    allowedDirection: 1
   gates:
-  - gridPos: {x: 4, y: 3}
-    gateType: 4
-    isInitiallyOpen: 0
+  - gridPos: {x: 3, y: 2}
+    gateType: LockedGate
+    isOpen: false
+    linkedValvePos: {x: 3, y: 3}
     requiredPressure: 0
-    linkedValvePos: {x: -1, y: -1}
-
+    requiredRuneId: 0
+  - gridPos: {x: 5, y: 2}
+    gateType: LockedGate
+    isOpen: false
+    linkedValvePos: {x: 5, y: 1}
+    requiredPressure: 0
+    requiredRuneId: 0
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: false
+  ambientPressure: 0

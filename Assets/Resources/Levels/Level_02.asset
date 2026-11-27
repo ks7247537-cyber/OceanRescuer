@@ -13,51 +13,51 @@ MonoBehaviour:
   m_Name: Level_02
   m_EditorClassIdentifier: 
   levelNumber: 2
-  levelName: Level 2
+  levelName: Clownfish Cove
   worldName: Coral Reef
   difficulty: Easy
   activeCreature: 0
-  abilityUses: 0
+  abilityUses: 2
   cols: 9
   rows: 5
-  sourceCell: {x: 0, y: 0}
-  sinkCell: {x: 8, y: 0}
-  maxMoves: 20
+  sourceCell: {x: 0, y: 1}
+  sinkCell: {x: 8, y: 1}
+  maxMoves: 22
   targetMovesFor3Stars: 10
   pipeTypes:
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
   - 0
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
-  - 1
   - 0
   - 1
-  - 1
-  - -1
-  - -1
-  - -1
-  - -1
-  - 1
-  - 1
-  - -1
-  - -1
-  - 1
-  - 1
-  - -1
-  - -1
-  - 1
-  - 1
-  - -1
   - -1
   - -1
   - -1
   - 1
   - 0
   - 0
+  - -1
+  - -1
   - 1
+  - 0
+  - 0
+  - 0
+  - 1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
   - -1
   - -1
   - -1
@@ -71,7 +71,6 @@ MonoBehaviour:
   - -1
   - -1
   initialRotations:
-  - 1
   - 0
   - 0
   - 0
@@ -80,14 +79,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 3
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 3
   - 0
   - 0
   - 1
@@ -95,15 +86,24 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 3
   - 0
+  - 3
   - 0
   - 0
   - 0
   - 2
+  - 2
   - 1
   - 2
   - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -117,27 +117,19 @@ MonoBehaviour:
   - 0
   - 0
   solutionRotations:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 1
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 2
-  - 0
-  - 3
-  - 1
-  - 0
-  - 0
-  - 0
-  - 0
-  - 2
-  - 0
-  - 0
-  - 0
-  - 3
-  - 1
   - 0
   - 0
   - 2
@@ -145,8 +137,16 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
   - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -164,3 +164,16 @@ MonoBehaviour:
   - 0
   valves: []
   gates: []
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: false
+  ambientPressure: 0

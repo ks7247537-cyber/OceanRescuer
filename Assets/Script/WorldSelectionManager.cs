@@ -31,6 +31,7 @@ public class WorldSelectionManager : MonoBehaviour
         if (backButton != null)
             backButton.onClick.AddListener(OnBackClicked);
         UpdateWorldCards();
+        UIButtonFeedback.AttachRecursively(transform);
         AudioManager.Instance?.PlayMenuMusic();
     }
 
@@ -43,10 +44,23 @@ public class WorldSelectionManager : MonoBehaviour
             var card = worldCards[i];
             if (card == null) continue;
 
-            if (card.lockedOverlay != null) card.lockedOverlay.SetActive(!unlocked);
+            WorldConfig config = WorldConfig.GetConfig(i);
+
+            if (card.lockedOverlay != null)
+            {
+                card.lockedOverlay.SetActive(!unlocked);
+                Transform parent = card.lockedOverlay.transform.parent;
+                if (parent != null && (parent.name.Equals("overlay", System.StringComparison.OrdinalIgnoreCase) || 
+                                       parent.name.Equals("0verlay", System.StringComparison.OrdinalIgnoreCase)))
+                {
+                    parent.gameObject.SetActive(!unlocked);
+                }
+            }
             if (card.button        != null) card.button.interactable = unlocked;
-            if (card.worldNameText != null && i < WORLD_NAMES.Length)
-                card.worldNameText.text = WORLD_NAMES[i];
+            if (card.worldNameText != null)
+                card.worldNameText.text = config.displayName;
+            if (card.worldBannerImage != null && config.worldCardSprite != null)
+                card.worldBannerImage.sprite = config.worldCardSprite;
 
             int capturedIndex = i;
             if (card.button != null)

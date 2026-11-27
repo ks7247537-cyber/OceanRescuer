@@ -1,0 +1,112 @@
+<USER_REQUEST>
+PROJECT: Ocean Rescuers
+ENGINE: Unity 6
+PLATFORM: Android Mobile, Landscape (1920×1080)
+WORLD: World 2 — Lost City ONLY
+DEVELOPMENT MODE: Direct implementation, architecture-aware, modular, Inspector-editable.
+
+IMPORTANT:
+Coral Reef (World 0) is COMPLETE and FROZEN.
+Deep Ocean (World 1) is COMPLETE and FROZEN.
+
+DO NOT MODIFY, BREAK, REFACTOR, REPLACE OR CHANGE ANYTHING RELATED TO CORAL REEF OR DEEP OCEAN.
+
+Our current task is to develop Lost City as a completely distinct third world within the same Ocean Rescuers game.
+
+==================================================
+PHASE 1 — PROJECT INSPECTION & WORLD ISOLATION
+==================================================
+
+Before implementation:
+
+1. Inspect the existing Unity project architecture.
+2. Inspect WorldConfig, WorldSelectionManager, LevelSelectionManager, GameplayBootstrapper, FlowManager, GridManager, GameManager, LevelData, SaveManager and relevant systems.
+3. Inspect existing Lost City assets, configurations, prefabs, scenes and folders.
+4. Check how world-specific levels and resources are loaded.
+5. Identify reusable systems without modifying Coral Reef or Deep Ocean.
+6. Confirm World 2 is isolated from World 0 and World 1.
+7. Use the existing world selection and level selection systems.
+
+Lost City must use:
+
+World Index: 2
+
+Level resource folder:
+Assets/Resources/Levels/LostCity/
+
+Place world-specific reusable prefabs and resources in appropriate Lost City-specific folders.
+
+Do not duplicate the entire game architecture.
+
+Do not unnecessarily modify existing global scripts.
+
+If shared systems require integration, make backward-compatible changes and ensure World 0 and World 1 remain untouched in behavior and data.
+
+==================================================
+PHASE 2 — LOST CITY WORLD IDENTITY
+==================================================
+
+Create the visual and gameplay identity of Lost City.
+
+Theme:
+An ancient underwater civilization hidden beneath the ocean.
+
+Visual elements:
+- Ancient submerged temples.
+- Golden stone
+<truncated 8238 bytes>
+l resource path correctness.
+4. Level 1–12 asset existence.
+5. Prefab references.
+6. Missing scripts.
+7. Missing references.
+8. Duplicate resources.
+9. Level progression.
+10. Save system compatibility.
+11. Unlock conditions.
+12. FlowManager integration.
+13. GridManager compatibility.
+14. Ancient Rune integration.
+15. Ancient Seal integration.
+16. Temple Door integration.
+17. Relic integration.
+18. Stone Bridge integration.
+19. Level solver/static solvability validation where available.
+20. Coral Reef asset integrity.
+21. Deep Ocean asset integrity.
+22. Accidental changes to World 0 or World 1.
+
+Do not modify Coral Reef or Deep Ocean while performing the audit.
+
+Report any unresolved issues honestly.
+
+==================================================
+STRICT DEVELOPMENT RULES
+==================================================
+
+- Work ONLY on Lost City.
+- Do not modify Coral Reef.
+- Do not modify Deep Ocean.
+- Do not build APK.
+- Do not start manual gameplay testing.
+- Do not run device testing.
+- Do not change the established UI layout.
+- Do not unnecessarily rewrite global architecture.
+- Do not create uneditable runtime-only systems when prefab-based solutions are practical.
+- Maintain modular scripts.
+- Maintain reusable prefabs.
+- Keep Inspector-editable configurations.
+- Validate references.
+- Do not claim Unity compilation or gameplay verification unless actually performed.
+- Execute phases sequentially.
+- Keep a clear progress report after each phase.
+- If a phase encounters a blocking issue, report it and do not silently skip it.
+- Do not redo completed phases unless a genuine issue requires correction.
+
+GOAL:
+
+Deliver a complete, distinctive, progressively challenging World 2 — Lost City for Ocean Rescuers, with 12 levels, unique ancient civilization mechanics, attractive visuals, proper progression, modular prefabs and strict isolation from the completed Coral Reef and Deep Ocean worlds.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-26T22:10:01+05:30.
+</ADDITIONAL_METADATA>

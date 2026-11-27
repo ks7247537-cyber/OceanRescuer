@@ -147,7 +147,7 @@ public class WaterValve : MonoBehaviour
                 {
                     Vector2 worldPoint = Camera.main.ScreenToWorldPoint(touch.position);
                     var hit = Physics2D.OverlapPoint(worldPoint);
-                    if (hit != null && hit.gameObject == gameObject)
+                    if (hit != null && (hit.gameObject == gameObject || (hit.transform.parent != null && hit.transform.parent.gameObject == gameObject)))
                     {
                         if (valveType == ValveType.OnOff && isOpen)
                         {
@@ -160,6 +160,19 @@ public class WaterValve : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        // Guarantee text badges never rotate with the wheel
+        if (_statusText != null)
+        {
+            _statusText.transform.rotation = Quaternion.identity;
+        }
+        if (_floatingHintText != null && _floatingHintText.gameObject.activeSelf)
+        {
+            _floatingHintText.transform.rotation = Quaternion.identity;
         }
     }
 
@@ -213,11 +226,11 @@ public class WaterValve : MonoBehaviour
             isOpen = !isOpen;
             if (isOpen)
             {
-                ShowFloatingHint("💧 OPEN (Water Flows!)", new Color(0.3f, 1f, 0.6f));
+                ShowFloatingHint("OPEN", new Color(0.3f, 1f, 0.6f));
             }
             else
             {
-                ShowFloatingHint("🚫 CLOSED (Blocked)", new Color(1f, 0.4f, 0.4f));
+                ShowFloatingHint("CLOSED", new Color(1f, 0.4f, 0.4f));
             }
         }
         else if (valveType == ValveType.Directional)
@@ -337,7 +350,7 @@ public class WaterValve : MonoBehaviour
 
         if (_statusText != null && connected && (isOpen || valveType == ValveType.Directional))
         {
-            _statusText.text = "<color=#00FFFF>FLOWING 💧</color>";
+            _statusText.text = "";
         }
     }
 
@@ -361,7 +374,7 @@ public class WaterValve : MonoBehaviour
         if (valveType == ValveType.OnOff)
         {
             var circle = GetComponent<CircleCollider2D>();
-            if (circle != null) circle.enabled = !isOpen; // When open, collider disabled so clicks hit pipe tile!
+            if (circle != null) circle.enabled = true; // Always keep enabled so clicks/taps on open valve rotate the underlying pipe!
 
             float targetZ = isOpen ? 90f : 0f;
             _targetRotation = Quaternion.Euler(0f, 0f, targetZ);
@@ -380,7 +393,7 @@ public class WaterValve : MonoBehaviour
             if (_statusText != null)
             {
                 _statusText.text = isOpen 
-                    ? "<color=#33FF77>OPEN</color>" 
+                    ? "" 
                     : "<color=#FF4444>CLOSED</color>";
             }
         }

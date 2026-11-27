@@ -13,19 +13,23 @@ MonoBehaviour:
   m_Name: Level_12
   m_EditorClassIdentifier: 
   levelNumber: 12
-  levelName: Level 12
+  levelName: The Great Barrier
   worldName: Coral Reef
   difficulty: Hard
-  activeCreature: 3
-  abilityUses: 3
+  activeCreature: 0
+  abilityUses: 2
   cols: 9
   rows: 5
-  sourceCell: {x: 0, y: 0}
-  sinkCell: {x: 8, y: 0}
-  maxMoves: 32
-  targetMovesFor3Stars: 17
+  sourceCell: {x: 0, y: 2}
+  sinkCell: {x: 8, y: 2}
+  maxMoves: 44
+  targetMovesFor3Stars: 32
   pipeTypes:
-  - 0
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
   - -1
   - -1
   - -1
@@ -35,89 +39,89 @@ MonoBehaviour:
   - 1
   - 0
   - 0
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
+  - 0
   - 1
-  - 1
-  - -1
-  - 1
-  - 1
-  - -1
-  - 1
-  - 1
-  - 1
-  - 1
-  - -1
   - -1
   - -1
   - 0
+  - 2
+  - 2
+  - 0
+  - 2
+  - 0
+  - 3
+  - 0
+  - 0
   - -1
+  - 1
+  - 0
+  - 0
+  - 2
   - 0
   - 1
-  - 1
   - -1
   - -1
   - -1
   - -1
-  - 1
-  - 0
-  - 1
+  - -1
+  - -1
   - -1
   - -1
   - -1
   - -1
   - -1
   initialRotations:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 1
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 1
-  - 0
+  - 3
   - 2
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 1
-  - 1
-  - 0
-  - 0
+  - 3
   - 3
   - 0
   - 0
   - 0
-  - 1
-  - 1
-  - 0
-  - 0
-  - 0
   - 3
+  - 3
+  - 1
+  - 2
+  - 2
+  - 3
+  - 3
+  - 0
   - 0
   - 0
   - 2
-  - 1
-  - 0
-  - 0
-  - 0
-  - 0
-  - 1
   - 3
-  - 1
+  - 0
+  - 3
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
   - 0
   - 0
   solutionRotations:
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -126,8 +130,9 @@ MonoBehaviour:
   - 0
   - 2
   - 0
-  - 1
   - 0
+  - 0
+  - 1
   - 0
   - 0
   - 0
@@ -135,26 +140,21 @@ MonoBehaviour:
   - 2
   - 0
   - 0
-  - 3
-  - 1
-  - 0
-  - 2
-  - 1
-  - 2
-  - 0
-  - 0
-  - 0
-  - 0
-  - 1
-  - 0
-  - 1
-  - 3
   - 0
   - 0
   - 0
   - 0
   - 0
   - 3
+  - 0
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -163,19 +163,37 @@ MonoBehaviour:
   - 0
   - 0
   valves:
-  - gridPos: {x: 3, y: 3}
-    valveType: 0
-    isInitiallyOpen: 0
-    allowedDirection: 2
-  - gridPos: {x: 6, y: 2}
-    valveType: 0
-    isInitiallyOpen: 0
-    allowedDirection: 2
-
+  - gridPos: {x: 2, y: 3}
+    valveType: OnOff
+    isInitiallyOpen: false
+    allowedDirection: 1
+  - gridPos: {x: 4, y: 1}
+    valveType: OnOff
+    isInitiallyOpen: false
+    allowedDirection: 1
   gates:
-  - gridPos: {x: 4, y: 2}
-    gateType: 2
-    isInitiallyOpen: 0
+  - gridPos: {x: 3, y: 2}
+    gateType: LockedGate
+    isOpen: false
+    linkedValvePos: {x: 2, y: 3}
     requiredPressure: 0
-    linkedValvePos: {x: -1, y: -1}
-
+    requiredRuneId: 0
+  - gridPos: {x: 6, y: 2}
+    gateType: LockedGate
+    isOpen: false
+    linkedValvePos: {x: 4, y: 1}
+    requiredPressure: 0
+    requiredRuneId: 0
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: false
+  ambientPressure: 0

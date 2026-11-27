@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Level_01
   m_EditorClassIdentifier: 
   levelNumber: 1
-  levelName: Abyssal Gate
+  levelName: Abyssal Conduit
   worldName: Deep Ocean
-  difficulty: Medium
-  activeCreature: 1
+  difficulty: Easy
+  activeCreature: 0
   abilityUses: 2
   cols: 9
   rows: 5
-  sourceCell: {x: 0, y: 1}
-  sinkCell: {x: 8, y: 1}
-  maxMoves: 28
-  targetMovesFor3Stars: 18
+  sourceCell: {x: 0, y: 2}
+  sinkCell: {x: 8, y: 2}
+  maxMoves: 24
+  targetMovesFor3Stars: 10
   pipeTypes:
   - -1
   - -1
@@ -34,29 +34,29 @@ MonoBehaviour:
   - -1
   - -1
   - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
   - 0
-  - 1
-  - -1
-  - -1
-  - -1
-  - 1
-  - 1
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - -1
-  - 1
-  - 1
-  - -1
-  - 1
-  - 1
-  - 1
-  - 1
   - -1
   - -1
   - -1
-  - 1
-  - 0
-  - 1
+  - -1
   - -1
   - -1
   - -1
@@ -85,24 +85,24 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 1
-  - 0
-  - 1
   - 0
   - 0
   - 0
-  - 2
+  - 0
   - 0
   - 3
-  - 1
-  - 0
-  - 1
-  - 0
-  - 0
-  - 0
+  - 3
+  - 3
   - 1
   - 2
-  - 2
+  - 1
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -127,26 +127,26 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 1
-  - 0
-  - 0
-  - 0
-  - 2
-  - 1
-  - 2
-  - 0
-  - 0
-  - 3
-  - 1
-  - 0
-  - 2
-  - 0
-  - 3
   - 0
   - 0
   - 0
   - 0
-  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -163,9 +163,21 @@ MonoBehaviour:
   - 0
   - 0
   valves:
-  gates:
-  - gridPos: {x: 5, y: 2}
-    gateType: 3
-    isInitiallyOpen: 0
-    requiredPressure: 0
-    linkedValvePos: {x: -1, y: -1}
+  - gridPos: {x: 4, y: 2}
+    valveType: PressureRelease
+    isInitiallyOpen: true
+    allowedDirection: 1
+  gates: []
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: false
+  ambientPressure: 0

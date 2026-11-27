@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: c0fd889657b7d0c41a19edb5c6c197a8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8856485896806887945
+    second: Neon Cyan Energy Impact Burst_0
+  - first:
+      213: 5388912646888070612
+    second: Neon Cyan Energy Impact Burst_1
+  - first:
+      213: 995673084302437713
+    second: Neon Cyan Energy Impact Burst_2
+  - first:
+      213: 1720934674116999241
+    second: Neon Cyan Energy Impact Burst_3
+  - first:
+      213: -7564782281592288347
+    second: Neon Cyan Energy Impact Burst_4
+  - first:
+      213: -3977538686427967848
+    second: Neon Cyan Energy Impact Burst_5
+  - first:
+      213: -7477675016246537583
+    second: Neon Cyan Energy Impact Burst_6
+  - first:
+      213: -4179045885471940718
+    second: Neon Cyan Energy Impact Burst_7
+  - first:
+      213: -4268228348161060390
+    second: Neon Cyan Energy Impact Burst_8
+  - first:
+      213: -1547580417119429984
+    second: Neon Cyan Energy Impact Burst_9
+  - first:
+      213: 1364167279794877533
+    second: Neon Cyan Energy Impact Burst_10
+  - first:
+      213: -328982324760527021
+    second: Neon Cyan Energy Impact Burst_11
+  - first:
+      213: 8878418622052263204
+    second: Neon Cyan Energy Impact Burst_12
+  - first:
+      213: -7342669108213425471
+    second: Neon Cyan Energy Impact Burst_13
+  - first:
+      213: 5239564505961439573
+    second: Neon Cyan Energy Impact Burst_14
+  - first:
+      213: 1140558477839689185
+    second: Neon Cyan Energy Impact Burst_15
+  - first:
+      213: -4156444804090676474
+    second: Neon Cyan Energy Impact Burst_16
+  - first:
+      213: 3201404196659332961
+    second: Neon Cyan Energy Impact Burst_17
+  - first:
+      213: 2663023958035265446
+    second: Neon Cyan Energy Impact Burst_18
+  - first:
+      213: 4548214717325893796
+    second: Neon Cyan Energy Impact Burst_19
+  - first:
+      213: -3444888907132195294
+    second: Neon Cyan Energy Impact Burst_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1523
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9027e6ddffe88ea70800000000000000
+      internalID: 8856485896806887945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 886
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd9f5b208349ca40800000000000000
+      internalID: 5388912646888070612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_2
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 545
+        width: 125
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15da346156751dd00800000000000000
+      internalID: 995673084302437713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_3
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 761
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948756cd7fcf1e710800000000000000
+      internalID: 1720934674116999241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_4
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 722
+        width: 57
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5abc586489e740790800000000000000
+      internalID: -7564782281592288347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_5
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 684
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e461b73a1fcc8c0800000000000000
+      internalID: -3977538686427967848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_6
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 655
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 192dfcee036f93890800000000000000
+      internalID: -7477675016246537583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 634
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29f1360a8eb0106c0800000000000000
+      internalID: -4179045885471940718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_8
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 529
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad19b9f6ee434c4c0800000000000000
+      internalID: -4268228348161060390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_9
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 567
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aade306fc3e58ae0800000000000000
+      internalID: -1547580417119429984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_10
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 342
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54726ec9ee7ee210800000000000000
+      internalID: 1364167279794877533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_11
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 427
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f344391583f6bf0800000000000000
+      internalID: -328982324760527021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_12
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 445
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42563a662ba763b70800000000000000
+      internalID: 8878418622052263204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_13
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 445
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca54b56959991a90800000000000000
+      internalID: -7342669108213425471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_14
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 339
+        width: 93
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 551a393682ca6b840800000000000000
+      internalID: 5239564505961439573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_15
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 319
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5e13584e314df00800000000000000
+      internalID: 1140558477839689185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_16
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 277
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b38a3f8775156c0800000000000000
+      internalID: -4156444804090676474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_17
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 293
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1670354b72cad6c20800000000000000
+      internalID: 3201404196659332961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_18
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 271
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7fb073e26f4f420800000000000000
+      internalID: 2663023958035265446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_19
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 207
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0e96c10318e1f30800000000000000
+      internalID: 4548214717325893796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Cyan Energy Impact Burst_20
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 127
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22ea3bf6acb4130d0800000000000000
+      internalID: -3444888907132195294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Neon Cyan Energy Impact Burst_0: 8856485896806887945
+      Neon Cyan Energy Impact Burst_1: 5388912646888070612
+      Neon Cyan Energy Impact Burst_10: 1364167279794877533
+      Neon Cyan Energy Impact Burst_11: -328982324760527021
+      Neon Cyan Energy Impact Burst_12: 8878418622052263204
+      Neon Cyan Energy Impact Burst_13: -7342669108213425471
+      Neon Cyan Energy Impact Burst_14: 5239564505961439573
+      Neon Cyan Energy Impact Burst_15: 1140558477839689185
+      Neon Cyan Energy Impact Burst_16: -4156444804090676474
+      Neon Cyan Energy Impact Burst_17: 3201404196659332961
+      Neon Cyan Energy Impact Burst_18: 2663023958035265446
+      Neon Cyan Energy Impact Burst_19: 4548214717325893796
+      Neon Cyan Energy Impact Burst_2: 995673084302437713
+      Neon Cyan Energy Impact Burst_20: -3444888907132195294
+      Neon Cyan Energy Impact Burst_3: 1720934674116999241
+      Neon Cyan Energy Impact Burst_4: -7564782281592288347
+      Neon Cyan Energy Impact Burst_5: -3977538686427967848
+      Neon Cyan Energy Impact Burst_6: -7477675016246537583
+      Neon Cyan Energy Impact Burst_7: -4179045885471940718
+      Neon Cyan Energy Impact Burst_8: -4268228348161060390
+      Neon Cyan Energy Impact Burst_9: -1547580417119429984
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

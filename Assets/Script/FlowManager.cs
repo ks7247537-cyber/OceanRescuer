@@ -25,12 +25,30 @@ public class FlowManager : MonoBehaviour
     /// </summary>
     public Dictionary<Vector2Int, WaterValve> Valves { get; } = new Dictionary<Vector2Int, WaterValve>();
     public Dictionary<Vector2Int, GateComponent> Gates { get; } = new Dictionary<Vector2Int, GateComponent>();
+    public Dictionary<Vector2Int, RouteDiversion> Diversions { get; } = new Dictionary<Vector2Int, RouteDiversion>();
 
     /// <summary>
     /// Ordered list of grid coordinates from sourceCell to sinkCell when connected.
     /// CharacterMover and water animation follow this path.
     /// </summary>
     public List<Vector2Int> CurrentPath { get; private set; } = new List<Vector2Int>();
+
+    private static FlowManager _instance;
+    public static FlowManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = FindObjectOfType<FlowManager>();
+            return _instance;
+        }
+        private set => _instance = value;
+    }
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     // ─────────────────────────────────────────────────────────────────────────
 
@@ -56,10 +74,21 @@ public class FlowManager : MonoBehaviour
         if (g != null) Gates[g.gridPos] = g;
     }
 
+    public void RegisterDiversion(RouteDiversion d)
+    {
+        if (d != null) Diversions[d.gridPos] = d;
+    }
+
+    public void UnregisterDiversion(RouteDiversion d)
+    {
+        if (d != null && Diversions.ContainsKey(d.gridPos)) Diversions.Remove(d.gridPos);
+    }
+
     public void ClearValvesAndGates()
     {
         Valves.Clear();
         Gates.Clear();
+        Diversions.Clear();
     }
 
     public WaterValve GetValveAt(Vector2Int pos) => Valves.TryGetValue(pos, out var v) ? v : null;
@@ -118,78 +147,100 @@ public class FlowManager : MonoBehaviour
             }
         }
 
-        // BFS traversal
-        var visited = new bool[cols, rows];
-        var queue = new Queue<Vector2Int>();
+        bool reachedSink = false;
         var parent = new Dictionary<Vector2Int, Vector2Int>();
 
-        queue.Enqueue(sourceCell);
-        visited[sourceCell.x, sourceCell.y] = true;
-        grid[sourceCell.x, sourceCell.y]?.SetConnected(true);
-
-        bool reachedSink = false;
-
-        while (queue.Count > 0)
+        // Multi-pass BFS: Allows water reaching a Rune/Seal to unlock a linked TempleDoor / StoneBridge
+        // and immediately continue flowing through in the same evaluation pass!
+        for (int pass = 0; pass < 4; pass++)
         {
-            Vector2Int curr = queue.Dequeue();
-            PipeTile currTile = grid[curr.x, curr.y];
-            if (currTile == null) continue;
+            bool newFeatureActivated = false;
+            var visited = new bool[cols, rows];
+            var queue = new Queue<Vector2Int>();
+            parent.Clear();
 
-            // Check if current tile has a valve blocking outgoing water
-            var currValve = GetValveAt(curr);
+            queue.Enqueue(sourceCell);
+            visited[sourceCell.x, sourceCell.y] = true;
+            grid[sourceCell.x, sourceCell.y]?.SetConnected(true);
 
-            for (int dir = 0; dir < 4; dir++)
+            while (queue.Count > 0)
             {
-                if (!currTile.HasOpening(dir)) continue;
+                Vector2Int curr = queue.Dequeue();
+                PipeTile currTile = grid[curr.x, curr.y];
+                if (currTile == null) continue;
 
-                // Valve check on current tile
-                if (currValve != null && !currValve.CanPassFlow(dir)) continue;
+                // Check if current tile has a valve blocking outgoing water
+                var currValve = GetValveAt(curr);
 
-                int nx = curr.x + DX[dir];
-                int ny = curr.y + DY[dir];
-
-                if (nx < 0 || nx >= cols || ny < 0 || ny >= rows) continue;
-                if (visited[nx, ny]) continue;
-
-                PipeTile neighbor = grid[nx, ny];
-                if (neighbor == null) continue;
-
-                if (!neighbor.HasOpening(Opposite[dir])) continue;
-
-                Vector2Int nextPos = new Vector2Int(nx, ny);
-
-                // Check valve on neighbor tile (if OnOff, must be open to enter)
-                var neighborValve = GetValveAt(nextPos);
-                if (neighborValve != null && neighborValve.valveType == ValveType.OnOff && !neighborValve.isOpen)
-                    continue;
-
-                // Check gate on neighbor tile
-                var neighborGate = GetGateAt(nextPos);
-                if (neighborGate != null)
+                for (int dir = 0; dir < 4; dir++)
                 {
-                    if (neighborGate.gateType == GateType.PressureGate)
+                    if (!currTile.HasOpening(dir)) continue;
+
+                    // Valve check on current tile
+                    if (currValve != null && !currValve.CanPassFlow(dir)) continue;
+
+                    // Route Diversion check on current tile (cannot exit towards restricted hazard)
+                    if (Diversions.TryGetValue(curr, out var currDiv) && !currDiv.CanExitFlow(dir)) continue;
+
+                    int nx = curr.x + DX[dir];
+                    int ny = curr.y + DY[dir];
+
+                    if (nx < 0 || nx >= cols || ny < 0 || ny >= rows) continue;
+                    if (visited[nx, ny]) continue;
+
+                    PipeTile neighbor = grid[nx, ny];
+                    if (neighbor == null) continue;
+
+                    if (!neighbor.HasOpening(Opposite[dir])) continue;
+
+                    Vector2Int nextPos = new Vector2Int(nx, ny);
+
+                    // Check valve on neighbor tile (if OnOff, must be open to enter)
+                    var neighborValve = GetValveAt(nextPos);
+                    if (neighborValve != null && neighborValve.valveType == ValveType.OnOff && !neighborValve.isOpen)
+                        continue;
+
+                    // Route Diversion check on neighbor tile (cannot enter from restricted hazard)
+                    if (Diversions.TryGetValue(nextPos, out var nextDiv) && !nextDiv.CanEnterFlow(Opposite[dir]))
+                        continue;
+
+                    // Check gate on neighbor tile
+                    var neighborGate = GetGateAt(nextPos);
+                    if (neighborGate != null)
                     {
-                        int pressure = CalculateUpstreamPressure(parent, curr);
-                        if (!neighborGate.EvaluatePressure(pressure))
+                        if (neighborGate.gateType == GateType.PressureGate)
                         {
-                            continue; // Insufficient pressure blocks water!
+                            int pressure = CalculateUpstreamPressure(parent, curr);
+                            if (!neighborGate.EvaluatePressure(pressure))
+                            {
+                                continue; // Insufficient pressure blocks water!
+                            }
+                        }
+                        else
+                        {
+                            if (!neighborGate.IsOpen) continue; // Locked, electric gate or obstacle blocks water!
                         }
                     }
-                    else
+
+                    // Water connects!
+                    visited[nx, ny] = true;
+                    parent[nextPos] = curr;
+                    neighbor.SetConnected(true);
+                    queue.Enqueue(nextPos);
+
+                    // Automatically activate Runes, Seals, Relics, and Pressure Locks touched by water!
+                    if (ActivateWaterFeatures(nextPos))
                     {
-                        if (!neighborGate.IsOpen) continue; // Locked, electric gate or obstacle blocks water!
+                        newFeatureActivated = true;
                     }
+
+                    if (nx == sinkCell.x && ny == sinkCell.y)
+                        reachedSink = true;
                 }
-
-                // Water connects!
-                visited[nx, ny] = true;
-                parent[nextPos] = curr;
-                neighbor.SetConnected(true);
-                queue.Enqueue(nextPos);
-
-                if (nx == sinkCell.x && ny == sinkCell.y)
-                    reachedSink = true;
             }
+
+            if (reachedSink || !newFeatureActivated)
+                break;
         }
 
         // Reconstruct path if sink was reached
@@ -274,5 +325,53 @@ public class FlowManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.25f);
         onComplete?.Invoke();
+    }
+
+    private bool ActivateWaterFeatures(Vector2Int pos)
+    {
+        bool changed = false;
+
+        // Ancient Runes
+        var runes = FindObjectsOfType<AncientRune>();
+        for (int i = 0; i < runes.Length; i++)
+        {
+            var r = runes[i];
+            if (r != null && !r.IsEnergized && (r.gridPos == pos || IsAdjacent(r.gridPos, pos)))
+            {
+                r.SetEnergized(true);
+                changed = true;
+            }
+        }
+
+        // Ancient Seals
+        var seals = FindObjectsOfType<AncientSeal>();
+        for (int i = 0; i < seals.Length; i++)
+        {
+            var s = seals[i];
+            if (s != null && !s.IsUnlocked && (s.gridPos == pos || IsAdjacent(s.gridPos, pos)))
+            {
+                s.UnlockSeal();
+                changed = true;
+            }
+        }
+
+        // Energy Relics
+        var relics = FindObjectsOfType<EnergyRelic>();
+        for (int i = 0; i < relics.Length; i++)
+        {
+            var e = relics[i];
+            if (e != null && !e.IsCharged && (e.gridPos == pos || IsAdjacent(e.gridPos, pos)))
+            {
+                e.ChargeRelic();
+                changed = true;
+            }
+        }
+
+        return changed;
+    }
+
+    private static bool IsAdjacent(Vector2Int a, Vector2Int b)
+    {
+        return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y) == 1;
     }
 }

@@ -1,0 +1,378 @@
+<USER_REQUEST>
+PROJECT: Ocean Rescuers
+ENGINE: Unity 6
+PLATFORM: Android Mobile, Landscape (1920×1080)
+WORLD: World 2 — Lost City ONLY
+DEVELOPMENT MODE: Direct implementation, architecture-aware, modular, Inspector-editable.
+
+IMPORTANT:
+Coral Reef (World 0) is COMPLETE and FROZEN.
+Deep Ocean (World 1) is COMPLETE and FROZEN.
+
+DO NOT MODIFY, BREAK, REFACTOR, REPLACE OR CHANGE ANYTHING RELATED TO CORAL REEF OR DEEP OCEAN.
+
+Our current task is to develop Lost City as a completely distinct third world within the same Ocean Rescuers game.
+
+==================================================
+PHASE 1 — PROJECT INSPECTION & WORLD ISOLATION
+==================================================
+
+Before implementation:
+
+1. Inspect the existing Unity project architecture.
+2. Inspect WorldConfig, WorldSelectionManager, LevelSelectionManager, GameplayBootstrapper, FlowManager, GridManager, GameManager, LevelData, SaveManager and relevant systems.
+3. Inspect existing Lost City assets, configurations, prefabs, scenes and folders.
+4. Check how world-specific levels and resources are loaded.
+5. Identify reusable systems without modifying Coral Reef or Deep Ocean.
+6. Confirm World 2 is isolated from World 0 and World 1.
+7. Use the existing world selection and level selection systems.
+
+Lost City must use:
+
+World Index: 2
+
+Level resource folder:
+Assets/Resources/Levels/LostCity/
+
+Place world-specific reusable prefabs and resources in appropriate Lost City-specific folders.
+
+Do not duplicate the entire game architecture.
+
+Do not unnecessarily modify existing global scripts.
+
+If shared systems require integration, make backward-compatible changes and ensure World 0 and World 1 remain untouched in behavior and data.
+
+==================================================
+PHASE 2 — LOST CITY WORLD IDENTITY
+==================================================
+
+Create the visual and gameplay identity of Lost City.
+
+Theme:
+An ancient underwater civilization hidden beneath the ocean.
+
+Visual elements:
+- Ancient submerged temples.
+- Golden stone structures.
+- Ancient pillars.
+- Broken statues.
+- Ruined corridors.
+- Ancient glowing symbols.
+- Treasure chambers.
+- Stone bridges.
+- Mysterious underwater architecture.
+- Blue-green underwater lighting.
+- Ancient magical energy.
+
+Maintain the EXISTING Ocean Rescuers UI layout, button positions, panels, HUD, grid layout, pipe style, level selection layout and popup structure.
+
+Do not redesign the entire game UI.
+
+Only theme-related artwork, backgrounds, decorations, icons, world-specific effects and elements should change where appropriate.
+
+Lost City should feel like a new world inside the same game.
+
+==================================================
+PHASE 3 — LOST CITY LEVEL DESIGN
+==================================================
+
+Create 12 unique Lost City levels.
+
+Difficulty progression:
+
+Levels 1–3:
+Easy.
+
+Levels 4–6:
+Easy to Medium.
+
+Levels 7–9:
+Medium to Hard.
+
+Levels 10–11:
+Hard.
+
+Level 12:
+Grand Finale.
+
+Each level should have:
+- A meaningful puzzle.
+- Increasing difficulty.
+- Unique pipe-routing challenges.
+- Appropriate move limits.
+- Appropriate obstacle placement.
+- A clear and fair solution.
+- No repetitive layouts.
+- No random unfair difficulty spikes.
+
+Create and validate LevelData assets using the existing architecture.
+
+Do not simply reuse Deep Ocean level layouts.
+
+==================================================
+PHASE 4 — ANCIENT RUNE MECHANIC
+==================================================
+
+Create a Lost City-exclusive Ancient Rune mechanic.
+
+Design an Inspector-editable Ancient Rune system.
+
+Requirements:
+
+- Ancient Rune stones should have distinct visuals.
+- Rune activation should depend on appropriate water-flow connections or puzzle conditions.
+- Introduce rune activation gradually.
+- Activated runes should display visual feedback.
+- Create a reusable prefab.
+- Make it editable in Unity Inspector.
+- Integrate with existing flow evaluation without breaking existing gameplay.
+- Provide appropriate sound and visual effects if existing systems support them.
+- Include a clear player-facing explanation when introduced.
+
+Use this mechanic in selected levels, beginning with an introductory level.
+
+Do not make rune activation unfair or confusing.
+
+==================================================
+PHASE 5 — ANCIENT SEAL & TEMPLE DOOR
+==================================================
+
+Create a Lost City-exclusive Ancient Seal and Temple Door system.
+
+Requirements:
+
+- Ancient seals should be visually distinct.
+- Temple doors should look like ancient stone structures.
+- Door activation must depend on puzzle conditions.
+- Introduce the mechanic with a simple puzzle.
+- Allow progression to more challenging combinations.
+- Create reusable, editable prefabs.
+- Add activation and opening effects.
+- Integrate into the existing flow and puzzle evaluation architecture.
+
+Do not reuse Deep Ocean Pressure Lock Gate visuals or mechanics.
+
+The Ancient Temple Door must have a distinct identity and logic.
+
+==================================================
+PHASE 6 — ANCIENT ENERGY RELIC
+==================================================
+
+Introduce an Ancient Energy Relic mechanic.
+
+Requirements:
+
+- Ancient relics should be collectible or activatable through the puzzle flow.
+- Relics should have their own visual effects.
+- Relic activation must be connected to meaningful puzzle logic.
+- Introduce relics gradually.
+- Create Inspector-editable components and reusable prefabs.
+- Ensure relic interactions are compatible with existing game logic.
+- Do not introduce unnecessary complicated systems.
+
+Relics must serve as puzzle elements rather than decorative objects only.
+
+==================================================
+PHASE 7 — ANCIENT STONE BRIDGE MECHANIC
+==================================================
+
+Create a unique Lost City Ancient Stone Bridge system.
+
+Requirements:
+
+- Create visually attractive ancient stone bridge elements.
+- Bridge activation should depend on an appropriate puzzle condition.
+- Use bridge activation to unlock, reveal or connect a previously blocked path or puzzle route where compatible with the existing grid architecture.
+- Include appropriate animations or visual effects.
+- Create reusable prefab components.
+- Make important properties editable in Inspector.
+- Introduce this mechanic gradually.
+
+Do not force a complicated grid redesign.
+
+If the existing architecture cannot safely support physical grid changes, implement an architecture-compatible alternative without breaking FlowManager or GridManager.
+
+==================================================
+PHASE 8 — LEVEL 7–9 CHALLENGE DESIGN
+==================================================
+
+Design Levels 7–9 using a progressively challenging combination of Lost City mechanics.
+
+Possible combinations:
+
+- Ancient Runes.
+- Ancient Seals.
+- Temple Doors.
+- Ancient Relics.
+- Stone Bridge.
+- Existing pipe-routing puzzles.
+
+Requirements:
+
+- Each level must have a different puzzle identity.
+- Avoid repeating the same obstacle arrangement.
+- Introduce combinations gradually.
+- Maintain fair move limits.
+- Ensure each level is solvable.
+- Keep the gameplay understandable.
+
+Do not introduce Deep Ocean-specific mechanics such as Pressure Lock, Oxygen Leak, Abyssal Darkness, Tremor Zone or Route Diversion into Lost City.
+
+==================================================
+PHASE 9 — LEVEL 10 & 11 HARD CHALLENGES
+==================================================
+
+Create two difficult Lost City puzzles.
+
+Level 10:
+Advanced combination of Ancient Rune and Temple Seal mechanics.
+
+Level 11:
+Advanced Relic and Ancient Bridge puzzle with complex pipe routing.
+
+Requirements:
+
+- Unique layouts.
+- Higher strategic complexity.
+- Appropriate move limits.
+- No unfair random elements.
+- Clear objectives.
+- Validate puzzle solvability using existing solver or static analysis if available.
+
+==================================================
+PHASE 10 — LEVEL 12 GRAND FINALE
+==================================================
+
+Create the Lost City Grand Finale.
+
+The final level should combine Lost City-exclusive mechanics meaningfully.
+
+Possible elements:
+
+- Multiple Ancient Runes.
+- Ancient Seals.
+- Temple Doors.
+- Ancient Relics.
+- Stone Bridge.
+- Complex pipe-routing challenge.
+- Grand ancient temple visuals.
+- Unique completion effects.
+
+Requirements:
+
+- Make it the most challenging level of Lost City.
+- Avoid making it impossible or excessively frustrating.
+- Ensure the final puzzle has a valid solution.
+- Create a satisfying finale.
+- Provide appropriate level-completion rewards using the existing reward system.
+- Do not change the existing global Level Complete popup layout.
+
+==================================================
+PHASE 11 — WORLD PROGRESSION & UI INTEGRATION
+==================================================
+
+Integrate Lost City into the existing World Selection and Level Selection systems.
+
+Requirements:
+
+- World 2 must remain separate from World 0 and World 1.
+- Lost City progression must use the existing unlock architecture.
+- Unlock conditions must be correct.
+- Level completion and rewards must be saved appropriately.
+- Use the existing UI structure.
+- Keep all UI elements editable in Hierarchy and Inspector.
+- Do not create unnecessary runtime-only UI.
+- Maintain Android landscape layout.
+- Do not change existing UI positions or layout structure.
+
+==================================================
+PHASE 12 — VISUAL POLISH
+==================================================
+
+Polish Lost City visuals.
+
+Add appropriate:
+- Ancient underwater background.
+- Golden ruins.
+- Temple decorations.
+- Ancient stone textures.
+- Glowing runes.
+- Relic effects.
+- Door opening effects.
+- Bridge activation effects.
+- Subtle bubbles.
+- Underwater lighting.
+- Appropriate particle effects.
+- Level-specific visual details.
+
+Maintain visual consistency with Ocean Rescuers.
+
+Do not overload the screen.
+
+Do not change the established gameplay UI layout.
+
+==================================================
+PHASE 13 — FINAL STATIC AUDIT
+==================================================
+
+Perform a development audit of Lost City.
+
+Check:
+
+1. World 2 isolation.
+2. World index correctness.
+3. Level resource path correctness.
+4. Level 1–12 asset existence.
+5. Prefab references.
+6. Missing scripts.
+7. Missing references.
+8. Duplicate resources.
+9. Level progression.
+10. Save system compatibility.
+11. Unlock conditions.
+12. FlowManager integration.
+13. GridManager compatibility.
+14. Ancient Rune integration.
+15. Ancient Seal integration.
+16. Temple Door integration.
+17. Relic integration.
+18. Stone Bridge integration.
+19. Level solver/static solvability validation where available.
+20. Coral Reef asset integrity.
+21. Deep Ocean asset integrity.
+22. Accidental changes to World 0 or World 1.
+
+Do not modify Coral Reef or Deep Ocean while performing the audit.
+
+Report any unresolved issues honestly.
+
+==================================================
+STRICT DEVELOPMENT RULES
+==================================================
+
+- Work ONLY on Lost City.
+- Do not modify Coral Reef.
+- Do not modify Deep Ocean.
+- Do not build APK.
+- Do not start manual gameplay testing.
+- Do not run device testing.
+- Do not change the established UI layout.
+- Do not unnecessarily rewrite global architecture.
+- Do not create uneditable runtime-only systems when prefab-based solutions are practical.
+- Maintain modular scripts.
+- Maintain reusable prefabs.
+- Keep Inspector-editable configurations.
+- Validate references.
+- Do not claim Unity compilation or gameplay verification unless actually performed.
+- Execute phases sequentially.
+- Keep a clear progress report after each phase.
+- If a phase encounters a blocking issue, report it and do not silently skip it.
+- Do not redo completed phases unless a genuine issue requires correction.
+
+GOAL:
+
+Deliver a complete, distinctive, progressively challenging World 2 — Lost City for Ocean Rescuers, with 12 levels, unique ancient civilization mechanics, attractive visuals, proper progression, modular prefabs and strict isolation from the completed Coral Reef and Deep Ocean worlds.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-26T22:10:01+05:30.
+</ADDITIONAL_METADATA>

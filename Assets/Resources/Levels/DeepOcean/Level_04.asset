@@ -13,50 +13,50 @@ MonoBehaviour:
   m_Name: Level_04
   m_EditorClassIdentifier: 
   levelNumber: 4
-  levelName: Obsidian Barrier
+  levelName: Electric Trench
   worldName: Deep Ocean
-  difficulty: Medium
-  activeCreature: 1
+  difficulty: Easy
+  activeCreature: 3
   abilityUses: 2
   cols: 9
   rows: 5
-  sourceCell: {x: 0, y: 0}
-  sinkCell: {x: 8, y: 1}
-  maxMoves: 32
-  targetMovesFor3Stars: 22
+  sourceCell: {x: 0, y: 2}
+  sinkCell: {x: 8, y: 2}
+  maxMoves: 28
+  targetMovesFor3Stars: 16
   pipeTypes:
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
   - 0
-  - 1
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 2
+  - 0
+  - 0
   - -1
   - -1
   - 1
   - 0
-  - 1
-  - -1
-  - -1
-  - -1
-  - 1
   - 0
-  - -1
-  - -1
-  - -1
-  - 1
-  - 1
-  - -1
-  - 1
-  - 1
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
-  - 1
   - 0
   - 1
   - -1
@@ -72,7 +72,6 @@ MonoBehaviour:
   - -1
   initialRotations:
   - 0
-  - 3
   - 0
   - 0
   - 0
@@ -81,22 +80,11 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 2
-  - 3
-  - 0
-  - 0
-  - 0
-  - 0
-  - 1
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 2
-  - 0
-  - 3
-  - 1
   - 0
   - 0
   - 0
@@ -104,6 +92,18 @@ MonoBehaviour:
   - 0
   - 1
   - 2
+  - 2
+  - 2
+  - 3
+  - 3
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 3
+  - 1
   - 2
   - 0
   - 0
@@ -118,7 +118,26 @@ MonoBehaviour:
   - 0
   solutionRotations:
   - 0
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -129,26 +148,7 @@ MonoBehaviour:
   - 0
   - 3
   - 0
-  - 1
   - 0
-  - 0
-  - 0
-  - 2
-  - 0
-  - 0
-  - 0
-  - 0
-  - 3
-  - 1
-  - 0
-  - 2
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 3
   - 0
   - 0
   - 0
@@ -164,12 +164,26 @@ MonoBehaviour:
   - 0
   valves:
   - gridPos: {x: 3, y: 2}
-    valveType: 0
-    isInitiallyOpen: 0
+    valveType: PressureRelease
+    isInitiallyOpen: true
     allowedDirection: 1
   gates:
-  - gridPos: {x: 6, y: 2}
-    gateType: 3
-    isInitiallyOpen: 0
-    requiredPressure: 0
+  - gridPos: {x: 5, y: 2}
+    gateType: ElectricGate
+    isOpen: false
     linkedValvePos: {x: -1, y: -1}
+    requiredPressure: 0
+    requiredRuneId: 0
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: false
+  ambientPressure: 0

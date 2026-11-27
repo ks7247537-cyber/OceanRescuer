@@ -68,8 +68,100 @@ public class PipeTile : MonoBehaviour
         if (Time.timeScale == 0f) return;
         if (IsPointerOverUI()) return;
         if (isLocked || _isAnimating) return;
+        if (HasActiveUnrepairedLeak()) return;
         if (GameManager.Instance != null && GameManager.Instance.IsGameOver) return;
+
+        // Directly interact with and unlock any obstacle / rune / seal / gate on this tile!
+        InteractWithTileObstacle();
+
         Rotate();
+    }
+
+    private void InteractWithTileObstacle()
+    {
+        var cell = GetComponent<GridCell>();
+        if (cell == null) return;
+        Vector2Int pos = new Vector2Int(cell.gridX, cell.gridY);
+
+        // 1. GateComponent (BreakableRock, ElectricGate, LockedGate, PressureGate, InkedHazard)
+        var gates = FindObjectsOfType<GateComponent>();
+        for (int i = 0; i < gates.Length; i++)
+        {
+            var g = gates[i];
+            if (g != null && g.gridPos == pos && !g.isOpen)
+            {
+                g.OnGateTapped();
+            }
+        }
+
+        // 2. AncientRune
+        var runes = FindObjectsOfType<AncientRune>();
+        for (int i = 0; i < runes.Length; i++)
+        {
+            var r = runes[i];
+            if (r != null && r.gridPos == pos && !r.IsEnergized)
+            {
+                r.SetEnergized(true);
+            }
+        }
+
+        // 3. AncientSeal
+        var seals = FindObjectsOfType<AncientSeal>();
+        for (int i = 0; i < seals.Length; i++)
+        {
+            var s = seals[i];
+            if (s != null && s.gridPos == pos && !s.IsUnlocked)
+            {
+                s.UnlockSeal();
+            }
+        }
+
+        // 4. PressureLockGate
+        var plGates = FindObjectsOfType<PressureLockGate>();
+        for (int i = 0; i < plGates.Length; i++)
+        {
+            var pl = plGates[i];
+            if (pl != null && pl.gridPos == pos && !pl.isOpen)
+            {
+                pl.UnlockGate();
+            }
+        }
+
+        // 5. TempleDoor
+        var doors = FindObjectsOfType<TempleDoor>();
+        for (int i = 0; i < doors.Length; i++)
+        {
+            var d = doors[i];
+            if (d != null && d.gridPos == pos && !d.isOpen)
+            {
+                d.SetDoorOpen(true);
+            }
+        }
+
+        // 6. StoneBridge
+        var bridges = FindObjectsOfType<StoneBridge>();
+        for (int i = 0; i < bridges.Length; i++)
+        {
+            var b = bridges[i];
+            if (b != null && b.gridPos == pos && !b.isOpen)
+            {
+                b.SetBridgeLowered(true);
+            }
+        }
+    }
+
+    private bool HasActiveUnrepairedLeak()
+    {
+        var cell = GetComponent<GridCell>();
+        if (cell == null) return false;
+        var leaks = FindObjectsOfType<OxygenLeak>();
+        for (int i = 0; i < leaks.Length; i++)
+        {
+            var lk = leaks[i];
+            if (lk != null && !lk.IsRepaired && lk.gridPos.x == cell.gridX && lk.gridPos.y == cell.gridY)
+                return true;
+        }
+        return false;
     }
 
     public void Rotate()

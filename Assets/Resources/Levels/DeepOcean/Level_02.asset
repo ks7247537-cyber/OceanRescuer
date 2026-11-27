@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Level_02
   m_EditorClassIdentifier: 
   levelNumber: 2
-  levelName: Octopus Trench
+  levelName: Hydrostatic Branch
   worldName: Deep Ocean
-  difficulty: Medium
+  difficulty: Easy
   activeCreature: 2
   abilityUses: 2
   cols: 9
   rows: 5
   sourceCell: {x: 0, y: 2}
   sinkCell: {x: 8, y: 2}
-  maxMoves: 30
-  targetMovesFor3Stars: 20
+  maxMoves: 26
+  targetMovesFor3Stars: 14
   pipeTypes:
   - -1
   - -1
@@ -36,28 +36,28 @@ MonoBehaviour:
   - -1
   - -1
   - -1
-  - -1
   - 1
   - 0
   - 0
   - 0
   - 1
   - -1
-  - 0
-  - 1
   - -1
-  - 1
   - 0
-  - 1
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 2
+  - 0
+  - 0
   - -1
-  - 1
-  - 0
   - -1
-  - 1
-  - 0
-  - 0
-  - 0
-  - 1
+  - -1
+  - -1
+  - -1
+  - -1
   - -1
   - -1
   - -1
@@ -82,28 +82,28 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
   - 3
   - 1
   - 1
-  - 1
-  - 2
-  - 0
-  - 0
+  - 3
   - 3
   - 0
-  - 1
-  - 2
-  - 3
-  - 0
-  - 1
   - 0
   - 0
   - 2
+  - 0
+  - 2
+  - 2
   - 3
-  - 3
-  - 3
-  - 3
+  - 1
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -128,7 +128,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
   - 2
   - 0
   - 0
@@ -136,16 +135,17 @@ MonoBehaviour:
   - 1
   - 0
   - 0
-  - 1
-  - 0
-  - 3
-  - 0
-  - 1
-  - 0
-  - 3
   - 0
   - 0
-  - 3
+  - 2
+  - 0
+  - 0
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -163,9 +163,27 @@ MonoBehaviour:
   - 0
   - 0
   valves:
+  - gridPos: {x: 4, y: 1}
+    valveType: PressureRelease
+    isInitiallyOpen: true
+    allowedDirection: 1
   gates:
-  - gridPos: {x: 4, y: 3}
-    gateType: 4
-    isInitiallyOpen: 0
-    requiredPressure: 0
+  - gridPos: {x: 4, y: 2}
+    gateType: PressureLockGate
+    isOpen: false
     linkedValvePos: {x: -1, y: -1}
+    requiredPressure: 45
+    requiredRuneId: 0
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: false
+  ambientPressure: 0

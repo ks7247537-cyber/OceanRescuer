@@ -23,41 +23,41 @@ public class LevelSelectionManager : MonoBehaviour
     [Header("Navigation")]
     [SerializeField] private UnityEngine.UI.Button backButton;
 
+    [Header("World Header & Switch (Manual Control)")]
+    [Tooltip("If TRUE, LevelSelectionManager will NOT overwrite your WorldNavigationHeader text, font, color, or position! You have 100% manual control in the Scene and Inspector.")]
+    [SerializeField] private bool manualHeaderControl = true;
+
+    [Tooltip("If TRUE, LevelSelectionManager will NOT overwrite your WorldSwitchBtn text, sprite, or color! You have 100% manual control in the Scene and Inspector.")]
+    [SerializeField] private bool manualSwitchButtonControl = true;
+
+    [Tooltip("Check if you want to completely hide the yellow header text.")]
+    [SerializeField] private bool hideWorldHeader = false;
+
+    [Tooltip("Check if you want to completely hide the top-right world switch button.")]
+    [SerializeField] private bool hideWorldSwitchButton = false;
+
+    [Header("World Header & Switch UI References")]
+    [SerializeField] private GameObject worldNavigationHeader;
+    [SerializeField] private Image worldBannerImage;
+    [SerializeField] private Sprite[] worldBannerSprites;
+    [SerializeField] private TextMeshProUGUI worldNameText;
+    [SerializeField] private UnityEngine.UI.Button worldSwitchBtn;
+    [SerializeField] private TextMeshProUGUI worldSwitchBtnText;
+
     private static readonly string[] WORLD_NAMES = { "Coral Reef", "Deep Ocean", "Lost City" };
     private GameObject _insufficientEnergyDialog;
 
     private void Start()
     {
         SaveManager.EnsureInitialized();
-        worldIndex = SaveManager.GetSelectedWorld();
+        worldIndex = Mathf.Clamp(SaveManager.GetSelectedWorld(), 0, WorldConfig.TOTAL_WORLDS - 1);
 
-        // If World 0 (Coral Reef) is completed and World 1 is unlocked, switch to World 1 if World 1 still has pending levels
-        if (worldIndex == 0 && SaveManager.IsWorldUnlocked(1))
-        {
-            bool world0AllDone = true;
-            for (int i = 0; i < 12; i++)
-            {
-                if (SaveManager.GetLevelStars(0, i) == 0) { world0AllDone = false; break; }
-            }
-            if (world0AllDone)
-            {
-                bool world1HasPending = false;
-                for (int i = 0; i < 12; i++)
-                {
-                    if (SaveManager.GetLevelStars(1, i) == 0) { world1HasPending = true; break; }
-                }
-                if (world1HasPending)
-                {
-                    worldIndex = 1;
-                    SaveManager.SetSelectedWorld(1);
-                }
-            }
-        }
+        WorldConfig config = WorldConfig.GetConfig(worldIndex);
 
         if (worldTitleText != null)
         {
             worldTitleText.gameObject.SetActive(true);
-            worldTitleText.text = WORLD_NAMES[Mathf.Clamp(worldIndex, 0, WORLD_NAMES.Length - 1)];
+            worldTitleText.text = config.displayName;
         }
 
         if (backButton != null)
@@ -66,17 +66,39 @@ public class LevelSelectionManager : MonoBehaviour
             backButton.onClick.AddListener(OnBackClicked);
         }
 
+        // Apply world-specific background in Level Selection
+        var canvas = GetLocalCanvas();
+        if (canvas != null)
+        {
+            var uiBg = canvas.transform.Find("Background")?.GetComponent<Image>();
+            if (uiBg != null)
+            {
+                Sprite bgSprite = config.backgroundSprite 
+                    ?? Resources.Load<Sprite>(WorldConfig.GetDefaultBackgroundPath(worldIndex));
+                if (bgSprite != null)
+                {
+                    uiBg.sprite = bgSprite;
+                    uiBg.color = Color.white;
+                }
+            }
+        }
+
         SetupWorldNavigation();
         SetupEnergyDisplay();
         PopulateLevelButtons();
         AudioManager.Instance?.PlayMenuMusic();
 
-        if (worldIndex == 1 && GetComponent<DeepOceanEnvironment>() == null)
+        // Environment effects strictly isolated to configured worlds
+        if (config.hasAtmosphereEffects && GetComponent<DeepOceanEnvironment>() == null)
         {
             gameObject.AddComponent<DeepOceanEnvironment>();
         }
+        else if (!config.hasAtmosphereEffects)
+        {
+            var env = GetComponent<DeepOceanEnvironment>();
+            if (env != null) Destroy(env);
+        }
 
-        var canvas = FindObjectOfType<Canvas>();
         if (canvas != null)
         {
             if (canvas.GetComponent<UIBubbleEffect>() == null)
@@ -109,63 +131,107 @@ public class LevelSelectionManager : MonoBehaviour
         var canvas = GetLocalCanvas();
         if (canvas == null) return;
 
-        var navObj = canvas.transform.Find("WorldNavigationHeader");
-        if (navObj == null)
+        // Auto-wire references if unassigned
+        if (worldNavigationHeader == null)
         {
-            _headerObj = new GameObject("WorldNavigationHeader", typeof(RectTransform));
-            _headerObj.transform.SetParent(canvas.transform, false);
-            var rt = _headerObj.GetComponent<RectTransform>();
-            rt.anchorMin = new Vector2(0.25f, 0.88f);
-            rt.anchorMax = new Vector2(0.75f, 0.94f);
-            rt.anchoredPosition = Vector2.zero;
-            rt.sizeDelta = Vector2.zero;
+            var navObj = canvas.transform.Find("WorldNavigationHeader");
+            if (navObj != null) worldNavigationHeader = navObj.gameObject;
+        }
 
-            // World Subtitle
-            var titleGo = new GameObject("WorldNameText", typeof(RectTransform), typeof(TextMeshProUGUI));
-            titleGo.transform.SetParent(_headerObj.transform, false);
-            var trt = titleGo.GetComponent<RectTransform>();
-            trt.anchorMin = Vector2.zero;
-            trt.anchorMax = Vector2.one;
-            trt.sizeDelta = Vector2.zero;
-            var tmp = titleGo.GetComponent<TextMeshProUGUI>();
-            tmp.alignment = TextAlignmentOptions.Center;
-            tmp.fontSize = 26;
-            tmp.fontStyle = FontStyles.Bold;
-            tmp.color = new Color(1f, 0.95f, 0.4f, 1f);
-            tmp.text = $"[ World {worldIndex + 1}: {WORLD_NAMES[Mathf.Clamp(worldIndex, 0, WORLD_NAMES.Length - 1)]} ]";
+        if (worldNameText == null && worldNavigationHeader != null)
+        {
+            worldNameText = worldNavigationHeader.transform.Find("WorldNameText")?.GetComponent<TextMeshProUGUI>() 
+                         ?? worldNavigationHeader.GetComponentInChildren<TextMeshProUGUI>();
+        }
 
-            // If World 1 is unlocked, show Toggle button
-            if (SaveManager.IsWorldUnlocked(1))
+        if (worldSwitchBtn == null)
+        {
+            var switchBtnTr = canvas.transform.Find("WorldSwitchBtn");
+            if (switchBtnTr != null) worldSwitchBtn = switchBtnTr.GetComponent<UnityEngine.UI.Button>();
+        }
+
+        if (worldSwitchBtnText == null && worldSwitchBtn != null)
+        {
+            worldSwitchBtnText = worldSwitchBtn.transform.Find("Text")?.GetComponent<TextMeshProUGUI>() 
+                              ?? worldSwitchBtn.GetComponentInChildren<TextMeshProUGUI>();
+        }
+
+        // 1. World Banner Image
+        if (worldBannerImage == null && worldNavigationHeader != null)
+        {
+            worldBannerImage = worldNavigationHeader.GetComponentInChildren<Image>();
+        }
+
+        Sprite targetBanner = null;
+        if (worldBannerSprites != null && worldIndex >= 0 && worldIndex < worldBannerSprites.Length && worldBannerSprites[worldIndex] != null)
+        {
+            targetBanner = worldBannerSprites[worldIndex];
+        }
+        else
+        {
+            WorldConfig config = WorldConfig.GetConfig(worldIndex);
+            if (config != null && config.bannerSprite != null)
             {
-                _switchBtnObj = new GameObject("WorldSwitchBtn", typeof(RectTransform), typeof(Image), typeof(Button));
-                _switchBtnObj.transform.SetParent(canvas.transform, false);
-                var toggleRt = _switchBtnObj.GetComponent<RectTransform>();
-                toggleRt.anchorMin = new Vector2(0.97f, 0.94f);
-                toggleRt.anchorMax = new Vector2(0.97f, 0.94f);
-                toggleRt.pivot = new Vector2(1f, 1f);
-                toggleRt.anchoredPosition = new Vector2(0f, 0f);
-                toggleRt.sizeDelta = new Vector2(210f, 54f);
+                targetBanner = config.bannerSprite;
+            }
+        }
 
-                var toggleImg = _switchBtnObj.GetComponent<Image>();
-                toggleImg.color = new Color(0.08f, 0.45f, 0.85f, 0.95f);
-                var btn = _switchBtnObj.GetComponent<Button>();
+        if (worldBannerImage != null && targetBanner != null)
+        {
+            worldBannerImage.sprite = targetBanner;
+            worldBannerImage.color = Color.white;
+        }
 
-                var btnTxtGo = new GameObject("Text", typeof(RectTransform), typeof(TextMeshProUGUI));
-                btnTxtGo.transform.SetParent(_switchBtnObj.transform, false);
-                var btnTxtRt = btnTxtGo.GetComponent<RectTransform>();
-                btnTxtRt.anchorMin = Vector2.zero; btnTxtRt.anchorMax = Vector2.one;
-                btnTxtRt.sizeDelta = Vector2.zero;
-                var btnTmp = btnTxtGo.GetComponent<TextMeshProUGUI>();
-                btnTmp.alignment = TextAlignmentOptions.Center;
-                btnTmp.fontSize = 20;
-                btnTmp.fontStyle = FontStyles.Bold;
-                btnTmp.color = Color.white;
-                btnTmp.text = (worldIndex == 0) ? "Deep Ocean >" : "< Coral Reef";
-
-                btn.onClick.AddListener(() =>
+        // 2. World Subtitle / Header
+        if (worldNavigationHeader != null)
+        {
+            if (hideWorldHeader)
+            {
+                worldNavigationHeader.SetActive(false);
+            }
+            else
+            {
+                worldNavigationHeader.SetActive(true);
+                // ONLY overwrite text if user turned OFF manualHeaderControl
+                if (!manualHeaderControl && worldNameText != null)
                 {
-                    int newWorld = (worldIndex == 0) ? 1 : 0;
-                    SaveManager.SetSelectedWorld(newWorld);
+                    worldNameText.text = $"[ World {worldIndex + 1}: {WORLD_NAMES[Mathf.Clamp(worldIndex, 0, WORLD_NAMES.Length - 1)]} ]";
+                }
+            }
+        }
+
+        // 3. World Switch Button
+        int nextUnlockedWorld = -1;
+        for (int step = 1; step < WorldConfig.TOTAL_WORLDS; step++)
+        {
+            int candidate = (worldIndex + step) % WorldConfig.TOTAL_WORLDS;
+            if (SaveManager.IsWorldUnlocked(candidate))
+            {
+                nextUnlockedWorld = candidate;
+                break;
+            }
+        }
+
+        if (worldSwitchBtn != null)
+        {
+            if (hideWorldSwitchButton || nextUnlockedWorld == -1)
+            {
+                worldSwitchBtn.gameObject.SetActive(false);
+            }
+            else
+            {
+                worldSwitchBtn.gameObject.SetActive(true);
+                // Update button text to display target destination world
+                if (worldSwitchBtnText != null)
+                {
+                    worldSwitchBtnText.text = $"{WorldConfig.GetConfig(nextUnlockedWorld).displayName} >";
+                }
+
+                int targetWorld = nextUnlockedWorld;
+                worldSwitchBtn.onClick.RemoveAllListeners();
+                worldSwitchBtn.onClick.AddListener(() =>
+                {
+                    SaveManager.SetSelectedWorld(targetWorld);
                     SceneLoader.LoadScene(SceneLoader.LEVEL_SELECT);
                 });
             }

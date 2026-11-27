@@ -56,8 +56,11 @@ public class CreatureAbilityHUD : MonoBehaviour
     [Tooltip("Text displaying the ability purpose description.")]
     public TextMeshProUGUI abilityDescriptionText;
 
-    [Tooltip("Text displaying the ability readiness status (READY, EMPTY, PASSIVE).")]
+    [Tooltip("Text displaying the ability readiness status (Ready, Empty, Passive).")]
     public TextMeshProUGUI abilityStatusText;
+
+    [Tooltip("Optional background image behind ability status text (e.g. pill button badge).")]
+    public Image statusBadgeBackground;
 
     [Tooltip("Container holding the charge counter badge.")]
     public RectTransform chargesContainer;
@@ -87,13 +90,13 @@ public class CreatureAbilityHUD : MonoBehaviour
     public Button panelButton;
 
     [Header("Color Palette (Inspector Configurable)")]
-    public Color readyColor       = new Color(0.15f, 0.88f, 0.45f, 1f);   // Emerald green
+    public Color readyColor       = new Color(0.15f, 0.88f, 0.45f, 1f);   // Emerald green / mint
     public Color depletedColor    = new Color(0.55f, 0.62f, 0.70f, 0.85f); // Muted slate gray
     public Color passiveColor     = new Color(0.20f, 0.75f, 0.95f, 1f);   // Vibrant aquatic cyan
     public Color cooldownColor    = new Color(0.98f, 0.75f, 0.20f, 1f);   // Warm amber
 
-    public Color panelNormalColor   = new Color(0.04f, 0.18f, 0.32f, 0.92f); // Deep aquatic navy
-    public Color panelDepletedColor = new Color(0.10f, 0.14f, 0.20f, 0.75f); // Dimmed slate
+    public Color panelNormalColor   = Color.white;                            // Clean natural card artwork brightness
+    public Color panelDepletedColor = new Color(0.72f, 0.75f, 0.82f, 0.85f);  // Subtle dim when depleted
 
     [Header("Visual & State Settings")]
     [Range(0.2f, 1f)]
@@ -118,6 +121,15 @@ public class CreatureAbilityHUD : MonoBehaviour
     private GameObject _floatingTooltipObj;
     private CreatureType _currentCreature = CreatureType.Clownfish;
     private int _lastCharges = -1;
+    private bool _subscribed = false;
+
+    private Color _initialPanelBgColor = Color.white;
+    private Color _initialIndicatorColor = Color.white;
+    private Color _initialPulseColor = new Color(0.2f, 0.95f, 1f, 0.7f);
+    private Color _initialIconGlowColor = new Color(0.1f, 0.9f, 0.95f, 0.5f);
+    private Color _initialStatusBadgeColor = Color.white;
+    private Vector3 _initialPulseScale = Vector3.one;
+    private Vector3 _initialIconGlowScale = Vector3.one;
 
     private void Awake()
     {
@@ -139,33 +151,69 @@ public class CreatureAbilityHUD : MonoBehaviour
         if (rootPanel == null) rootPanel = GetComponent<RectTransform>();
 
         AutoDiscoverReferences();
+        CaptureInitialColors();
         LoadDefaultSprites();
+        BindButtonListeners();
+    }
 
+    private void BindButtonListeners()
+    {
         if (panelButton != null)
         {
             panelButton.onClick.RemoveAllListeners();
             panelButton.onClick.AddListener(OnWidgetTapped);
         }
+
+        var statusBtn = abilityStatusText != null && abilityStatusText.transform.parent != transform
+            ? abilityStatusText.transform.parent.GetComponent<Button>()
+            : null;
+
+        if (statusBtn != null && statusBtn != panelButton)
+        {
+            statusBtn.onClick.RemoveAllListeners();
+            statusBtn.onClick.AddListener(OnWidgetTapped);
+        }
+    }
+
+    private void OnEnable()
+    {
+        TrySubscribe();
     }
 
     private void Start()
     {
-        // Subscribe to CreatureAbilityController events
+        TrySubscribe();
+        if (!_subscribed)
+        {
+            // Initial baseline refresh if controller is not yet ready
+            Refresh(CreatureType.Turtle, 2, 2);
+        }
+    }
+
+    private void Update()
+    {
+        if (!_subscribed)
+        {
+            TrySubscribe();
+        }
+    }
+
+    private void TrySubscribe()
+    {
+        if (_subscribed) return;
         if (CreatureAbilityController.Instance != null)
         {
+            CreatureAbilityController.Instance.OnChargesChanged -= OnChargesChanged;
+            CreatureAbilityController.Instance.OnAbilityUsed -= OnAbilityUsed;
             CreatureAbilityController.Instance.OnChargesChanged += OnChargesChanged;
             CreatureAbilityController.Instance.OnAbilityUsed += OnAbilityUsed;
+            _subscribed = true;
 
             Refresh(
                 CreatureAbilityController.Instance.activeCreature,
                 CreatureAbilityController.Instance.abilityUsesRemaining,
                 CreatureAbilityController.Instance.maxAbilityUses
             );
-        }
-        else
-        {
-            // Initial baseline refresh
-            Refresh(CreatureType.Clownfish, 0, 0);
         }
     }
 
@@ -176,9 +224,27 @@ public class CreatureAbilityHUD : MonoBehaviour
             CreatureAbilityController.Instance.OnChargesChanged -= OnChargesChanged;
             CreatureAbilityController.Instance.OnAbilityUsed -= OnAbilityUsed;
         }
+        _subscribed = false;
 
         if (_floatingTooltipObj != null) Destroy(_floatingTooltipObj);
         if (_instance == this) _instance = null;
+    }
+
+    /// <summary>
+    /// Helper to find component in any child under this hierarchy regardless of depth or restructuring.
+    /// </summary>
+    private T FindComponentRecursive<T>(string childName) where T : Component
+    {
+        var transforms = GetComponentsInChildren<Transform>(true);
+        foreach (var t in transforms)
+        {
+            if (t != null && t.name.Equals(childName, StringComparison.OrdinalIgnoreCase))
+            {
+                var comp = t.GetComponent<T>();
+                if (comp != null) return comp;
+            }
+        }
+        return null;
     }
 
     /// <summary>
@@ -202,14 +268,15 @@ public class CreatureAbilityHUD : MonoBehaviour
     }
 
     /// <summary>
-    /// Discovers child references automatically if not explicitly wired in Inspector.
+    /// Discovers child references automatically with robust fallbacks for user hierarchy modifications.
     /// </summary>
     public void AutoDiscoverReferences()
     {
         if (rootPanel == null) rootPanel = GetComponent<RectTransform>();
 
         if (panelBackground == null)
-            panelBackground = transform.Find("AbilityPanelBackground")?.GetComponent<Image>();
+            panelBackground = transform.Find("AbilityPanelBackground")?.GetComponent<Image>()
+                           ?? transform.Find("Background")?.GetComponent<Image>();
 
         if (panelDecoration == null)
             panelDecoration = transform.Find("PanelDecoration")?.GetComponent<Image>();
@@ -218,46 +285,105 @@ public class CreatureAbilityHUD : MonoBehaviour
             companionIconContainer = transform.Find("CompanionIconContainer")?.GetComponent<RectTransform>();
 
         if (companionIcon == null)
-            companionIcon = transform.Find("CompanionIconContainer/CompanionIcon")?.GetComponent<Image>();
+            companionIcon = transform.Find("CompanionIconContainer/CompanionIcon")?.GetComponent<Image>()
+                         ?? transform.Find("CompanionIcon")?.GetComponent<Image>()
+                         ?? FindComponentRecursive<Image>("CompanionIcon");
 
         if (iconGlow == null)
-            iconGlow = transform.Find("CompanionIconContainer/IconGlow")?.GetComponent<Image>();
+            iconGlow = transform.Find("CompanionIconContainer/IconGlow")?.GetComponent<Image>()
+                    ?? transform.Find("IconGlow")?.GetComponent<Image>()
+                    ?? FindComponentRecursive<Image>("IconGlow");
 
         if (abilityInformation == null)
             abilityInformation = transform.Find("AbilityInformation")?.GetComponent<RectTransform>();
 
         if (abilityNameText == null)
-            abilityNameText = transform.Find("AbilityInformation/AbilityNameText")?.GetComponent<TextMeshProUGUI>();
+            abilityNameText = transform.Find("AbilityInformation/AbilityNameText")?.GetComponent<TextMeshProUGUI>()
+                           ?? FindComponentRecursive<TextMeshProUGUI>("AbilityNameText");
 
         if (abilityDescriptionText == null)
-            abilityDescriptionText = transform.Find("AbilityInformation/AbilityDescriptionText")?.GetComponent<TextMeshProUGUI>();
+            abilityDescriptionText = transform.Find("AbilityInformation/AbilityDescriptionText")?.GetComponent<TextMeshProUGUI>()
+                                  ?? FindComponentRecursive<TextMeshProUGUI>("AbilityDescriptionText");
 
         if (abilityStatusText == null)
-            abilityStatusText = transform.Find("AbilityInformation/AbilityStatusText")?.GetComponent<TextMeshProUGUI>();
+            abilityStatusText = transform.Find("background/AbilityStatusText")?.GetComponent<TextMeshProUGUI>()
+                             ?? transform.Find("Background/AbilityStatusText")?.GetComponent<TextMeshProUGUI>()
+                             ?? transform.Find("AbilityInformation/AbilityStatusText")?.GetComponent<TextMeshProUGUI>()
+                             ?? FindComponentRecursive<TextMeshProUGUI>("AbilityStatusText");
+
+        if (statusBadgeBackground == null && abilityStatusText != null && abilityStatusText.transform.parent != transform)
+        {
+            statusBadgeBackground = abilityStatusText.transform.parent.GetComponent<Image>();
+        }
+        if (statusBadgeBackground == null)
+        {
+            statusBadgeBackground = transform.Find("background")?.GetComponent<Image>()
+                                 ?? transform.Find("Background")?.GetComponent<Image>();
+        }
 
         if (chargesContainer == null)
             chargesContainer = transform.Find("ChargesContainer")?.GetComponent<RectTransform>();
 
         if (chargesBackground == null)
-            chargesBackground = transform.Find("ChargesContainer/ChargesBackground")?.GetComponent<Image>();
+            chargesBackground = transform.Find("ChargesContainer/ChargesBackground")?.GetComponent<Image>()
+                             ?? chargesContainer?.GetComponent<Image>()
+                             ?? FindComponentRecursive<Image>("ChargesBackground");
 
         if (chargesIcon == null)
-            chargesIcon = transform.Find("ChargesContainer/ChargesIcon")?.GetComponent<Image>();
+            chargesIcon = transform.Find("ChargesContainer/ChargesIcon")?.GetComponent<Image>()
+                       ?? FindComponentRecursive<Image>("ChargesIcon");
 
         if (chargesCountText == null)
-            chargesCountText = transform.Find("ChargesContainer/ChargesCountText")?.GetComponent<TextMeshProUGUI>();
+            chargesCountText = transform.Find("ChargesContainer/ChargesCountText")?.GetComponent<TextMeshProUGUI>()
+                            ?? chargesContainer?.GetComponentInChildren<TextMeshProUGUI>()
+                            ?? FindComponentRecursive<TextMeshProUGUI>("ChargesCountText");
 
         if (abilityAvailabilityIndicator == null)
-            abilityAvailabilityIndicator = transform.Find("AbilityAvailabilityIndicator")?.GetComponent<Image>();
+            abilityAvailabilityIndicator = transform.Find("AbilityAvailabilityIndicator")?.GetComponent<Image>()
+                                        ?? FindComponentRecursive<Image>("AbilityAvailabilityIndicator");
 
         if (abilityPulseEffect == null)
-            abilityPulseEffect = transform.Find("AbilityPulseEffect")?.GetComponent<Image>();
+            abilityPulseEffect = transform.Find("AbilityPulseEffect")?.GetComponent<Image>()
+                              ?? FindComponentRecursive<Image>("AbilityPulseEffect");
 
         if (abilityFeedbackEffect == null)
-            abilityFeedbackEffect = transform.Find("AbilityFeedbackEffect")?.GetComponent<CanvasGroup>();
+            abilityFeedbackEffect = transform.Find("AbilityFeedbackEffect")?.GetComponent<CanvasGroup>()
+                                 ?? FindComponentRecursive<CanvasGroup>("AbilityFeedbackEffect");
 
         if (panelButton == null)
             panelButton = GetComponent<Button>();
+
+        // Disable conflicting UIGlowPulse components on abilityPulseEffect and iconGlow so GlowPulseRoutine controls them cleanly
+        if (abilityPulseEffect != null)
+        {
+            var gp = abilityPulseEffect.GetComponent<UIGlowPulse>();
+            if (gp != null) gp.enabled = false;
+        }
+        if (iconGlow != null)
+        {
+            var gp = iconGlow.GetComponent<UIGlowPulse>();
+            if (gp != null) gp.enabled = false;
+        }
+    }
+
+    private void CaptureInitialColors()
+    {
+        if (panelBackground != null) _initialPanelBgColor = panelBackground.color;
+        if (abilityAvailabilityIndicator != null) _initialIndicatorColor = abilityAvailabilityIndicator.color;
+        if (abilityPulseEffect != null)
+        {
+            _initialPulseColor = abilityPulseEffect.color;
+            _initialPulseScale = abilityPulseEffect.transform.localScale;
+        }
+        if (iconGlow != null)
+        {
+            _initialIconGlowColor = iconGlow.color;
+            _initialIconGlowScale = iconGlow.transform.localScale;
+        }
+        if (statusBadgeBackground != null)
+        {
+            _initialStatusBadgeColor = statusBadgeBackground.color;
+        }
     }
 
     private void LoadDefaultSprites()
@@ -272,6 +398,31 @@ public class CreatureAbilityHUD : MonoBehaviour
             chargeIconSprite = Resources.Load<Sprite>("Sprites/shell_pearl") 
                             ?? Resources.Load<Sprite>("UI/Icons/shell_pearl")
                             ?? Resources.Load<Sprite>("Sprites/icon_gem");
+        }
+
+        if (abilityAvailabilityIndicator != null && abilityAvailabilityIndicator.sprite == null)
+        {
+            abilityAvailabilityIndicator.sprite = Resources.Load<Sprite>("UI/ability_available_indicator")
+                                               ?? Resources.Load<Sprite>("UI/Icons/ability_available_indicator");
+            abilityAvailabilityIndicator.preserveAspect = true;
+        }
+
+        if (abilityPulseEffect != null && abilityPulseEffect.sprite == null)
+        {
+            abilityPulseEffect.sprite = Resources.Load<Sprite>("UI/ability_pulse_ring")
+                                     ?? Resources.Load<Sprite>("UI/Icons/ability_pulse_ring");
+            abilityPulseEffect.preserveAspect = true;
+        }
+
+        if (abilityFeedbackEffect != null)
+        {
+            var fbImg = abilityFeedbackEffect.GetComponent<Image>() ?? abilityFeedbackEffect.GetComponentInChildren<Image>();
+            if (fbImg != null && fbImg.sprite == null)
+            {
+                fbImg.sprite = Resources.Load<Sprite>("UI/ability_feedback_energy_ring")
+                            ?? Resources.Load<Sprite>("UI/Icons/ability_feedback_energy_ring");
+                fbImg.preserveAspect = true;
+            }
         }
     }
 
@@ -333,7 +484,7 @@ public class CreatureAbilityHUD : MonoBehaviour
             }
         }
 
-        if (chargesIcon != null && chargeIconSprite != null)
+        if (chargesIcon != null && chargesIcon.sprite == null && chargeIconSprite != null)
         {
             chargesIcon.sprite = chargeIconSprite;
             chargesIcon.preserveAspect = true;
@@ -356,20 +507,45 @@ public class CreatureAbilityHUD : MonoBehaviour
             }
             else
             {
-                abilityStatusText.text = hasCharges ? "READY" : "EMPTY";
+                abilityStatusText.text = hasCharges ? "Ready" : "Empty";
                 abilityStatusText.color = hasCharges ? readyColor : depletedColor;
             }
         }
 
-        if (abilityAvailabilityIndicator != null)
+        if (statusBadgeBackground != null)
         {
-            abilityAvailabilityIndicator.color = isPassive ? passiveColor : (hasCharges ? readyColor : depletedColor);
+            statusBadgeBackground.color = (hasCharges || isPassive)
+                ? _initialStatusBadgeColor
+                : new Color(_initialStatusBadgeColor.r * 0.7f, _initialStatusBadgeColor.g * 0.7f, _initialStatusBadgeColor.b * 0.7f, 0.65f);
         }
 
-        // 5. Panel Background Color & Opacity
+        if (abilityAvailabilityIndicator != null)
+        {
+            if (abilityAvailabilityIndicator.sprite != null)
+            {
+                abilityAvailabilityIndicator.color = (hasCharges || isPassive)
+                    ? _initialIndicatorColor
+                    : new Color(_initialIndicatorColor.r * 0.5f, _initialIndicatorColor.g * 0.5f, _initialIndicatorColor.b * 0.5f, _initialIndicatorColor.a * 0.55f);
+            }
+            else
+            {
+                abilityAvailabilityIndicator.color = isPassive ? passiveColor : (hasCharges ? readyColor : depletedColor);
+            }
+        }
+
+        // 5. Panel Background Color & Opacity (preserve user's Inspector color)
         if (panelBackground != null)
         {
-            panelBackground.color = (hasCharges || isPassive) ? panelNormalColor : panelDepletedColor;
+            if (panelBackground.sprite != null)
+            {
+                panelBackground.color = (hasCharges || isPassive)
+                    ? _initialPanelBgColor
+                    : new Color(_initialPanelBgColor.r * 0.72f, _initialPanelBgColor.g * 0.75f, _initialPanelBgColor.b * 0.82f, _initialPanelBgColor.a * 0.85f);
+            }
+            else
+            {
+                panelBackground.color = (hasCharges || isPassive) ? panelNormalColor : panelDepletedColor;
+            }
         }
 
         if (mainCanvasGroup != null)
@@ -454,12 +630,21 @@ public class CreatureAbilityHUD : MonoBehaviour
     {
         while (enabled)
         {
-            float t = (Mathf.Sin(Time.unscaledTime * 4.2f) + 1f) * 0.5f;
-            Color c = readyColor;
-            c.a = Mathf.Lerp(0.20f, 0.80f, t);
+            float t = (Mathf.Sin(Time.unscaledTime * 3.8f) + 1f) * 0.5f;
+            float alpha = Mathf.Lerp(0.25f, 0.85f, t);
 
-            if (abilityPulseEffect != null) abilityPulseEffect.color = c;
-            if (iconGlow != null)           iconGlow.color = c;
+            if (abilityPulseEffect != null)
+            {
+                abilityPulseEffect.color = new Color(_initialPulseColor.r, _initialPulseColor.g, _initialPulseColor.b, alpha);
+                float s = Mathf.Lerp(0.98f, 1.05f, t);
+                abilityPulseEffect.transform.localScale = _initialPulseScale * s;
+            }
+            if (iconGlow != null)
+            {
+                iconGlow.color = new Color(_initialIconGlowColor.r, _initialIconGlowColor.g, _initialIconGlowColor.b, alpha * 0.75f);
+                float s = Mathf.Lerp(0.97f, 1.03f, t);
+                iconGlow.transform.localScale = _initialIconGlowScale * s;
+            }
 
             yield return null;
         }
@@ -480,16 +665,34 @@ public class CreatureAbilityHUD : MonoBehaviour
     private IEnumerator FlashFeedbackRoutine()
     {
         if (abilityFeedbackEffect == null) yield break;
+
+        Transform fbT = abilityFeedbackEffect.transform;
+        Vector3 startScale = Vector3.one * 0.9f;
+        Vector3 endScale   = Vector3.one * 1.25f;
+
         abilityFeedbackEffect.alpha = 1f;
         float elapsed = 0f;
-        float dur = 0.25f;
+        float dur = 0.38f;
+
         while (elapsed < dur)
         {
             elapsed += Time.unscaledDeltaTime;
-            abilityFeedbackEffect.alpha = Mathf.Lerp(1f, 0f, elapsed / dur);
+            float t = Mathf.Clamp01(elapsed / dur);
+
+            // Ease-out cubic for explosive luminous burst
+            float ease = 1f - Mathf.Pow(1f - t, 3f);
+            if (fbT != null)
+            {
+                fbT.localScale = Vector3.Lerp(startScale, endScale, ease);
+            }
+
+            // Smooth fade out
+            abilityFeedbackEffect.alpha = Mathf.Lerp(1f, 0f, t);
             yield return null;
         }
+
         abilityFeedbackEffect.alpha = 0f;
+        if (fbT != null) fbT.localScale = Vector3.one;
     }
 
     private void TriggerPunchScale()
@@ -524,6 +727,13 @@ public class CreatureAbilityHUD : MonoBehaviour
         AudioManager.Instance?.PlayButtonClick();
         TriggerPunchScale();
 
+        if (abilityFeedbackEffect != null)
+        {
+            StartCoroutine(FlashFeedbackRoutine());
+        }
+
+        HighlightCompatibleObstacles();
+
         if (!showFloatingTooltip) return;
 
         GetCompanionAbilityInfo(_currentCreature, out string aName, out string aDesc, out string targetDesc);
@@ -540,6 +750,29 @@ public class CreatureAbilityHUD : MonoBehaviour
         }
 
         ShowFloatingTooltip(hintMsg);
+    }
+
+    /// <summary>
+    /// Highlights matching obstacles on the board to clearly inform player where to use the active ability.
+    /// </summary>
+    public void HighlightCompatibleObstacles()
+    {
+        var gates = FindObjectsOfType<GateComponent>();
+        if (gates == null || gates.Length == 0) return;
+
+        foreach (var g in gates)
+        {
+            if (g == null || g.IsOpen) continue;
+            bool isCompatible = false;
+            if (_currentCreature == CreatureType.Turtle && g.gateType == GateType.BreakableRock) isCompatible = true;
+            else if (_currentCreature == CreatureType.Octopus && g.gateType == GateType.InkedHazard) isCompatible = true;
+            else if (_currentCreature == CreatureType.Jellyfish && g.gateType == GateType.ElectricGate) isCompatible = true;
+
+            if (isCompatible)
+            {
+                g.ShowHint("Tap me to use ability!");
+            }
+        }
     }
 
     private void ShowFloatingTooltip(string message)

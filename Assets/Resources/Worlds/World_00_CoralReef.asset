@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4b81de554a481fb986452b8aef195f, type: 3}
+  m_Name: World_00_CoralReef
+  m_EditorClassIdentifier: 
+  worldIndex: 0
+  worldId: coral_reef
+  displayName: Coral Reef
+  description: Vibrant sunlit shallow waters with gentle currents and colorful coral reefs.
+  levelResourcePath: Levels/
+  totalLevels: 12
+  backgroundSprite: {fileID: 21300000, guid: 7d4130da2e054ef5a6a5b5a98003cd8e, type: 3}
+  bannerSprite: {fileID: -1975562576801453055, guid: 5f1f30bfe5b1ac3409dd1251923b09d5, type: 3}
+  worldCardSprite: {fileID: -1940300311377621796, guid: c5864ecc2a5f6b744b8efee6849207e6, type: 3}
+  themeColor: {r: 0.20, g: 0.75, b: 0.95, a: 1.0}
+  defaultCreature: 0
+  allowsCreatureAbilities: 0
+  hasAtmosphereEffects: 0
+  unlockRequiredWorld: -1
+  unlockRequiredStars: 0
+  worldClearCoins: 1000
+  worldClearGems: 50

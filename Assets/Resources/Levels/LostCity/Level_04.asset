@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b2c3d4e5f60718293a4b5c6d7e8f90, type: 3}
+  m_Name: Level_04
+  m_EditorClassIdentifier: 
+  levelNumber: 4
+  levelName: Pedestal of the Sun
+  worldName: Lost City
+  difficulty: Medium
+  activeCreature: 1
+  abilityUses: 2
+  cols: 9
+  rows: 5
+  sourceCell: {x: 0, y: 3}
+  sinkCell: {x: 8, y: 1}
+  maxMoves: 30
+  targetMovesFor3Stars: 20
+  pipeTypes:
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 1
+  - -1
+  - 0
+  - -1
+  - 0
+  - -1
+  - -1
+  - -1
+  - -1
+  - 0
+  - -1
+  - 0
+  - 0
+  - 1
+  - -1
+  - -1
+  - -1
+  - -1
+  - 1
+  - 0
+  - 1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  initialRotations:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 1
+  - 3
+  - 3
+  - 3
+  - 0
+  - 1
+  - 0
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 1
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  solutionRotations:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  valves: []
+  gates: []
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals:
+  - gridPos: {x: 4, y: 1}
+    linkedDoorPos: {x: -1, y: -1}
+    sealName: Solar Seal
+  requiresSonar: false
+  ambientPressure: 0

@@ -15,19 +15,16 @@ MonoBehaviour:
   levelNumber: 8
   levelName: Hydrostatic Rift
   worldName: Deep Ocean
-  difficulty: Hard
+  difficulty: Medium
   activeCreature: 2
   abilityUses: 2
   cols: 9
   rows: 5
-  sourceCell: {x: 0, y: 0}
+  sourceCell: {x: 0, y: 2}
   sinkCell: {x: 8, y: 2}
-  maxMoves: 36
-  targetMovesFor3Stars: 26
+  maxMoves: 34
+  targetMovesFor3Stars: 22
   pipeTypes:
-  - 0
-  - 0
-  - 1
   - -1
   - -1
   - -1
@@ -36,22 +33,6 @@ MonoBehaviour:
   - -1
   - -1
   - -1
-  - 1
-  - 0
-  - 1
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
-  - -1
-  - 1
-  - 1
-  - -1
-  - 1
-  - 0
   - -1
   - -1
   - -1
@@ -60,6 +41,25 @@ MonoBehaviour:
   - 1
   - 0
   - 1
+  - -1
+  - -1
+  - 0
+  - 0
+  - 2
+  - 0
+  - 3
+  - 0
+  - 2
+  - 0
+  - 0
+  - -1
+  - -1
+  - 1
+  - 0
+  - 1
+  - -1
+  - -1
+  - -1
   - -1
   - -1
   - -1
@@ -72,40 +72,40 @@ MonoBehaviour:
   - -1
   initialRotations:
   - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 3
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 1
   - 2
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 3
   - 1
   - 3
-  - 0
-  - 0
-  - 0
-  - 0
+  - 2
+  - 3
+  - 1
+  - 1
   - 0
   - 0
   - 0
   - 0
   - 2
   - 3
-  - 3
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -119,6 +119,19 @@ MonoBehaviour:
   solutionRotations:
   - 0
   - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 2
+  - 0
   - 1
   - 0
   - 0
@@ -127,29 +140,16 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 3
-  - 0
-  - 1
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 3
-  - 1
   - 0
   - 2
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
   - 3
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -163,13 +163,31 @@ MonoBehaviour:
   - 0
   - 0
   valves:
-  - gridPos: {x: 4, y: 1}
-    valveType: 0
-    isInitiallyOpen: 0
+  - gridPos: {x: 3, y: 3}
+    valveType: PressureRelease
+    isInitiallyOpen: true
+    allowedDirection: 1
+  - gridPos: {x: 5, y: 1}
+    valveType: PressureRelease
+    isInitiallyOpen: true
     allowedDirection: 1
   gates:
-  - gridPos: {x: 5, y: 3}
-    gateType: 4
-    isInitiallyOpen: 0
-    requiredPressure: 0
+  - gridPos: {x: 4, y: 2}
+    gateType: PressureLockGate
+    isOpen: false
     linkedValvePos: {x: -1, y: -1}
+    requiredPressure: 50
+    requiredRuneId: 0
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: false
+  ambientPressure: 0

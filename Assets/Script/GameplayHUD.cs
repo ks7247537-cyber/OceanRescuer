@@ -62,6 +62,15 @@ public class GameplayHUD : MonoBehaviour
     [Header("Creature Ability HUD")]
     public CreatureAbilityHUD creatureAbilityHUD;
 
+    [Header("Power-Up Dock UI")]
+    public PowerUpDockUI powerUpDock;
+
+    [Header("Deep Ocean Pressure HUD")]
+    public DeepOceanPressureHUD deepOceanPressureHUD;
+
+    [Header("Deep Ocean Sonar HUD")]
+    public DeepOceanSonarHUD deepOceanSonarHUD;
+
     private bool _isPaused    = false;
     private bool _rewardGiven = false;
     private float _timerTick   = 0f;
@@ -70,6 +79,9 @@ public class GameplayHUD : MonoBehaviour
     private int _pendingAwardedGems = 0;
     private int _prevCoinsBeforeReward = 0;
     private int _prevGemsBeforeReward = 0;
+    private int _cachedMoves = 0;
+    private int _cachedStars = 0;
+    private string _cachedRewardBreakdown = "";
 
     // Reward amounts
     private const int FIRST_TIME_COINS = 200;
@@ -112,6 +124,18 @@ public class GameplayHUD : MonoBehaviour
                     creatureAbilityHUD = CreatureAbilityHUD.CreateWidget(hudCanvas);
                 }
             }
+        }
+
+        // Initialize Power-Up Dock UI
+        if (powerUpDock == null)
+        {
+            powerUpDock = PowerUpDockUI.Instance ?? FindObjectOfType<PowerUpDockUI>(true);
+        }
+
+        // Initialize Deep Ocean Pressure HUD
+        if (deepOceanPressureHUD == null)
+        {
+            deepOceanPressureHUD = DeepOceanPressureHUD.Instance ?? FindObjectOfType<DeepOceanPressureHUD>(true);
         }
 
         // Fallback discovery for Pause Button and Pause Panel
@@ -224,13 +248,6 @@ public class GameplayHUD : MonoBehaviour
                 canvas.gameObject.AddComponent<UIBubbleEffect>();
             }
             UIButtonFeedback.AttachRecursively(canvas.transform);
-
-            // Mobile Safe Area Protection for TopBar
-            var topBar = canvas.transform.Find("TopBar");
-            if (topBar != null && topBar.GetComponent<UISafeAreaHandler>() == null)
-            {
-                topBar.gameObject.AddComponent<UISafeAreaHandler>();
-            }
         }
 
         EnsurePanelTransition(winPanel);
@@ -297,6 +314,14 @@ public class GameplayHUD : MonoBehaviour
             _timerTick = 0f;
             UpdateCurrencyDisplay();
         }
+
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        // Press 'C' or 'W' on keyboard in Play mode to instantly complete the level
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.W))
+        {
+            ShowWinPanel();
+        }
+        #endif
     }
 
     private void OnDestroy()
@@ -367,35 +392,22 @@ public class GameplayHUD : MonoBehaviour
 
     public void ShowWinPanel()
     {
-        if (winPanel == null) return;
-        winPanel.SetActive(true);
-
-        AudioManager.Instance?.PlayWin();
-
-        var transition = winPanel.GetComponent<UIPanelTransition>() ?? winPanel.AddComponent<UIPanelTransition>();
-        transition.PlayOpen();
-
-        if (nextLevelBtn != null && nextLevelBtn.GetComponent<UIGlowPulse>() == null)
-        {
-            nextLevelBtn.gameObject.AddComponent<UIGlowPulse>();
-        }
-
         if (undoButton != null) undoButton.interactable = false;
 
         int moves = MoveManager.Instance != null ? MoveManager.Instance.MoveCount : 0;
-
-        // Calculate and display star rating
         int stars = CalculateStars(moves);
-        UpdateStarDisplay(stars);
-        transition.AnimateStars(starImages, stars, 0.22f);
 
         // Save progress using SaveManager
         int worldIndex = SaveManager.GetSelectedWorld();
         int levelIndex = SaveManager.GetSelectedLevel();
         SaveManager.SaveLevelStars(worldIndex, levelIndex, stars);
-
-        // Unlock next level
         SaveManager.UnlockLevel(worldIndex, levelIndex + 1);
+
+        int awardedCoins = 0;
+        int awardedGems = 0;
+        string rewardBreakdown = "";
+        int prevCoins = SaveManager.GetCoins();
+        int prevGems  = SaveManager.GetGems();
 
         // Reward calculation
         if (!_rewardGiven)
@@ -404,11 +416,8 @@ public class GameplayHUD : MonoBehaviour
 
             bool isFirstTime = !SaveManager.HasClaimedLevelReward(worldIndex, levelIndex);
             bool had3StarReward = SaveManager.HasClaimed3StarReward(worldIndex, levelIndex);
-            bool isCoralReefGrandFinish = (worldIndex == 0 && levelIndex == 11 && !SaveManager.HasClaimedWorldReward(0));
-
-            int awardedCoins = 0;
-            int awardedGems = 0;
-            string rewardBreakdown = "";
+            WorldConfig config = WorldConfig.GetConfig(worldIndex);
+            bool isWorldGrandFinish = (levelIndex == config.totalLevels - 1 && !SaveManager.HasClaimedWorldReward(worldIndex));
 
             if (isFirstTime)
             {
@@ -432,17 +441,14 @@ public class GameplayHUD : MonoBehaviour
                 rewardBreakdown += $"⭐⭐⭐ Bonus: +{BONUS_3STAR_COINS} 🪙 +{BONUS_3STAR_GEMS} 💎\n";
             }
 
-            // Special 12-level Coral Reef completion reward
-            if (isCoralReefGrandFinish)
+            // World completion grand reward
+            if (isWorldGrandFinish)
             {
-                awardedCoins += WORLD_CLEAR_COINS;
-                awardedGems += WORLD_CLEAR_GEMS;
-                SaveManager.SetWorldRewardClaimed(0, true);
-                rewardBreakdown += $"🏆 Coral Reef Cleared! Grand Reward: +{WORLD_CLEAR_COINS} 🪙 +{WORLD_CLEAR_GEMS} 💎!\n";
+                awardedCoins += config.worldClearCoins;
+                awardedGems += config.worldClearGems;
+                SaveManager.SetWorldRewardClaimed(worldIndex, true);
+                rewardBreakdown += $"🏆 {config.displayName} Cleared! Grand Reward: +{config.worldClearCoins} 🪙 +{config.worldClearGems} 💎!\n";
             }
-
-            int prevCoins = SaveManager.GetCoins();
-            int prevGems  = SaveManager.GetGems();
 
             // Persist rewards idempotently
             SaveManager.AddCoins(awardedCoins);
@@ -452,29 +458,28 @@ public class GameplayHUD : MonoBehaviour
             if (coinText != null) coinText.text = prevCoins.ToString();
             if (gemText  != null) gemText.text  = prevGems.ToString();
 
-            // Celebratory particles & bubbles on Win Panel
-            RewardPresentationController.Instance?.SpawnCelebratoryConfetti(winPanel.transform, 14);
-
-            if (winMovesText != null)
-            {
-                winMovesText.text = $"Solved in {moves} moves! ({stars} ⭐)\n{rewardBreakdown.TrimEnd()}";
-            }
-
-            if (rewardPanel != null && awardedCoins > 0)
-            {
-                ShowRewardPopup(awardedCoins, awardedGems, prevCoins, prevGems);
-            }
-            else
-            {
-                Vector3 launchPos = winMovesText != null ? winMovesText.transform.position : winPanel.transform.position;
-                TriggerFlyingRewards(prevCoins, prevCoins + awardedCoins, prevGems, prevGems + awardedGems, awardedCoins, awardedGems, launchPos);
-            }
-
             Debug.Log($"[GameplayHUD] Level {levelIndex + 1} completed! Awarded: +{awardedCoins} coins, +{awardedGems} gems. Total Coins: {SaveManager.GetCoins()}, Gems: {SaveManager.GetGems()}.");
         }
         else
         {
             UpdateCurrencyDisplay();
+        }
+
+        _cachedMoves = moves;
+        _cachedStars = stars;
+        _cachedRewardBreakdown = rewardBreakdown;
+
+        // Sequence control:
+        // Agar reward panel available hai aur coins award huye hain,
+        // toh pehle sirf RewardPopupPanel khulega. LevelCompletePanel (winPanel) tab tak band rahega.
+        if (rewardPanel != null && awardedCoins > 0)
+        {
+            if (winPanel != null) winPanel.SetActive(false);
+            ShowRewardPopup(awardedCoins, awardedGems, prevCoins, prevGems);
+        }
+        else
+        {
+            OpenLevelCompletePanelDirectly();
         }
     }
 
@@ -489,13 +494,17 @@ public class GameplayHUD : MonoBehaviour
         rewardPanel.SetActive(true);
         rewardPanel.transform.SetAsLastSibling();
 
+        if (rewardCollectBtn != null)
+        {
+            rewardCollectBtn.interactable = true;
+            if (rewardCollectBtn.GetComponent<UIGlowPulse>() == null)
+            {
+                rewardCollectBtn.gameObject.AddComponent<UIGlowPulse>();
+            }
+        }
+
         var transition = rewardPanel.GetComponent<UIPanelTransition>() ?? rewardPanel.AddComponent<UIPanelTransition>();
         transition.PlayOpen();
-
-        if (rewardCollectBtn != null && rewardCollectBtn.GetComponent<UIGlowPulse>() == null)
-        {
-            rewardCollectBtn.gameObject.AddComponent<UIGlowPulse>();
-        }
 
         if (rewardCoinsText != null)
         {
@@ -512,7 +521,9 @@ public class GameplayHUD : MonoBehaviour
 
     public void OnRewardCollectClicked()
     {
+        if (rewardCollectBtn != null) rewardCollectBtn.interactable = false;
         AudioManager.Instance?.PlayButtonClick();
+
         Vector3 collectPos = (rewardCollectBtn != null) 
             ? rewardCollectBtn.transform.position 
             : (rewardPanel != null ? rewardPanel.transform.position : Vector3.zero);
@@ -539,7 +550,52 @@ public class GameplayHUD : MonoBehaviour
             _pendingAwardedGems,
             collectPos);
 
-        Debug.Log("[GameplayHUD] Reward collected.");
+        Debug.Log("[GameplayHUD] Reward collected. Opening Level Complete panel after delay.");
+
+        // Wait for coins to fly into top counter + satisfying gap before LevelCompletePanel opens
+        StartCoroutine(DelayedOpenLevelCompleteRoutine(0.85f));
+    }
+
+    private System.Collections.IEnumerator DelayedOpenLevelCompleteRoutine(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+
+        if (this == null || !gameObject.activeInHierarchy) yield break;
+
+        if (rewardPanel != null)
+        {
+            rewardPanel.SetActive(false);
+        }
+
+        OpenLevelCompletePanelDirectly();
+    }
+
+    public void OpenLevelCompletePanelDirectly()
+    {
+        if (winPanel == null) return;
+        winPanel.SetActive(true);
+        winPanel.transform.SetAsLastSibling();
+
+        AudioManager.Instance?.PlayWin();
+
+        var transition = winPanel.GetComponent<UIPanelTransition>() ?? winPanel.AddComponent<UIPanelTransition>();
+        transition.PlayOpen();
+
+        if (nextLevelBtn != null && nextLevelBtn.GetComponent<UIGlowPulse>() == null)
+        {
+            nextLevelBtn.gameObject.AddComponent<UIGlowPulse>();
+        }
+
+        UpdateStarDisplay(_cachedStars);
+        transition.AnimateStars(starImages, _cachedStars, 0.22f);
+
+        // Celebratory particles & bubbles on Win Panel
+        RewardPresentationController.Instance?.SpawnCelebratoryConfetti(winPanel.transform, 14);
+
+        if (winMovesText != null)
+        {
+            winMovesText.text = $"Solved in {_cachedMoves} moves! ({_cachedStars} ⭐)\n{_cachedRewardBreakdown.TrimEnd()}";
+        }
     }
 
     private void TriggerFlyingRewards(int fromCoins, int toCoins, int fromGems, int toGems, int coinsAmount, int gemsAmount, Vector3 spawnWorldPos)
@@ -885,12 +941,21 @@ public class GameplayHUD : MonoBehaviour
         }
         else
         {
-            // Completed world's 12th level -> Unlock and transition to next world
+            // Completed world's 12th level -> Unlock and transition to next world if available
             int nextWorld = worldIndex + 1;
-            SaveManager.UnlockWorld(nextWorld);
-            SaveManager.UnlockLevel(nextWorld, 0);
-            SaveManager.SetSelectedWorld(nextWorld);
-            SaveManager.SetSelectedLevel(0);
+            if (nextWorld < WorldConfig.TOTAL_WORLDS)
+            {
+                SaveManager.UnlockWorld(nextWorld);
+                SaveManager.UnlockLevel(nextWorld, 0);
+                SaveManager.SetSelectedWorld(nextWorld);
+                SaveManager.SetSelectedLevel(0);
+            }
+            else
+            {
+                // All worlds completed; keep current selection and return to level select
+                SaveManager.SetSelectedWorld(worldIndex);
+                SaveManager.SetSelectedLevel(levelIndex);
+            }
 
             _isTransitioning = true;
             if (nextLevelBtn != null) nextLevelBtn.interactable = false;

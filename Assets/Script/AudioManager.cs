@@ -121,6 +121,8 @@ public class AudioManager : MonoBehaviour
     public void PlayFail()         => PlaySFX(failClip);
     public void PlayButtonClick()  => PlaySFX(buttonClickClip);
     public void PlayWaterFlow()    => PlaySFX(waterFlowClip);
+    public void PlayRockSmash()    => PlaySFX(buttonClickClip != null ? buttonClickClip : pipeRotateClip);
+    public void PlayShock()        => PlaySFX(waterFlowClip != null ? waterFlowClip : pipeRotateClip);
 
     public void SetMusicVolume(float v) { bgmSource.volume = v; PlayerPrefs.SetFloat("MusicVolume", v); PlayerPrefs.Save(); }
     public void SetSFXVolume(float v)   { sfxSource.volume = v; PlayerPrefs.SetFloat("SFXVolume",   v); PlayerPrefs.Save(); }

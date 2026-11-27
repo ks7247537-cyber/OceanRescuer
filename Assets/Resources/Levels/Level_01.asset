@@ -13,19 +13,18 @@ MonoBehaviour:
   m_Name: Level_01
   m_EditorClassIdentifier: 
   levelNumber: 1
-  levelName: Level 1
+  levelName: Sunken Shallows
   worldName: Coral Reef
   difficulty: Easy
   activeCreature: 0
-  abilityUses: 0
+  abilityUses: 2
   cols: 9
   rows: 5
-  sourceCell: {x: 0, y: 0}
-  sinkCell: {x: 8, y: 0}
-  maxMoves: 16
+  sourceCell: {x: 0, y: 2}
+  sinkCell: {x: 8, y: 2}
+  maxMoves: 20
   targetMovesFor3Stars: 8
   pipeTypes:
-  - 0
   - -1
   - -1
   - -1
@@ -33,25 +32,26 @@ MonoBehaviour:
   - -1
   - -1
   - -1
-  - 0
-  - 0
   - -1
   - -1
   - -1
   - -1
   - -1
-  - 1
-  - 0
-  - 1
-  - 1
-  - 0
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
   - 0
   - 0
   - 0
   - 0
-  - 1
-  - -1
-  - -1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - -1
   - -1
   - -1
@@ -71,7 +71,6 @@ MonoBehaviour:
   - -1
   - -1
   initialRotations:
-  - 1
   - 0
   - 0
   - 0
@@ -79,24 +78,25 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 2
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 1
-  - 1
-  - 2
-  - 0
-  - 2
-  - 3
-  - 1
   - 2
   - 3
+  - 3
+  - 2
   - 1
-  - 0
+  - 3
   - 0
   - 0
   - 0
@@ -117,7 +117,6 @@ MonoBehaviour:
   - 0
   - 0
   solutionRotations:
-  - 1
   - 0
   - 0
   - 0
@@ -125,17 +124,18 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 1
-  - 1
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 2
   - 0
   - 0
-  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -164,3 +164,16 @@ MonoBehaviour:
   - 0
   valves: []
   gates: []
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: false
+  ambientPressure: 0

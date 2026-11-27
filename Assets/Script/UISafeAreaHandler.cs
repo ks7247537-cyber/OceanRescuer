@@ -11,7 +11,6 @@ using UnityEngine;
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(RectTransform))]
-[ExecuteAlways]
 public class UISafeAreaHandler : MonoBehaviour
 {
     [Header("Safe Area Edges")]
@@ -40,21 +39,23 @@ public class UISafeAreaHandler : MonoBehaviour
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
-        ApplySafeArea();
+        if (Application.isPlaying) ApplySafeArea();
     }
 
     private void Start()
     {
-        ApplySafeArea();
+        if (Application.isPlaying) ApplySafeArea();
     }
 
     private void OnEnable()
     {
-        ApplySafeArea();
+        if (Application.isPlaying) ApplySafeArea();
     }
 
     private void Update()
     {
+        if (!Application.isPlaying) return;
+
         // Detect safe area, screen dimension or orientation changes
         if (HasGeometryChanged())
         {
@@ -94,6 +95,10 @@ public class UISafeAreaHandler : MonoBehaviour
 
         return safeArea;
     }
+
+    [Header("Behavior")]
+    [Tooltip("If true, shifts edge-anchored elements. Default false to preserve Scene/Inspector placed layout.")]
+    [SerializeField] private bool allowPositionOverride = false;
 
     /// <summary>
     /// Computes and applies safe area bounds to this RectTransform.
@@ -136,20 +141,12 @@ public class UISafeAreaHandler : MonoBehaviour
             _rectTransform.offsetMin = Vector2.zero;
             _rectTransform.offsetMax = Vector2.zero;
         }
-        else
+        else if (allowPositionOverride)
         {
-            // Edge-anchored UI element (e.g. BackButton anchored to Top-Left, PauseButton anchored to Top-Right)
-            // Calculate pixel insets from screen boundary
+            // Only modify edge-anchored position if explicitly enabled
             float insetLeft   = applyLeft   ? safeArea.xMin : 0f;
             float insetRight  = applyRight  ? (screenW - safeArea.xMax) : 0f;
-            float insetBottom = applyBottom ? safeArea.yMin : 0f;
-            float insetTop    = applyTop    ? (screenH - safeArea.yMax) : 0f;
 
-            // Apply insets proportionally as pixel offsets
-            float xOffset = (insetLeft > 0f) ? insetLeft : (insetRight > 0f ? -insetRight : 0f);
-            float yOffset = (insetBottom > 0f) ? insetBottom : (insetTop > 0f ? -insetTop : 0f);
-
-            // Shift element away from the cutout zone if in proximity to edge
             if (_rectTransform.anchorMin.x < 0.2f && insetLeft > 0f)
             {
                 var curPos = _rectTransform.anchoredPosition;

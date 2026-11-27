@@ -27,6 +27,12 @@ public class DeepOceanEnvironment : MonoBehaviour
         ApplyEnvironment();
     }
 
+    private void OnDestroy()
+    {
+        var decor = GameObject.Find("DeepOcean_Atmosphere");
+        if (decor != null) Destroy(decor);
+    }
+
     public void ApplyEnvironment()
     {
         if (_isInitialized) return;

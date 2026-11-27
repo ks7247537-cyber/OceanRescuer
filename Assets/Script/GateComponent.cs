@@ -126,18 +126,113 @@ public class GateComponent : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        HandleTouchInput();
+    }
+
+    private void HandleTouchInput()
+    {
+        if (isOpen) return;
+
+        Vector2? inputPos = null;
+        if (Input.touchCount > 0)
+        {
+            var touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                if (UnityEngine.EventSystems.EventSystem.current == null || !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                {
+                    inputPos = touch.position;
+                }
+            }
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            if (UnityEngine.EventSystems.EventSystem.current == null || !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            {
+                inputPos = Input.mousePosition;
+            }
+        }
+
+        if (inputPos.HasValue && Camera.main != null)
+        {
+            Vector2 wp = Camera.main.ScreenToWorldPoint(inputPos.Value);
+            var hit = Physics2D.OverlapPoint(wp);
+            if (hit != null && (hit.gameObject == gameObject || hit.transform.IsChildOf(transform)))
+            {
+                OnGateTapped();
+            }
+        }
+    }
+
     private void OnMouseDown()
     {
         if (Time.timeScale == 0f) return;
         if (UnityEngine.EventSystems.EventSystem.current != null && UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) return;
 
-        if (!isOpen)
+        OnGateTapped();
+    }
+
+    public void OnGateTapped()
+    {
+        if (isOpen)
         {
-            InteractWithAbility();
+            RotatePipeUnderneath();
+            return;
         }
 
-        // Always allow rotating the pipe tile on this grid position!
+        // 1. Try ability first if matching companion
+        bool abilityUsed = false;
+        if (CreatureAbilityController.Instance != null && CreatureAbilityController.Instance.CanUseAbility)
+        {
+            abilityUsed = CreatureAbilityController.Instance.TryUseAbilityOnGate(this);
+        }
+
+        // 2. If ability wasn't used or not matching companion, allow direct tap unlock/break so gameplay is never blocked!
+        if (!abilityUsed && !isOpen)
+        {
+            UnlockOrBreakDirectly();
+        }
+
+        // Always rotate pipe tile on this grid position
         RotatePipeUnderneath();
+    }
+
+    public void UnlockOrBreakDirectly()
+    {
+        if (isOpen) return;
+
+        switch (gateType)
+        {
+            case GateType.BreakableRock:
+                AudioManager.Instance?.PlayButtonClick();
+                ShowHint("<color=#00FFFF>💥 ROCK SMASHED!</color>");
+                break;
+            case GateType.ElectricGate:
+                AudioManager.Instance?.PlayButtonClick();
+                ShowHint("<color=#00FFFF>⚡ GATE DISCHARGED!</color>");
+                break;
+            case GateType.LockedGate:
+                AudioManager.Instance?.PlayWaterFlow();
+                ShowHint("<color=#00FFFF>🔓 GATE UNLOCKED!</color>");
+                break;
+            case GateType.PressureGate:
+                AudioManager.Instance?.PlayWaterFlow();
+                ShowHint("<color=#00FFFF>🌊 PRESSURE RELEASED!</color>");
+                break;
+            case GateType.InkedHazard:
+                AudioManager.Instance?.PlayWaterFlow();
+                ShowHint("<color=#00FFFF>✨ HAZARD CLEARED!</color>");
+                break;
+            default:
+                AudioManager.Instance?.PlayWaterFlow();
+                ShowHint("<color=#00FFFF>🔓 UNLOCKED!</color>");
+                break;
+        }
+
+        SetOpen(true);
+        FlowManager.Instance?.RunFlow();
     }
 
     private void RotatePipeUnderneath()
@@ -223,64 +318,79 @@ public class GateComponent : MonoBehaviour
         var col = GetComponent<Collider2D>();
         if (col != null) col.enabled = !isOpen; // Disable collider when unlocked so clicks directly hit the pipe tile!
 
+        if (isOpen)
+        {
+            // Whenever any gate/obstacle is unlocked, proudly display the vibrant green UNLOCKED icon!
+            if (_badgeSr != null)
+            {
+                _badgeSr.sprite = _spriteUnlocked != null ? _spriteUnlocked : Resources.Load<Sprite>("Sprites/icon_unlocked");
+                _badgeSr.color  = new Color(0.2f, 1.0f, 0.45f, 1.0f); // Radiant Emerald Green
+                _badgeSr.sortingOrder = 10;
+                _badgeSr.transform.localScale = Vector3.one * 1.15f;
+            }
+            if (_barrierSr != null)
+            {
+                _barrierSr.color = new Color(0.3f, 1.0f, 0.7f, 0.45f); // Glowing translucent base
+            }
+            return;
+        }
+
         switch (gateType)
         {
             case GateType.LockedGate:
-                if (isOpen)
+                if (_barrierSr != null) _barrierSr.sprite = _spriteBarrier != null ? _spriteBarrier : _spriteLocked;
+                if (_badgeSr != null)
                 {
-                    // When unlocked, the lock opens and fades away so the pipe is completely clear and water flows visibly!
-                    if (_barrierSr != null) _barrierSr.sprite = _spriteUnlocked;
-                    if (_badgeSr != null) _badgeSr.sprite = _spriteUnlocked;
-                    ApplyBarrierColor(new Color(0.2f, 1f, 0.4f, 0f), immediate);
+                    _badgeSr.sprite = _spriteLocked;
+                    _badgeSr.sortingOrder = 8;
+                    _badgeSr.transform.localScale = Vector3.one;
                 }
-                else
-                {
-                    if (_barrierSr != null)
-                    {
-                        _barrierSr.sprite = _spriteBarrier != null ? _spriteBarrier : _spriteLocked;
-                    }
-                    if (_badgeSr != null)
-                    {
-                        _badgeSr.sprite = _spriteLocked;
-                    }
-                    ApplyBarrierColor(Color.white, immediate);
-                }
+                ApplyBarrierColor(Color.white, immediate);
                 break;
 
             case GateType.PressureGate:
                 if (_badgeSr != null)
                 {
                     _badgeSr.sprite = _spriteGoldShield;
-                    _badgeSr.color  = isOpen ? Color.cyan : Color.gold;
+                    _badgeSr.color  = Color.gold;
+                    _badgeSr.sortingOrder = 8;
+                    _badgeSr.transform.localScale = Vector3.one;
                 }
-                ApplyBarrierColor(isOpen ? new Color(0.1f, 1f, 1f, 0.25f) : new Color(0.9f, 0.7f, 0.2f, 0.95f), immediate);
+                ApplyBarrierColor(new Color(0.9f, 0.7f, 0.2f, 0.95f), immediate);
                 break;
 
             case GateType.ElectricGate:
                 if (_badgeSr != null)
                 {
                     _badgeSr.sprite = _spriteBlueShield;
-                    _badgeSr.color  = isOpen ? Color.cyan : Color.yellow;
+                    _badgeSr.color  = Color.yellow;
+                    _badgeSr.sortingOrder = 8;
+                    _badgeSr.transform.localScale = Vector3.one;
                 }
-                ApplyBarrierColor(isOpen ? new Color(0.2f, 0.9f, 1f, 0.25f) : new Color(0.5f, 0.8f, 1f, 0.95f), immediate);
+                ApplyBarrierColor(new Color(0.5f, 0.8f, 1f, 0.95f), immediate);
                 break;
 
             case GateType.BreakableRock:
+                if (_barrierSr != null) _barrierSr.sprite = _spriteRocks != null ? _spriteRocks : _spriteBarrier;
                 if (_badgeSr != null)
                 {
                     _badgeSr.sprite = _spriteLocked;
-                    _badgeSr.color  = isOpen ? Color.clear : new Color(1f, 0.8f, 0.4f, 0.8f);
+                    _badgeSr.color  = new Color(1f, 0.8f, 0.4f, 0.8f);
+                    _badgeSr.sortingOrder = 8;
+                    _badgeSr.transform.localScale = Vector3.one;
                 }
-                ApplyBarrierColor(isOpen ? new Color(1f, 1f, 1f, 0f) : new Color(0.7f, 0.7f, 0.75f, 1f), immediate);
+                ApplyBarrierColor(new Color(0.7f, 0.7f, 0.75f, 1f), immediate);
                 break;
 
             case GateType.InkedHazard:
                 if (_badgeSr != null)
                 {
                     _badgeSr.sprite = _spriteLocked;
-                    _badgeSr.color  = isOpen ? Color.clear : new Color(0.8f, 0.2f, 0.9f, 0.9f);
+                    _badgeSr.color  = new Color(0.8f, 0.2f, 0.9f, 0.9f);
+                    _badgeSr.sortingOrder = 8;
+                    _badgeSr.transform.localScale = Vector3.one;
                 }
-                ApplyBarrierColor(isOpen ? new Color(0.15f, 0.05f, 0.25f, 0.25f) : new Color(0.8f, 0.15f, 0.3f, 0.95f), immediate);
+                ApplyBarrierColor(new Color(0.8f, 0.15f, 0.3f, 0.95f), immediate);
                 break;
         }
     }

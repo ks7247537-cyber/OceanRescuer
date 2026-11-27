@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Level_10
   m_EditorClassIdentifier: 
   levelNumber: 10
-  levelName: Deep Vault
+  levelName: Twisting Abyss
   worldName: Deep Ocean
   difficulty: Hard
-  activeCreature: 1
+  activeCreature: 3
   abilityUses: 2
   cols: 9
   rows: 5
-  sourceCell: {x: 0, y: 1}
+  sourceCell: {x: 0, y: 2}
   sinkCell: {x: 8, y: 2}
   maxMoves: 38
-  targetMovesFor3Stars: 28
+  targetMovesFor3Stars: 26
   pipeTypes:
   - -1
   - -1
@@ -34,31 +34,31 @@ MonoBehaviour:
   - -1
   - -1
   - -1
-  - 0
-  - 1
+  - -1
+  - -1
   - -1
   - -1
   - 1
   - 0
-  - 0
   - 1
   - -1
   - -1
-  - 1
-  - 1
-  - -1
-  - 1
-  - 1
-  - -1
-  - 1
-  - 0
-  - -1
-  - -1
-  - 1
   - 0
   - 0
-  - 1
+  - 2
+  - 0
+  - 3
+  - 0
+  - 3
+  - 0
+  - 0
   - -1
+  - -1
+  - 1
+  - 0
+  - 2
+  - 0
+  - 1
   - -1
   - -1
   - -1
@@ -86,25 +86,25 @@ MonoBehaviour:
   - 0
   - 1
   - 3
+  - 2
+  - 0
+  - 0
+  - 0
+  - 2
+  - 2
   - 3
-  - 0
-  - 0
-  - 0
-  - 0
-  - 2
-  - 0
-  - 0
-  - 2
-  - 0
+  - 1
+  - 3
+  - 3
+  - 1
   - 0
   - 0
   - 0
   - 0
   - 1
+  - 3
+  - 3
   - 2
-  - 2
-  - 2
-  - 0
   - 0
   - 0
   - 0
@@ -127,28 +127,28 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 1
+  - 0
   - 0
   - 0
   - 2
   - 0
-  - 0
   - 1
   - 0
   - 0
-  - 3
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 3
-  - 1
   - 0
-  - 3
-  - 0
-  - 0
-  - 0
-  - 3
-  - 0
-  - 0
+  - 2
   - 0
   - 0
   - 0
@@ -163,13 +163,35 @@ MonoBehaviour:
   - 0
   - 0
   valves:
-  - gridPos: {x: 3, y: 3}
-    valveType: 0
-    isInitiallyOpen: 0
+  - gridPos: {x: 5, y: 1}
+    valveType: PressureRelease
+    isInitiallyOpen: true
     allowedDirection: 1
   gates:
-  - gridPos: {x: 5, y: 2}
-    gateType: 3
-    isInitiallyOpen: 0
-    requiredPressure: 0
+  - gridPos: {x: 3, y: 2}
+    gateType: ElectricGate
+    isOpen: false
     linkedValvePos: {x: -1, y: -1}
+    requiredPressure: 0
+    requiredRuneId: 0
+  - gridPos: {x: 6, y: 2}
+    gateType: PressureLockGate
+    isOpen: false
+    linkedValvePos: {x: -1, y: -1}
+    requiredPressure: 45
+    requiredRuneId: 0
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks: []
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons:
+  - gridPos: {x: 3, y: 3}
+    lightRadius: 3.0
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: true
+  ambientPressure: 0

@@ -40,6 +40,43 @@ public static class SaveManager
             PlayerPrefs.Save();
             Debug.Log("[SaveManager] Progression initialized fresh: Old test PlayerPrefs wiped. Only World 1, Level 1 unlocked.");
         }
+
+        // Complete Deep Ocean Level 6 and unlock subsequent levels so testing is never blocked
+        UnlockTestingLevels();
+    }
+
+    /// <summary>
+    /// Completes Deep Ocean Level 6 with 3 stars and unlocks upcoming levels for testing.
+    /// </summary>
+    public static void UnlockTestingLevels()
+    {
+        // Unlock World 1 (Deep Ocean)
+        PlayerPrefs.SetInt("World_Unlocked_1", 1);
+        
+        // Mark Deep Ocean Levels 1 through 6 as completed with 3 stars
+        for (int l = 0; l <= 5; l++)
+        {
+            PlayerPrefs.SetInt(LevelUnlockKey(1, l), 1);
+            if (PlayerPrefs.GetInt(LevelStarsKey(1, l), 0) < 3)
+            {
+                PlayerPrefs.SetInt(LevelStarsKey(1, l), 3);
+            }
+        }
+
+        // Unlock Level 7 through 12 in Deep Ocean
+        for (int l = 6; l < 12; l++)
+        {
+            PlayerPrefs.SetInt(LevelUnlockKey(1, l), 1);
+        }
+
+        // Unlock World 2 (Lost City) for upcoming testing
+        PlayerPrefs.SetInt("World_Unlocked_2", 1);
+        for (int l = 0; l < 12; l++)
+        {
+            PlayerPrefs.SetInt(LevelUnlockKey(2, l), 1);
+        }
+
+        PlayerPrefs.Save();
     }
 
     public static void InitializeDefaultData()
@@ -64,8 +101,9 @@ public static class SaveManager
 
     public static bool IsLevelUnlocked(int worldIndex, int levelIndex)
     {
-        // World 1, Level 1 (0, 0) is always unlocked
+        if (!IsWorldUnlocked(worldIndex)) return false;
         if (worldIndex == 0 && levelIndex == 0) return true;
+        if (levelIndex == 0) return true;
         return PlayerPrefs.GetInt(LevelUnlockKey(worldIndex, levelIndex), 0) == 1;
     }
 
@@ -75,10 +113,13 @@ public static class SaveManager
         if (levelIndex >= 12)
         {
             int nextWorld = worldIndex + 1;
-            UnlockWorld(nextWorld);
-            PlayerPrefs.SetInt(LevelUnlockKey(nextWorld, 0), 1);
-            PlayerPrefs.Save();
-            Debug.Log($"[SaveManager] World {nextWorld + 1} and Level 1 unlocked!");
+            if (nextWorld < WorldConfig.TOTAL_WORLDS)
+            {
+                UnlockWorld(nextWorld);
+                PlayerPrefs.SetInt(LevelUnlockKey(nextWorld, 0), 1);
+                PlayerPrefs.Save();
+                Debug.Log($"[SaveManager] World {nextWorld + 1} and Level 1 unlocked!");
+            }
             return;
         }
 
@@ -89,13 +130,14 @@ public static class SaveManager
 
     public static bool IsWorldUnlocked(int worldIndex)
     {
-        if (worldIndex == 0) return true;
+        if (worldIndex <= 0) return true;
         return PlayerPrefs.GetInt($"World_Unlocked_{worldIndex}", 0) == 1;
     }
 
     public static void UnlockWorld(int worldIndex)
     {
         PlayerPrefs.SetInt($"World_Unlocked_{worldIndex}", 1);
+        PlayerPrefs.SetInt(LevelUnlockKey(worldIndex, 0), 1);
         PlayerPrefs.Save();
         Debug.Log($"[SaveManager] World unlocked: World {worldIndex + 1}");
     }
@@ -190,8 +232,8 @@ public static class SaveManager
         PlayerPrefs.Save();
     }
 
-    public static void SetSelectedWorld(int w) { PlayerPrefs.SetInt("SelectedWorld", Mathf.Max(0, w)); PlayerPrefs.Save(); }
-    public static int  GetSelectedWorld()       => PlayerPrefs.GetInt("SelectedWorld", 0);
+    public static void SetSelectedWorld(int w) { PlayerPrefs.SetInt("SelectedWorld", Mathf.Clamp(w, 0, WorldConfig.TOTAL_WORLDS - 1)); PlayerPrefs.Save(); }
+    public static int  GetSelectedWorld()       => Mathf.Clamp(PlayerPrefs.GetInt("SelectedWorld", 0), 0, WorldConfig.TOTAL_WORLDS - 1);
     public static void SetSelectedLevel(int l)  { PlayerPrefs.SetInt("SelectedLevel", Mathf.Max(0, l)); PlayerPrefs.Save(); }
     public static int  GetSelectedLevel()       => PlayerPrefs.GetInt("SelectedLevel", 0);
 

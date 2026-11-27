@@ -15,15 +15,15 @@ MonoBehaviour:
   levelNumber: 3
   levelName: Bioluminescent Flow
   worldName: Deep Ocean
-  difficulty: Medium
-  activeCreature: 3
+  difficulty: Easy
+  activeCreature: 2
   abilityUses: 2
   cols: 9
   rows: 5
-  sourceCell: {x: 0, y: 3}
-  sinkCell: {x: 8, y: 1}
-  maxMoves: 32
-  targetMovesFor3Stars: 22
+  sourceCell: {x: 0, y: 2}
+  sinkCell: {x: 8, y: 2}
+  maxMoves: 26
+  targetMovesFor3Stars: 14
   pipeTypes:
   - -1
   - -1
@@ -40,26 +40,26 @@ MonoBehaviour:
   - -1
   - -1
   - -1
-  - 1
-  - 0
-  - 0
   - -1
-  - 1
-  - 0
-  - 0
-  - 0
-  - 1
-  - 1
-  - 1
+  - -1
   - -1
   - 0
-  - 1
-  - -1
+  - 0
+  - 2
+  - 0
+  - 0
+  - 0
+  - 2
+  - 0
+  - 0
   - -1
   - -1
   - 1
   - 0
+  - 0
+  - 0
   - 1
+  - -1
   - -1
   - -1
   - -1
@@ -87,25 +87,25 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 1
+  - 2
+  - 3
+  - 1
+  - 3
   - 2
   - 0
   - 0
-  - 1
-  - 3
-  - 3
-  - 3
   - 0
   - 2
-  - 0
-  - 0
-  - 0
-  - 1
-  - 0
-  - 0
-  - 0
-  - 0
+  - 2
+  - 2
   - 1
   - 1
+  - 0
   - 0
   - 0
   - 0
@@ -132,17 +132,14 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 2
   - 0
   - 0
   - 0
-  - 2
   - 0
   - 0
   - 0
-  - 1
-  - 3
-  - 1
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -150,6 +147,9 @@ MonoBehaviour:
   - 0
   - 0
   - 3
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -163,9 +163,23 @@ MonoBehaviour:
   - 0
   - 0
   valves:
-  gates:
   - gridPos: {x: 4, y: 2}
-    gateType: 2
-    isInitiallyOpen: 0
-    requiredPressure: 0
-    linkedValvePos: {x: -1, y: -1}
+    valveType: PressureRelease
+    isInitiallyOpen: true
+    allowedDirection: 1
+  gates: []
+  obstacles: []
+  pressureLocks: []
+  oxygenLeaks:
+  - gridPos: {x: 4, y: 3}
+    leakRate: 1
+  currentBoosters: []
+  routeDiversions: []
+  abyssalTremors: []
+  abyssalDarknessZones: []
+  abyssalBeacons: []
+  ancientRunes: []
+  energyRelics: []
+  ancientSeals: []
+  requiresSonar: false
+  ambientPressure: 0

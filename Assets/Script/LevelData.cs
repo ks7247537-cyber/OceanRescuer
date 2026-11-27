@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public enum ValveType { OnOff, Directional }
-public enum GateType { LockedGate, PressureGate, ElectricGate, BreakableRock, InkedHazard }
+public enum ValveType { OnOff, Directional, PressureRelease }
+public enum GateType { LockedGate, PressureGate, ElectricGate, BreakableRock, InkedHazard, PressureLockGate, TempleDoor, StoneBridge }
 public enum CreatureType { Clownfish, Turtle, Octopus, Jellyfish }
 
 [System.Serializable]
@@ -25,6 +25,86 @@ public class GateConfig
     public int requiredPressure = 5;
     [Tooltip("Which valve opens this gate (-1,-1 if none) (for LockedGate)")]
     public Vector2Int linkedValvePos = new Vector2Int(-1, -1);
+    [Tooltip("Whether this obstacle is shrouded in deep-sea darkness until Sonar scanned")]
+    public bool isConcealed = false;
+    [Tooltip("Minimum hydraulic PSI required to unlock (for PressureLockGate)")]
+    public float minPressure = 40f;
+    [Tooltip("Maximum hydraulic PSI allowed to unlock (for PressureLockGate)")]
+    public float maxPressure = 78f;
+    [Tooltip("Which rune must be energized to unlock (for TempleDoor / StoneBridge)")]
+    public int requiredRuneId = 0;
+}
+
+[System.Serializable]
+public class RuneConfig
+{
+    public Vector2Int gridPos;
+    public string runeName = "Solar Rune";
+    public int runeId = 0;
+}
+
+[System.Serializable]
+public class RelicConfig
+{
+    public Vector2Int gridPos;
+    public string relicName = "Sunken Relic";
+    public int bonusMoves = 3;
+}
+
+[System.Serializable]
+public class SealConfig
+{
+    public Vector2Int gridPos;
+    public Vector2Int linkedDoorPos = new Vector2Int(-1, -1);
+    public string sealName = "Golden Seal";
+}
+
+[System.Serializable]
+public class BoosterConfig
+{
+    public Vector2Int gridPos;
+    [Tooltip("0=Up, 1=Right, 2=Down, 3=Left")]
+    public int boostDirection = 1;
+    [Tooltip("Pressure relief in PSI when flow is boosted")]
+    public float pressureRelief = 15f;
+}
+
+[System.Serializable]
+public class LeakConfig
+{
+    public Vector2Int gridPos;
+    [Tooltip("Hydraulic pressure loss (PSI) caused while this leak is active")]
+    public float pressureLoss = 15f;
+    [Tooltip("Number of repair taps required to seal the leak (1-3)")]
+    public int tapsToRepair = 1;
+    [Tooltip("Whether this leak is obscured by deep ocean murky darkness until Sonar scanned")]
+    public bool isConcealed = false;
+}
+
+[System.Serializable]
+public class TremorConfig
+{
+    public Vector2Int gridPos;
+    public float cycleInterval = 12f;
+    public float warningDuration = 2.5f;
+    public float tremorDuration = 3f;
+    public float pressureSurge = 8f;
+}
+
+[System.Serializable]
+public class DiversionConfig
+{
+    public Vector2Int gridPos;
+    [Tooltip("0=Up, 1=Right, 2=Down, 3=Left")]
+    public int restrictedDirection = 0;
+    public string hazardName = "Hydrothermal Vent";
+}
+
+[System.Serializable]
+public class BeaconConfig
+{
+    public Vector2Int gridPos;
+    public string beaconName = "Abyssal Sanctuary Beacon";
 }
 
 /// <summary>
@@ -72,6 +152,30 @@ public class LevelData : ScriptableObject
     public List<ValveConfig> valves = new List<ValveConfig>();
     public List<GateConfig> gates = new List<GateConfig>();
 
+    [Header("Current Boosters (Deep Ocean)")]
+    public List<BoosterConfig> boosters = new List<BoosterConfig>();
+
+    [Header("Oxygen Leaks (Deep Ocean)")]
+    public List<LeakConfig> oxygenLeaks = new List<LeakConfig>();
+
+    [Header("Abyssal Darkness (Deep Ocean)")]
+    [Range(0f, 1f)]
+    public float abyssalDarkness = 0f;
+
+    [Header("Underwater Tremors (Deep Ocean)")]
+    public List<TremorConfig> tremors = new List<TremorConfig>();
+
+    [Header("Route Diversions (Deep Ocean)")]
+    public List<DiversionConfig> diversions = new List<DiversionConfig>();
+
+    [Header("Abyssal Beacons (Deep Ocean)")]
+    public List<BeaconConfig> beacons = new List<BeaconConfig>();
+
+    [Header("Lost City Mechanics (World 2 ONLY)")]
+    public List<RuneConfig> ancientRunes = new List<RuneConfig>();
+    public List<RelicConfig> energyRelics = new List<RelicConfig>();
+    public List<SealConfig> ancientSeals = new List<SealConfig>();
+
     // Helper accessors for 2D coords (col 0..8, row 0..4)
     public int GetPipeType(int col, int row)
     {
@@ -93,30 +197,34 @@ public class LevelData : ScriptableObject
 
     /// <summary>
     /// Loads the appropriate LevelData ScriptableObject based on world and level index.
-    /// World 0: Coral Reef (Levels 1-12)
-    /// World 1: Deep Ocean (Levels 1-12)
-    /// World 2: Lost City (Levels 1-12)
+    /// Strictly isolated by world:
+    ///   World 0: Coral Reef (Assets/Resources/Levels/)
+    ///   World 1: Deep Ocean (Assets/Resources/Levels/DeepOcean/)
+    ///   World 2: Lost City (Assets/Resources/Levels/LostCity/)
+    /// Never cross-loads or falls back to another world's levels.
     /// </summary>
     public static LevelData LoadLevel(int worldIndex, int levelIndex)
     {
         int levelNum = levelIndex + 1;
         LevelData ld = null;
 
-        if (worldIndex == 1) // Deep Ocean
-        {
-            ld = Resources.Load<LevelData>($"Levels/DeepOcean/Level_{levelNum:D2}")
-              ?? Resources.Load<LevelData>($"Levels/W1_Level_{levelNum:D2}")
-              ?? Resources.Load<LevelData>($"Levels/Level_{levelNum + 12:D2}");
-        }
-        else if (worldIndex == 0) // Coral Reef
+        if (worldIndex == 0) // Coral Reef
         {
             ld = Resources.Load<LevelData>($"Levels/CoralReef/Level_{levelNum:D2}")
               ?? Resources.Load<LevelData>($"Levels/Level_{levelNum:D2}");
         }
+        else if (worldIndex == 1) // Deep Ocean
+        {
+            ld = Resources.Load<LevelData>($"Levels/DeepOcean/Level_{levelNum:D2}");
+        }
+        else if (worldIndex == 2) // Lost City
+        {
+            ld = Resources.Load<LevelData>($"Levels/LostCity/Level_{levelNum:D2}");
+        }
 
         if (ld == null)
         {
-            ld = Resources.Load<LevelData>($"Levels/Level_{levelNum:D2}");
+            Debug.LogWarning($"[LevelData] Level {levelNum} not found for World {worldIndex} ({WorldConfig.GetDefaultDisplayName(worldIndex)}). Strict isolation prevents cross-loading other worlds.");
         }
 
         return ld;
